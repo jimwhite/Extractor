@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="org.openrdf.sesame:sesame-rio-rdfa:3.0-alpha1" type="repository">
+    <properties maven-id="org.openrdf.sesame:sesame-rio-rdfa:3.0-alpha1" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/sesame-rio-rdfa-3.0-alpha1.jar!/" />
+      <root url="file://$PROJECT_DIR$/../openrdf/sesame3/core/rio" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../openrdf/sesame3/core/rio/api/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../openrdf/sesame3/core/rio/n3/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../openrdf/sesame3/core/rio/ntriples/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../openrdf/sesame3/core/rio/rdfa/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../openrdf/sesame3/core/rio/rdfxml/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../openrdf/sesame3/core/rio/trig/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../openrdf/sesame3/core/rio/trix/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../openrdf/sesame3/core/rio/turtle/src/main/java" />
+    </SOURCES>
+  </library>
+</component>

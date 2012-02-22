@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<project default="deploy" basedir=".">
+
+    <target name="deploy" description="Compression target">
+        <jar id="files" jarfile="rdfx.jar">
+    		<fileset dir="out/production/Extractor" includes="**/*.class"/>
+    		<fileset dir="src" includes="META-INF/**/*"/>
+        </jar>
+    	<zipfileset id="files" src="rdfx.jar"/>
+    	<pathconvert property="listing" refid="files" pathsep="${line.separator}">
+    		<globmapper from="${basedir}${file.separator}*" to="*"/>
+    	</pathconvert>	
+    	<echo message="${listing}"/>
+    </target>
+	
+	<target name="build-test" depends="deploy">
+		<javac destdir="classes" srcdir="test" source="1.6" target="1.6">
+            <compilerarg value="-processorpath"/> <compilerarg file="out/production/Extractor"/>
+			<include name="**/*.java"/>
+		 </javac>
+	</target>
+	
+	<target name="xbuild-test" depends="deploy">
+		<javac destdir="classes" srcdir="test" source="1.6" target="1.6">
+		    <compilerarg value="-printsource"/>
+		    <compilerarg value="-s"/><compilerarg file="gen"/>
+			<compilerarg value="-processorpath"/> <compilerarg file="fa.jar"/>
+		    <compilerarg value="-processor"/> <compilerarg value="ch.akuhn.fa.ForceAssertions"/>
+			<compilerpath>
+				<pathelement location="fa.jar"/>
+			</compilerpath>
+			<include name="**/*.java"/>
+		 </javac>
+	</target>
+	
+	<target name="run-test" depends="build-test">
+		<java classname="foo.TestAssertion" classpath="classes">
+			<classpath>
+				<!-- fa.jar is only required when compiling -->
+			</classpath>
+		</java>	
+	</target>	
+
+</project>
