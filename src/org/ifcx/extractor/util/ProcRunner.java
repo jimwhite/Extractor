@@ -18,18 +18,21 @@
 
 package org.ifcx.extractor.util;
 
-import java.io.File;
+import com.sun.tools.javac.util.List;
+
+import org.ifcx.extractor.RDFExtractor;
 
 import javax.annotation.processing.Processor;
 import javax.tools.JavaCompiler;
+import javax.tools.JavaCompiler.CompilationTask;
+import javax.tools.JavaFileManager;
 import javax.tools.JavaFileObject;
 import javax.tools.StandardJavaFileManager;
+import javax.tools.StandardLocation;
 import javax.tools.ToolProvider;
-import javax.tools.JavaCompiler.CompilationTask;
-
-
-import com.sun.tools.javac.util.List;
-import org.ifcx.extractor.RDFExtractor;
+import java.io.File;
+import java.io.IOException;
+import java.util.Arrays;
 
 public class ProcRunner implements Runnable
 {
@@ -38,7 +41,8 @@ public class ProcRunner implements Runnable
 
     private Iterable<File> getFiles()
     {
-        return Files.all("test", "*.java");
+//        return Files.all("test", "*.java");
+        return Files.all("jdksrc", "*Object.java");
     }
 
     public ProcRunner(Processor processor)
@@ -49,11 +53,16 @@ public class ProcRunner implements Runnable
 
     public void run()
     {
-
         JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
 
         StandardJavaFileManager fileman = compiler.getStandardFileManager(null,
                 null, null);
+        try {
+            RDFExtractor.rdfPath.get(0).mkdirs();
+            fileman.setLocation(RDFExtractor.rdfLocation, RDFExtractor.rdfPath);
+        } catch (IOException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
         Iterable<? extends JavaFileObject> units = fileman
                 .getJavaFileObjectsFromFiles(this.getFiles());
 
