@@ -14,6 +14,11 @@
     <orderEntry type="library" name="info.aduna.commons:aduna-commons-xml:2.3.0" level="project" />
     <orderEntry type="library" name="slf4j-api-1.6.4" level="project" />
     <orderEntry type="library" name="groovy-1.8.6" level="application" />
+    <orderEntry type="library" name="com.tinkerpop:frames:0.8-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="org.jvnet.annox:annox:0.5.1" level="project" />
+    <orderEntry type="library" name="com.tinkerpop.blueprints:blueprints-core:1.2" level="project" />
+    <orderEntry type="library" name="com.tinkerpop.blueprints:blueprints-graph-sail:1.2" level="project" />
+    <orderEntry type="library" name="com.tinkerpop.blueprints:blueprints-sail-graph:1.2" level="project" />
   </component>
 </module>
 

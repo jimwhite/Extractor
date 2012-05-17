@@ -140,7 +140,7 @@ public class RDFExtractor extends AbstractProcessor
                         Writer writer = new FileWriter(outputFile);
                         RDFaWriter rdFaWriter = new RDFaWriter(writer);
 
-                        RDFaScanner visitor = new RDFaScanner(trees.getSourcePositions());
+                        RDFaScanner visitor = new RDFaScanner(trees);
 
                         rdFaWriter.startRDF("java://" + ((TypeElement) each).getQualifiedName(), mappings);
                         rdFaWriter.startMeta();

@@ -2,8 +2,12 @@ package org.ifcx.extractor;
 
 import com.sun.source.tree.*;
 import com.sun.source.util.SourcePositions;
+import com.sun.source.util.TreePath;
 import com.sun.source.util.TreeScanner;
 
+import com.sun.source.util.Trees;
+import com.sun.tools.javac.code.Symbol;
+import com.sun.tools.javac.tree.JCTree;
 import org.ifcx.extractor.util.RDFaWriter;
 
 import org.openrdf.model.BNode;
@@ -15,6 +19,7 @@ import org.openrdf.model.impl.LiteralImpl;
 import org.openrdf.model.impl.ValueFactoryImpl;
 import org.openrdf.model.vocabulary.XMLSchema;
 
+import javax.lang.model.element.Element;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
@@ -63,12 +68,15 @@ public class RDFaScanner extends TreeScanner<Object, RDFaWriter>
     private URI uriTypeParameters = vf.createURI(namespace, "TypeParameters");
     URI uriVariable = vf.createURI(namespace, "Variable");
 
+    private final Trees trees;
     private final SourcePositions sourcePositions;
+
     private CompilationUnitTree compilationUnitTree;
 
-    RDFaScanner(SourcePositions sourcePositions)
+    RDFaScanner(Trees trees)
     {
-        this.sourcePositions = sourcePositions;
+        this.trees = trees;
+        this.sourcePositions = trees.getSourcePositions();
     }
 
     @Override
@@ -82,11 +90,13 @@ public class RDFaScanner extends TreeScanner<Object, RDFaWriter>
 //            BNode bNode = vf.createBNode();
 //            rdFaWriter.startBlankNode(1, bNode, compilationUnit);
 //            rdFaWriter.openProperty(1, compilationUnit);
-            rdFaWriter.startNode(node.getPackageName().toString(), compilationUnitSet);
-            rdFaWriter.handleLiteral(1, nameURI, vf.createLiteral(node.getPackageName().toString()));
+//            String nodeId = node.getPackageName().toString();
+            String nodeId = node.getPackageName().toString();
+            rdFaWriter.startNode(nodeId, compilationUnitSet);
+            rdFaWriter.handleLiteral(1, nameURI, vf.createLiteral(nodeId));
             writePosition(rdFaWriter, node);
             super.visitCompilationUnit(node, rdFaWriter);
-            rdFaWriter.endNode(node.getPackageName().toString(), compilationUnitSet);
+            rdFaWriter.endNode(nodeId, compilationUnitSet);
 //            rdFaWriter.closeProperty(1, compilationUnit);
 //            rdFaWriter.endNode(node.getPackageName().toString(), compilationUnit);
 //            rdFaWriter.endBlankNode(1, bNode, compilationUnit);
@@ -135,11 +145,47 @@ public class RDFaScanner extends TreeScanner<Object, RDFaWriter>
 //            BNode bNode = vf.createBNode();
 //            rdFaWriter.startBlankNode(1, bNode, classURISet);
 //            rdFaWriter.openProperty(1, classURI);
-            rdFaWriter.startNode(node.getSimpleName().toString(), classURISet);
-            rdFaWriter.handleLiteral(1, nameURI, vf.createLiteral(node.getSimpleName().toString()));
+//            TreePath path = TreePath.getPath(compilationUnitTree, node);
+            String nodeId = compilationUnitTree.getPackageName() + node.getSimpleName().toString();
+//            String nodeId = "foo";
+            if (nodeId.length() < 1) {
+                System.err.println("Empty string for class name");
+            }
+            if (nodeId.contains("$")) {
+                System.err.println("Inner class name: " + nodeId);
+            }
+            Symbol.ClassSymbol sym = ((JCTree.JCClassDecl) node).sym;
+            if (sym != null) {
+//                nodeId = sym.getQualifiedName().toString();
+                nodeId = sym.className();
+            } else {
+                System.err.println("Null sym in visitClass " + nodeId);
+            }
+
+            if (nodeId.length() < 1) {
+                System.err.println("Empty string for class name");
+            }
+            if (nodeId.contains("$")) {
+                System.err.println("Inner class name: " + nodeId);
+            }
+
+//            if (node instanceof Element) {
+//                TreePath path = trees.getPath((Element) node);
+//                Scope scope = trees.getScope(path);
+//                if (scope != null) {
+//                    nodeId = scope.getEnclosingClass().getQualifiedName() + nodeId;
+//                }
+//            }
+
+            rdFaWriter.startNode(nodeId, classURISet);
+            rdFaWriter.handleLiteral(1, nameURI, vf.createLiteral(nodeId));
             writePosition(rdFaWriter, node);
+            if (sym != null) {
+                rdFaWriter.handleLiteral(1, nameURI, vf.createLiteral(sym.getKind().toString()));
+                rdFaWriter.handleLiteral(1, nameURI, vf.createLiteral(sym.getNestingKind().toString()));
+            }
             super.visitClass(node, rdFaWriter);
-            rdFaWriter.endNode(node.getSimpleName().toString(), classURISet);
+            rdFaWriter.endNode(nodeId, classURISet);
 //            rdFaWriter.closeProperty(1, classURI);
 //            rdFaWriter.endNode(node.getSimpleName().toString(), classURI);
 //            rdFaWriter.endBlankNode(1, bNode, classURISet);
