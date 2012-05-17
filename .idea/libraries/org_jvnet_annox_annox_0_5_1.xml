@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="org.jvnet.annox:annox:0.5.1" type="repository">
+    <properties maven-id="org.jvnet.annox:annox:0.5.1" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/annox-0.5.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jaxb-impl-2.1.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jaxb-api-2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/stax-api-1.0-2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/activation-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-lang-2.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/jaxb-impl-2.1.13-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jaxb-api-2.1-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/stax-api-1.0-2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/activation-1.1-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-lang-2.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

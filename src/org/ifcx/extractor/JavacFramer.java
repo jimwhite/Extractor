@@ -51,7 +51,7 @@ import java.util.concurrent.Executors;
 
 @SupportedAnnotationTypes("*")
 @SupportedSourceVersion(SourceVersion.RELEASE_6)
-public class JavacFrames extends AbstractProcessor
+public class JavacFramer extends AbstractProcessor
 {
     public static JavaFileManager.Location rdfLocation = StandardLocation.locationFor("RDF_OUTPUT");
     public static java.util.List<File> rdfPath = Arrays.asList(new File("rdf"));

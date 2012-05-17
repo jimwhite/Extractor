@@ -1,0 +1,37 @@
+<component name="libraryTable">
+  <library name="com.tinkerpop:frames:0.8-SNAPSHOT" type="repository">
+    <properties maven-id="com.tinkerpop:frames:0.8-SNAPSHOT" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/frames-0.8-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jettison-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/stax-api-1.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-jaxrs-1.8.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-core-asl-1.8.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-mapper-asl-1.8.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/gremlin-groovy-1.6-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/gremlin-java-1.6-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/pipes-1.1-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/antlr-2.7.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/asm-3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/asm-commons-3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/asm-tree-3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/asm-util-3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/asm-analysis-3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jansi-1.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jline-0.9.94.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/frames-0.8-SNAPSHOT-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jettison-1.3-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-jaxrs-1.8.5-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-core-asl-1.8.5-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-mapper-asl-1.8.5-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/gremlin-groovy-1.6-SNAPSHOT-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/gremlin-java-1.6-SNAPSHOT-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/pipes-1.1-SNAPSHOT-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jansi-1.5-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jline-0.9.94-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
