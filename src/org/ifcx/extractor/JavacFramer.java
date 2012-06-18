@@ -1,6 +1,7 @@
 package org.ifcx.extractor;
 
 import com.sun.org.apache.xerces.internal.impl.Constants;
+
 import com.sun.source.util.TreePath;
 import com.sun.source.util.Trees;
 import com.sun.tools.javac.code.Symbol;
@@ -10,6 +11,9 @@ import com.sun.tools.javac.tree.TreeMaker;
 import com.sun.tools.javac.tree.TreeTranslator;
 import com.sun.tools.javac.util.List;
 
+import com.tinkerpop.blueprints.pgm.Graph;
+import com.tinkerpop.blueprints.pgm.impls.tg.TinkerGraphFactory;
+import com.tinkerpop.frames.FramesManager;
 import org.ifcx.extractor.util.RDFaWriter;
 
 import org.openrdf.model.vocabulary.XMLSchema;
@@ -56,6 +60,9 @@ public class JavacFramer extends AbstractProcessor
     public static JavaFileManager.Location rdfLocation = StandardLocation.locationFor("RDF_OUTPUT");
     public static java.util.List<File> rdfPath = Arrays.asList(new File("rdf"));
 
+    private Graph graph;
+    private FramesManager manager;
+
     private Trees trees;
     private TreeMaker make;
     private Elements elems;
@@ -65,15 +72,13 @@ public class JavacFramer extends AbstractProcessor
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv)
     {
+        graph = TinkerGraphFactory.createTinkerGraph();
+        manager = new FramesManager(graph);
+
         make = TreeMaker.instance(((JavacProcessingEnvironment) processingEnv).getContext());
         elems = processingEnv.getElementUtils();
         trees = Trees.instance(processingEnv);
-//        try {
-//            rdfaParserFactory = new RDFaParserFactory();
-//            rdfWriterFactory = new org.openrdf.rio.rdfxml.util.RDFXMLPrettyWriterFactory();
-//        } catch (TransformerConfigurationException e) {
-//            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-//        }
+
         super.init(processingEnv);
     }
 
@@ -82,77 +87,59 @@ public class JavacFramer extends AbstractProcessor
         put(XMLSchema.NAMESPACE, "xsd");
     }};
 
+    final String padding = "                                                                         ";
+
+    private void printElement(int indent, Element element)
+    {
+        String docComment = elems.getDocComment(element);
+        if (docComment != null) {
+            System.out.print(padding.substring(0, indent) + element.getKind() + (element instanceof Symbol ? " * " : " "));
+            System.out.println(element + " " + element.getModifiers());
+//            if (element instanceof Symbol.MethodSymbol) {
+//                Symbol.MethodSymbol method = (Symbol.MethodSymbol) element;
+//                System.out.print(padding.substring(0, indent + 4));
+//                for (Symbol.VarSymbol var : method.getParameters()) {
+//                    System.out.print(var.getQualifiedName() /*+ ":" + var.asType()*/ + " ");
+//                };
+//                System.out.println();
+//    //            System.out.println(((Symbol.MethodSymbol) element).savedParameterNames);
+//            }
+            if (element instanceof ExecutableElement) {
+                ExecutableElement executableElement = (ExecutableElement) element;
+                System.out.print(padding.substring(0, indent + 4));
+                for (VariableElement var : executableElement.getParameters()) {
+                    System.out.print(var.getSimpleName() + ":" + var.asType() + " ");
+                }
+                System.out.println();
+        //            System.out.println(((Symbol.MethodSymbol) element).savedParameterNames);
+            }
+
+            System.out.println(docComment);
+        }
+
+        for (Element each : element.getEnclosedElements()) {
+            printElement(indent + 2, each);
+        }
+    }
+
     @Override
     public boolean process(Set<? extends TypeElement> annotations,
                            RoundEnvironment roundEnv)
     {
         if (!roundEnv.processingOver()) {
             Set<? extends Element> elements = roundEnv.getRootElements();
+            System.out.println("---===---");
+            System.out.println("There are " + elements.size() + " root elements.");
+            System.out.println();
+
             for (Element each : elements) {
-                if (each.getKind() == ElementKind.CLASS) {
-                    try {
-//                        Name pkgName = each.getEnclosingElement().getSimpleName();
-                        Name pkgName = ((PackageElement) each.getEnclosingElement()).getQualifiedName();
-//                        CharSequence relName = ((TypeElement) each).getQualifiedName() + ".html";
-                        String fileName = pkgName.toString() + '.' + each.getSimpleName();
-//                        FileObject outputFile = processingEnv.getFiler().createResource(rdfLocation, pkgName, relName, each);
-//                        Writer writer = outputFile.openWriter();
-                        File outputFile = new File(rdfDir, fileName + ".html");
-                        Writer writer = new FileWriter(outputFile);
-                        RDFaWriter rdFaWriter = new RDFaWriter(writer);
-
-                        RDFaScanner visitor = new RDFaScanner(trees);
-
-                        rdFaWriter.startRDF("java://" + ((TypeElement) each).getQualifiedName(), mappings);
-                        rdFaWriter.startMeta();
-                        rdFaWriter.endMeta();
-
-                        TreePath path = trees.getPath(each);
-                        JCTree.JCCompilationUnit unit = (JCTree.JCCompilationUnit) path.getCompilationUnit();
-                        JCTree.JCClassDecl klass = (JCTree.JCClassDecl) trees.getTree(each);
-
-                        visitor.scan(unit, rdFaWriter);
-
-                        rdFaWriter.endRDF();
-
-                        writer.close();
-
-/*
-//                        FileObject rdfOutputFile = processingEnv.getFiler().createResource(rdfLocation, pkgName, each.getSimpleName() + ".rdf");
-//                        RDFWriter rdfWriter = rdfWriterFactory.getWriter(rdfOutputFile.openWriter());
-                        File rdfOutputFile = new File(rdfDir, fileName + ".rdf");
-                        Writer rdfFileWriter = new FileWriter(rdfOutputFile);
-                        RDFWriter rdfWriter = rdfWriterFactory.getWriter(rdfFileWriter);
-//                        RDFParser rdfaParser = rdfaParserFactory.getParser();
-
-                        RDFaParser rdfaParser = new RDFaParser();
-                        rdfaParser.setDatatypeHandling(RDFParser.DatatypeHandling.IGNORE);
-//                        File inputFile = new File(rdfaFileURI);
-//                        Reader rdfaReader = new FileReader(inputFile);
-//                        FileObject inputFile = processingEnv.getFiler().getResource(rdfLocation, pkgName, relName);
-//                        Reader rdfaReader = inputFile.openReader(false);
-                        Reader rdfaReader = new FileReader(outputFile);
-                        rdfWriter.startRDF();
-                        rdfaParser.setRDFHandler(rdfWriter);
-                        rdfaParser.parse(rdfaReader, "file:/" + ((TypeElement) each).getQualifiedName());
-                        rdfaReader.close();
-                        rdfWriter.endRDF();
-//                        rdfWriter.
-                    } catch (RDFHandlerException e) {
-                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                    } catch (RDFParseException e) {
-                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                    } catch (TransformerConfigurationException e) {
-                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-*/
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE, "process ignoring kind " + each.getKind());
-                }
+                printElement(0, each);
+                System.out.println("---");
             }
+
+            System.out.println("---===---");
         }
+
         return false;
     }
 }

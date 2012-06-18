@@ -202,9 +202,9 @@ public class RDFaScanner extends TreeScanner<Object, RDFaWriter>
         try {
 //            rdFaWriter.openProperty(1, methodURI);
             String name = node.getName().toString();
-            name = name.replace("%", "%25").replace("<", "%60").replace(">", "%62");
+            String uriName = name.replace("%", "%25").replace("<", "%60").replace(">", "%62");
 
-            rdFaWriter.startNode(name, methodURISet);
+            rdFaWriter.startNode(uriName, methodURISet);
 
             rdFaWriter.handleLiteral(1, nameURI, vf.createLiteral(name));
             writePosition(rdFaWriter, node);
@@ -232,7 +232,7 @@ public class RDFaScanner extends TreeScanner<Object, RDFaWriter>
             scan(node.getBody(), rdFaWriter);
             rdFaWriter.closeProperty(1, uriBody);
 
-            rdFaWriter.endNode(name, methodURISet);
+            rdFaWriter.endNode(uriName, methodURISet);
 //            rdFaWriter.closeProperty(1, methodURI);
 
             return null;

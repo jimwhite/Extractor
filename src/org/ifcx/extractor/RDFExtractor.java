@@ -7,8 +7,6 @@ import com.sun.source.util.Trees;
 import com.sun.tools.javac.code.Symbol;
 import com.sun.tools.javac.processing.JavacProcessingEnvironment;
 import com.sun.tools.javac.tree.JCTree;
-import com.sun.tools.javac.tree.TreeMaker;
-import com.sun.tools.javac.tree.TreeTranslator;
 import com.sun.tools.javac.util.List;
 import org.ifcx.extractor.util.RDFaWriter;
 import org.openrdf.model.vocabulary.XMLSchema;
@@ -57,31 +55,6 @@ public class RDFExtractor extends AbstractProcessor
 
     private int tally = 0;
 
-    private class Inliner extends TreeTranslator
-    {
-
-        @Override
-        public void visitAssert(JCTree.JCAssert tree)
-        {
-            super.visitAssert(tree);
-            JCTree.JCStatement newNode = makeIfAssertionThrowException(tree);
-            //System.out.println(newNode);
-            tally++;
-            result = newNode;
-        }
-
-        private JCTree.JCStatement makeIfAssertionThrowException(JCTree.JCAssert node)
-        {
-            // if (!(%%cond%%) throw new AssertionError(%%detail%%);
-            List<JCTree.JCExpression> args = node.getDetail() == null ? List
-                    .<JCTree.JCExpression>nil() : List.of(node.detail);
-            JCTree.JCExpression expr = make.NewClass(null, null, make
-                    .Ident((Symbol) getElement(AssertionError.class)), args, null);
-            return make.If(make.Unary(JCTree.NOT, node.cond), make.Throw(expr), null);
-        }
-
-    }
-
     private TypeElement getElement(Class<?> javaClass)
     {
         for (Element each : elems.getPackageElement(javaClass.getPackage().getName())
@@ -93,7 +66,6 @@ public class RDFExtractor extends AbstractProcessor
     }
 
     private Trees trees;
-    private TreeMaker make;
     private Elements elems;
 
     private File rdfDir = new File("rdf");
@@ -104,7 +76,6 @@ public class RDFExtractor extends AbstractProcessor
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv)
     {
-        make = TreeMaker.instance(((JavacProcessingEnvironment) processingEnv).getContext());
         elems = processingEnv.getElementUtils();
         trees = Trees.instance(processingEnv);
         try {
