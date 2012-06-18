@@ -43,6 +43,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.Writer;
 import java.net.URI;
@@ -57,6 +58,8 @@ import java.util.concurrent.Executors;
 @SupportedSourceVersion(SourceVersion.RELEASE_6)
 public class JavacFramer extends AbstractProcessor
 {
+    protected PrintWriter printer;
+
     public static JavaFileManager.Location rdfLocation = StandardLocation.locationFor("RDF_OUTPUT");
     public static java.util.List<File> rdfPath = Arrays.asList(new File("rdf"));
 
@@ -68,6 +71,11 @@ public class JavacFramer extends AbstractProcessor
     private Elements elems;
 
     private File rdfDir = new File("rdf");
+
+    public JavacFramer(PrintWriter pw)
+    {
+        printer = pw;
+    }
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv)
@@ -93,28 +101,28 @@ public class JavacFramer extends AbstractProcessor
     {
         String docComment = elems.getDocComment(element);
         if (docComment != null) {
-            System.out.print(padding.substring(0, indent) + element.getKind() + (element instanceof Symbol ? " * " : " "));
-            System.out.println(element + " " + element.getModifiers());
+            printer.print(padding.substring(0, indent) + element.getKind() + (element instanceof Symbol ? " * " : " "));
+            printer.println(element + " " + element.getModifiers());
 //            if (element instanceof Symbol.MethodSymbol) {
 //                Symbol.MethodSymbol method = (Symbol.MethodSymbol) element;
-//                System.out.print(padding.substring(0, indent + 4));
+//                printer.print(padding.substring(0, indent + 4));
 //                for (Symbol.VarSymbol var : method.getParameters()) {
-//                    System.out.print(var.getQualifiedName() /*+ ":" + var.asType()*/ + " ");
+//                    printer.print(var.getQualifiedName() /*+ ":" + var.asType()*/ + " ");
 //                };
-//                System.out.println();
-//    //            System.out.println(((Symbol.MethodSymbol) element).savedParameterNames);
+//                printer.println();
+//    //            printer.println(((Symbol.MethodSymbol) element).savedParameterNames);
 //            }
             if (element instanceof ExecutableElement) {
                 ExecutableElement executableElement = (ExecutableElement) element;
-                System.out.print(padding.substring(0, indent + 4));
+                printer.print(padding.substring(0, indent + 4));
                 for (VariableElement var : executableElement.getParameters()) {
-                    System.out.print(var.getSimpleName() + ":" + var.asType() + " ");
+                    printer.print(var.getSimpleName() + ":" + var.asType() + " ");
                 }
-                System.out.println();
-        //            System.out.println(((Symbol.MethodSymbol) element).savedParameterNames);
+                printer.println();
+        //            printer.println(((Symbol.MethodSymbol) element).savedParameterNames);
             }
 
-            System.out.println(docComment);
+            printer.println(docComment);
         }
 
         for (Element each : element.getEnclosedElements()) {
@@ -128,16 +136,16 @@ public class JavacFramer extends AbstractProcessor
     {
         if (!roundEnv.processingOver()) {
             Set<? extends Element> elements = roundEnv.getRootElements();
-            System.out.println("---===---");
-            System.out.println("There are " + elements.size() + " root elements.");
-            System.out.println();
+            printer.println("---===---");
+            printer.println("There are " + elements.size() + " root elements.");
+            printer.println();
 
             for (Element each : elements) {
                 printElement(0, each);
-                System.out.println("---");
+                printer.println("---");
             }
 
-            System.out.println("---===---");
+            printer.println("---===---");
         }
 
         return false;

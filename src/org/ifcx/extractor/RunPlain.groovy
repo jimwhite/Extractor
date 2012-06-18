@@ -1,10 +1,10 @@
 package org.ifcx.extractor
 
-import javax.tools.JavaCompiler
-import javax.tools.StandardJavaFileManager
-import javax.tools.JavaFileObject
 import com.sun.tools.javac.api.JavacTool
-import groovy.xml.MarkupBuilder
+
+import javax.tools.JavaCompiler
+import javax.tools.JavaFileObject
+import javax.tools.StandardJavaFileManager
 
 JavaCompiler compiler = new JavacTool() // ToolProvider.getSystemJavaCompiler();
 
@@ -21,7 +21,7 @@ RDFExtractor.rdfPath.get(0).mkdirs();
 fileman.setLocation(RDFExtractor.rdfLocation, RDFExtractor.rdfPath);
 
 def files = [:]
-[new File('src'), new File('jdksrc/src')].each { File dir ->
+[new File('src')/*, new File('jdksrc/src')*/].each { File dir ->
     dir.eachFileRecurse { if ((it.name ==~ /.*.java$/)) files[it.path.substring(dir.path.length())] = it }
 }
 
@@ -39,13 +39,9 @@ JavaCompiler.CompilationTask task = compiler.getTask(null, // out
         null, // classes
         units);
 
-new File("run-output.html").withPrintWriter {
+new File("run-output.txt").withPrintWriter {
 //    def framer = new JavacFramer(it)
-    def html = new MarkupBuilder(it)
-
-    html.html {
-        def processor = new JavacGrepHTML(html)
-        task.setProcessors(com.sun.tools.javac.util.List.of(processor));
-        task.call()
-    }
+    def processor = new JavacGrep(it)
+    task.setProcessors(com.sun.tools.javac.util.List.of(processor));
+    task.call()
 }
