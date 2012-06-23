@@ -20,6 +20,18 @@ import javax.lang.model.element.VariableElement
 import javax.lang.model.util.Elements
 import groovy.xml.MarkupBuilder
 import javax.lang.model.element.ElementKind
+import javax.lang.model.element.PackageElement
+import org.ifcx.extractor.util.IndentWriter
+import java.lang.reflect.Method
+import java.util.regex.Pattern
+import com.sun.tools.javadoc.MethodDocImpl
+import com.sun.tools.javadoc.DocEnv
+import com.sun.source.tree.CompilationUnitTree
+import com.sun.source.tree.LineMap
+import com.sun.tools.javac.util.Context
+import com.sun.javadoc.ParamTag
+import com.sun.tools.javadoc.Messager
+import com.sun.source.tree.LiteralTree
 
 @SupportedAnnotationTypes("*")
 @SupportedSourceVersion(SourceVersion.RELEASE_6)
@@ -28,14 +40,18 @@ public class JavacGrepHTML extends AbstractProcessor
     MarkupBuilder builder
     Integer includedElements = 0
 
-    private Trees trees;
-    private TreeMaker make;
-    private Elements elems;
+    DocEnv docEnv
 
-    private File rdfDir = new File("rdf");
+    Trees trees;
+    TreeMaker make;
+    Elements elems;
 
-    public JavacGrepHTML(MarkupBuilder b)
+    LineMap lineMap
+
+    public JavacGrepHTML(DocEnv docEnv, MarkupBuilder b)
     {
+        this.docEnv = docEnv
+
         builder = b
     }
 
@@ -55,30 +71,84 @@ public class JavacGrepHTML extends AbstractProcessor
     }};
 
     final String padding = "                                                                         ";
+    final Pattern paramPattern = ~/@param\s+(\w+)\s*(.*)$/
 
-    private void printElement(int indent, Element element)
+    void printElement(int indent, Element element)
+    {
+        try {
+            _printElement(indent, element)
+        } catch (Exception e) {
+//            e.printStackTrace()
+            System.err.println "Exception in ${element}"
+        }
+    }
+
+    void _printElement(int indent, Element element)
     {
         String docComment = elems.getDocComment(element);
         if (docComment != null && (element instanceof ExecutableElement)) {
             ExecutableElement method = (ExecutableElement) element;
 
-            if (includeSingleAssignment(element)) {
+            if (includeReturnArrayAccess(element)) {
+//                def docLines = []
+                def paramComments = [:]
+                def returnComment = ''
+//                docComment.eachLine { line ->
+//                    line = line.trim()
+//                    if (line.startsWith('@param')) {
+//                        def m = paramPattern.matcher(line)
+//                        if (m.find()) {
+//                            paramComments[m.group(1)] = m.group(2)
+//                        }
+//                    } else if (line.startsWith('@return')) {
+//                        returnComment = line.substring('@return'.length()).trim()
+//                    } else {
+//                        if (line) docLines << line
+//                    }
+//                }
+//
+//                docComment = docLines.join('\n')
+//
+//                if (!docComment) return ;
+
+
+                def docImpl = new MethodDocImpl(docEnv, method, docComment, trees.getTree(element), lineMap)
+                def methodComment = docImpl.commentText().trim()
+                if (!methodComment) return ;
+
+                def returnTags = docImpl.tags('return')
+                if (returnTags.size()) returnComment = returnTags[0].text()
+
+                docImpl.paramTags().each { ParamTag tag ->
+                    paramComments[tag.parameterName()] = tag.parameterComment()
+                }
+
                 ++includedElements
                 builder.div() {
-                    p {
-                        docComment = docComment.replace("@", "<br/>@")
-                        yield(docComment, false)
+//                    p {
+//                        pre(docComment)
+//                    }
+
+                    div(style:'font-size:110%;') {
+                        yield(methodComment, false)
                     }
 
-                    div(/*element.getKind()*/) {
+                    div {
+                        code(fullName(element.enclosingElement))
+                    }
+
+                    div {
                         code(method.returnType)
-                        code(element)
-//                        span(element.modifiers)
+                        code(element.simpleName + "(" + method.parameters.simpleName.join(', ') + ")")
+                        span([style:'font-size:110%;'], returnComment)
                     }
 
                     div {
                         for (VariableElement var : method.getParameters()) {
-                            code(var.getSimpleName() + " : " + var.asType() + " ")
+//                            code(var.getSimpleName() + " : " + var.asType() + " ")
+                            code(var.asType())
+                            code(var.simpleName)
+                            span([style:'font-size:110%;'], paramComments[var.simpleName.toString()] ?: "")
                             br()
                         }
                     }
@@ -90,9 +160,19 @@ public class JavacGrepHTML extends AbstractProcessor
             }
         }
 
+        def tree = trees.getTree(element)
+        if (tree instanceof CompilationUnitTree) {
+            lineMap = tree.lineMap
+        }
+
         for (Element each : element.getEnclosedElements()) {
             printElement(indent + 2, each);
         }
+    }
+
+    static String fullName(Element element)
+    {
+        ((element.enclosingElement == null) ? "" : fullName(element.enclosingElement) + ".") + (element instanceof PackageElement ? element.qualifiedName : element.simpleName)
     }
 
     protected boolean includeReturnArrayAccess(ExecutableElement method)
@@ -115,6 +195,16 @@ public class JavacGrepHTML extends AbstractProcessor
 
     }
 
+    protected boolean includeReturnLiteral(ExecutableElement method)
+    {
+        MethodTree tree = trees.getTree(method)
+
+        ((method.kind == ElementKind.METHOD) && (tree.body?.statements?.size() == 1)
+                && (tree.body.statements[0].kind == Tree.Kind.RETURN )
+                && (tree.body.statements[0].expression instanceof LiteralTree))
+
+    }
+
     protected boolean includeSingleAssignment(ExecutableElement method)
     {
         MethodTree tree = trees.getTree(method)
@@ -125,7 +215,7 @@ public class JavacGrepHTML extends AbstractProcessor
 
     }
 
-    protected void printMethod(indent, ExecutableElement method)
+    protected void printMethodPretty(indent, ExecutableElement method)
     {
         def sw = new StringWriter()
         Pretty visitor = new Pretty(sw, false);
@@ -134,6 +224,75 @@ public class JavacGrepHTML extends AbstractProcessor
 //        sw.toString().eachLine { printer.println(padding.substring(0, indent) + it) }
 //        printer.println "\n"
         builder.pre(sw)
+    }
+
+    protected void printMethod(indent, ExecutableElement method)
+    {
+        MethodTree tree = trees.getTree(method)
+
+        builder.pre(tree.body)
+
+        Object sexp = externalize(tree)
+
+        StringWriter sw = new StringWriter()
+        sw.withPrintWriter { printTree(sexp, new IndentWriter(it) ) }
+        builder.pre(sw)
+    }
+
+    def externalize(Object obj)
+    {
+        if (obj instanceof Tree) {
+            Tree tree = obj
+            obj = [tree.kind]
+            def treeKlazz = tree.class.interfaces.find { Tree.class.isAssignableFrom(it) }
+            if (!treeKlazz) {
+                return tree
+            }
+            treeKlazz.declaredMethods.sort{ it.name }.each { propertyMethod ->
+                def name = propertyMethod.name
+                // ${Tree.isAssignableFrom(propertyMethod.returnType)} ${treeListType.isAssignableFrom(propertyMethod.returnType)} ${propertyMethod} ${propertyMethod.returnType}"
+                if (name.startsWith('get')) {
+                    obj << [name.substring(3), externalize(propertyMethod.invoke(tree))]
+                } else if (name.startsWith('is')) {
+                    obj << [name.substring(2), externalize(propertyMethod.invoke(tree))]
+                }
+            }
+
+        } else if (obj instanceof List) {
+            obj = obj.isEmpty() ? [] : ['LIST'] + obj.collect { externalize(it) }
+        } else if (obj instanceof Set) {
+            obj = obj.isEmpty() ? [] : ['SET'] + obj.collect { externalize(it) }
+        }
+
+        obj
+    }
+
+    static def printTree(Object tree, IndentWriter writer)
+    {
+        if (tree instanceof List) {
+            writer.print "("
+            def indent = writer + 1
+            if (!tree.isEmpty()) {
+                def head = tree.head()
+                if (head instanceof List) {
+                    printTree(head, indent)
+                } else {
+                    writer.print sexpString(head.toString())
+                }
+                def tail = tree.tail()
+                tail.each { if (tail.size() > 1) indent.println() ; printTree(it, indent) }
+            }
+            indent.print ")"
+        } else {
+            writer.print " " + sexpString(tree.toString())
+//        writer.print " '$tree'"
+        }
+    }
+
+    static def sexpString(String str)
+    {
+        str = str.replace("(", "\\(").replace(")", "\\)").replace("\"", "\\\"")
+        (!str || str.contains(" ") || str.contains("\\")) ? "\"" + str + "\"" : str
     }
 
     @Override
