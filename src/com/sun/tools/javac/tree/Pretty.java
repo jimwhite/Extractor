@@ -1013,7 +1013,7 @@ public class Pretty extends JCTree.Visitor {
     public void visitSelect(JCFieldAccess tree) {
         try {
             printExpr(tree.selected, TreeInfo.postfixPrec);
-            print("." + tree.name);
+            print("." + tree.name /*+ " #" + tree.sym + "# "*/);
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
@@ -1021,7 +1021,7 @@ public class Pretty extends JCTree.Visitor {
 
     public void visitIdent(JCIdent tree) {
         try {
-            print(tree.name);
+            print(tree.name /* + " #" + tree.sym + "# "*/);
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }

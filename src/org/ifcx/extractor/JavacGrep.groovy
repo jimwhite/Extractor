@@ -1,30 +1,22 @@
 package org.ifcx.extractor
 
+import com.sun.source.tree.MethodTree
+import com.sun.source.tree.Tree
+import com.sun.source.util.Trees
+import com.sun.tools.javac.processing.JavacProcessingEnvironment
+import com.sun.tools.javac.tree.TreeMaker
+
+import javax.annotation.processing.AbstractProcessor
+import javax.annotation.processing.ProcessingEnvironment
+import javax.annotation.processing.RoundEnvironment
 import javax.annotation.processing.SupportedAnnotationTypes
 import javax.annotation.processing.SupportedSourceVersion
 import javax.lang.model.SourceVersion
-import javax.annotation.processing.AbstractProcessor
-import javax.tools.JavaFileManager
-import javax.tools.StandardLocation
-import com.tinkerpop.blueprints.pgm.Graph
-import com.tinkerpop.frames.FramesManager
-import com.sun.source.util.Trees
-import com.sun.tools.javac.tree.TreeMaker
-import javax.lang.model.util.Elements
-import javax.annotation.processing.ProcessingEnvironment
-import com.tinkerpop.blueprints.pgm.impls.tg.TinkerGraphFactory
-import com.sun.tools.javac.processing.JavacProcessingEnvironment
-import org.openrdf.model.vocabulary.XMLSchema
 import javax.lang.model.element.Element
-import com.sun.tools.javac.code.Symbol
 import javax.lang.model.element.ExecutableElement
-import javax.lang.model.element.VariableElement
 import javax.lang.model.element.TypeElement
-import javax.annotation.processing.RoundEnvironment
-import com.sun.source.tree.MethodTree
-import com.sun.source.tree.Tree
-import com.sun.source.util.TreePath
-import com.sun.tools.javac.tree.JCTree
+import javax.lang.model.element.VariableElement
+import javax.lang.model.util.Elements
 
 @SupportedAnnotationTypes("*")
 @SupportedSourceVersion(SourceVersion.RELEASE_6)

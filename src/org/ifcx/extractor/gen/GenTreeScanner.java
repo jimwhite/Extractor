@@ -1,9 +1,11 @@
 package org.ifcx.extractor.gen;
 
-public class GenTreeScanner extends org.ifcx.extractor.TreeScanner<java.lang.Object, org.ifcx.extractor.util.RDFaWriter>
+import org.ifcx.extractor.rdf.RDFaWriter;
+
+public class GenTreeScanner extends org.ifcx.extractor.TreeScanner<java.lang.Object, RDFaWriter>
 {
 
-public java.lang.Object visitMethod(com.sun.source.tree.MethodTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitMethod(com.sun.source.tree.MethodTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Method", tree.getKind());
 // true false public abstract com.sun.source.tree.BlockTree com.sun.source.tree.MethodTree.getBody() interface com.sun.source.tree.BlockTree
@@ -26,7 +28,7 @@ public java.lang.Object visitMethod(com.sun.source.tree.MethodTree tree, org.ifc
 */   return null;
 }
 
-public java.lang.Object visitAnnotation(com.sun.source.tree.AnnotationTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitAnnotation(com.sun.source.tree.AnnotationTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Annotation", tree.getKind());
 // true false public abstract com.sun.source.tree.Tree com.sun.source.tree.AnnotationTree.getAnnotationType() interface com.sun.source.tree.Tree
@@ -37,7 +39,7 @@ public java.lang.Object visitAnnotation(com.sun.source.tree.AnnotationTree tree,
 */   return null;
 }
 
-public java.lang.Object visitClass(com.sun.source.tree.ClassTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitClass(com.sun.source.tree.ClassTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Class", tree.getKind());
 // true false public abstract com.sun.source.tree.Tree com.sun.source.tree.ClassTree.getExtendsClause() interface com.sun.source.tree.Tree
@@ -56,7 +58,7 @@ public java.lang.Object visitClass(com.sun.source.tree.ClassTree tree, org.ifcx.
 */   return null;
 }
 
-public java.lang.Object visitDoWhileLoop(com.sun.source.tree.DoWhileLoopTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitDoWhileLoop(com.sun.source.tree.DoWhileLoopTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("DoWhileLoop", tree.getKind());
 // true false public abstract com.sun.source.tree.ExpressionTree com.sun.source.tree.DoWhileLoopTree.getCondition() interface com.sun.source.tree.ExpressionTree
@@ -67,7 +69,7 @@ public java.lang.Object visitDoWhileLoop(com.sun.source.tree.DoWhileLoopTree tre
 */   return null;
 }
 
-public java.lang.Object visitExpressionStatement(com.sun.source.tree.ExpressionStatementTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitExpressionStatement(com.sun.source.tree.ExpressionStatementTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("ExpressionStatement", tree.getKind());
 // true false public abstract com.sun.source.tree.ExpressionTree com.sun.source.tree.ExpressionStatementTree.getExpression() interface com.sun.source.tree.ExpressionTree
@@ -76,7 +78,7 @@ public java.lang.Object visitExpressionStatement(com.sun.source.tree.ExpressionS
 */   return null;
 }
 
-public java.lang.Object visitForLoop(com.sun.source.tree.ForLoopTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitForLoop(com.sun.source.tree.ForLoopTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("ForLoop", tree.getKind());
 // true false public abstract com.sun.source.tree.ExpressionTree com.sun.source.tree.ForLoopTree.getCondition() interface com.sun.source.tree.ExpressionTree
@@ -91,7 +93,7 @@ public java.lang.Object visitForLoop(com.sun.source.tree.ForLoopTree tree, org.i
 */   return null;
 }
 
-public java.lang.Object visitSwitch(com.sun.source.tree.SwitchTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitSwitch(com.sun.source.tree.SwitchTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Switch", tree.getKind());
 // false true public abstract java.util.List com.sun.source.tree.SwitchTree.getCases() interface java.util.List
@@ -102,7 +104,7 @@ public java.lang.Object visitSwitch(com.sun.source.tree.SwitchTree tree, org.ifc
 */   return null;
 }
 
-public java.lang.Object visitWhileLoop(com.sun.source.tree.WhileLoopTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitWhileLoop(com.sun.source.tree.WhileLoopTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("WhileLoop", tree.getKind());
 // true false public abstract com.sun.source.tree.ExpressionTree com.sun.source.tree.WhileLoopTree.getCondition() interface com.sun.source.tree.ExpressionTree
@@ -113,14 +115,14 @@ public java.lang.Object visitWhileLoop(com.sun.source.tree.WhileLoopTree tree, o
 */   return null;
 }
 
-public java.lang.Object visitEmptyStatement(com.sun.source.tree.EmptyStatementTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitEmptyStatement(com.sun.source.tree.EmptyStatementTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("EmptyStatement", tree.getKind());
    v.end();
 */   return null;
 }
 
-public java.lang.Object visitWildcard(com.sun.source.tree.WildcardTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitWildcard(com.sun.source.tree.WildcardTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Wildcard", tree.getKind());
 // true false public abstract com.sun.source.tree.Tree com.sun.source.tree.WildcardTree.getBound() interface com.sun.source.tree.Tree
@@ -129,7 +131,7 @@ public java.lang.Object visitWildcard(com.sun.source.tree.WildcardTree tree, org
 */   return null;
 }
 
-public java.lang.Object visitBlock(com.sun.source.tree.BlockTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitBlock(com.sun.source.tree.BlockTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Block", tree.getKind());
 // false true public abstract java.util.List com.sun.source.tree.BlockTree.getStatements() interface java.util.List
@@ -140,7 +142,7 @@ public java.lang.Object visitBlock(com.sun.source.tree.BlockTree tree, org.ifcx.
 */   return null;
 }
 
-public java.lang.Object visitImport(com.sun.source.tree.ImportTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitImport(com.sun.source.tree.ImportTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Import", tree.getKind());
 // true false public abstract com.sun.source.tree.Tree com.sun.source.tree.ImportTree.getQualifiedIdentifier() interface com.sun.source.tree.Tree
@@ -151,7 +153,7 @@ public java.lang.Object visitImport(com.sun.source.tree.ImportTree tree, org.ifc
 */   return null;
 }
 
-public java.lang.Object visitModifiers(com.sun.source.tree.ModifiersTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitModifiers(com.sun.source.tree.ModifiersTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Modifiers", tree.getKind());
 // false true public abstract java.util.List com.sun.source.tree.ModifiersTree.getAnnotations() interface java.util.List
@@ -162,7 +164,7 @@ public java.lang.Object visitModifiers(com.sun.source.tree.ModifiersTree tree, o
 */   return null;
 }
 
-public java.lang.Object visitTypeParameter(com.sun.source.tree.TypeParameterTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitTypeParameter(com.sun.source.tree.TypeParameterTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("TypeParameter", tree.getKind());
 // false true public abstract java.util.List com.sun.source.tree.TypeParameterTree.getBounds() interface java.util.List
@@ -173,7 +175,7 @@ public java.lang.Object visitTypeParameter(com.sun.source.tree.TypeParameterTree
 */   return null;
 }
 
-public java.lang.Object visitMethodInvocation(com.sun.source.tree.MethodInvocationTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitMethodInvocation(com.sun.source.tree.MethodInvocationTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("MethodInvocation", tree.getKind());
 // false true public abstract java.util.List com.sun.source.tree.MethodInvocationTree.getArguments() interface java.util.List
@@ -186,7 +188,7 @@ public java.lang.Object visitMethodInvocation(com.sun.source.tree.MethodInvocati
 */   return null;
 }
 
-public java.lang.Object visitAssert(com.sun.source.tree.AssertTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitAssert(com.sun.source.tree.AssertTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Assert", tree.getKind());
 // true false public abstract com.sun.source.tree.ExpressionTree com.sun.source.tree.AssertTree.getCondition() interface com.sun.source.tree.ExpressionTree
@@ -197,7 +199,7 @@ public java.lang.Object visitAssert(com.sun.source.tree.AssertTree tree, org.ifc
 */   return null;
 }
 
-public java.lang.Object visitAssignment(com.sun.source.tree.AssignmentTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitAssignment(com.sun.source.tree.AssignmentTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Assignment", tree.getKind());
 // true false public abstract com.sun.source.tree.ExpressionTree com.sun.source.tree.AssignmentTree.getExpression() interface com.sun.source.tree.ExpressionTree
@@ -208,7 +210,7 @@ public java.lang.Object visitAssignment(com.sun.source.tree.AssignmentTree tree,
 */   return null;
 }
 
-public java.lang.Object visitCompoundAssignment(com.sun.source.tree.CompoundAssignmentTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitCompoundAssignment(com.sun.source.tree.CompoundAssignmentTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("CompoundAssignment", tree.getKind());
 // true false public abstract com.sun.source.tree.ExpressionTree com.sun.source.tree.CompoundAssignmentTree.getExpression() interface com.sun.source.tree.ExpressionTree
@@ -219,7 +221,7 @@ public java.lang.Object visitCompoundAssignment(com.sun.source.tree.CompoundAssi
 */   return null;
 }
 
-public java.lang.Object visitBinary(com.sun.source.tree.BinaryTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitBinary(com.sun.source.tree.BinaryTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Binary", tree.getKind());
 // true false public abstract com.sun.source.tree.ExpressionTree com.sun.source.tree.BinaryTree.getLeftOperand() interface com.sun.source.tree.ExpressionTree
@@ -230,7 +232,7 @@ public java.lang.Object visitBinary(com.sun.source.tree.BinaryTree tree, org.ifc
 */   return null;
 }
 
-public java.lang.Object visitBreak(com.sun.source.tree.BreakTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitBreak(com.sun.source.tree.BreakTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Break", tree.getKind());
 // false false public abstract javax.lang.model.element.Name com.sun.source.tree.BreakTree.getLabel() interface javax.lang.model.element.Name
@@ -239,7 +241,7 @@ public java.lang.Object visitBreak(com.sun.source.tree.BreakTree tree, org.ifcx.
 */   return null;
 }
 
-public java.lang.Object visitCase(com.sun.source.tree.CaseTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitCase(com.sun.source.tree.CaseTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Case", tree.getKind());
 // true false public abstract com.sun.source.tree.ExpressionTree com.sun.source.tree.CaseTree.getExpression() interface com.sun.source.tree.ExpressionTree
@@ -250,7 +252,7 @@ public java.lang.Object visitCase(com.sun.source.tree.CaseTree tree, org.ifcx.ex
 */   return null;
 }
 
-public java.lang.Object visitCatch(com.sun.source.tree.CatchTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitCatch(com.sun.source.tree.CatchTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Catch", tree.getKind());
 // true false public abstract com.sun.source.tree.BlockTree com.sun.source.tree.CatchTree.getBlock() interface com.sun.source.tree.BlockTree
@@ -261,7 +263,7 @@ public java.lang.Object visitCatch(com.sun.source.tree.CatchTree tree, org.ifcx.
 */   return null;
 }
 
-public java.lang.Object visitConditionalExpression(com.sun.source.tree.ConditionalExpressionTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitConditionalExpression(com.sun.source.tree.ConditionalExpressionTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("ConditionalExpression", tree.getKind());
 // true false public abstract com.sun.source.tree.ExpressionTree com.sun.source.tree.ConditionalExpressionTree.getCondition() interface com.sun.source.tree.ExpressionTree
@@ -274,7 +276,7 @@ public java.lang.Object visitConditionalExpression(com.sun.source.tree.Condition
 */   return null;
 }
 
-public java.lang.Object visitContinue(com.sun.source.tree.ContinueTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitContinue(com.sun.source.tree.ContinueTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Continue", tree.getKind());
 // false false public abstract javax.lang.model.element.Name com.sun.source.tree.ContinueTree.getLabel() interface javax.lang.model.element.Name
@@ -283,7 +285,7 @@ public java.lang.Object visitContinue(com.sun.source.tree.ContinueTree tree, org
 */   return null;
 }
 
-public java.lang.Object visitErroneous(com.sun.source.tree.ErroneousTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitErroneous(com.sun.source.tree.ErroneousTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Erroneous", tree.getKind());
 // false true public abstract java.util.List com.sun.source.tree.ErroneousTree.getErrorTrees() interface java.util.List
@@ -292,7 +294,7 @@ public java.lang.Object visitErroneous(com.sun.source.tree.ErroneousTree tree, o
 */   return null;
 }
 
-public java.lang.Object visitEnhancedForLoop(com.sun.source.tree.EnhancedForLoopTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitEnhancedForLoop(com.sun.source.tree.EnhancedForLoopTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("EnhancedForLoop", tree.getKind());
 // true false public abstract com.sun.source.tree.ExpressionTree com.sun.source.tree.EnhancedForLoopTree.getExpression() interface com.sun.source.tree.ExpressionTree
@@ -305,7 +307,7 @@ public java.lang.Object visitEnhancedForLoop(com.sun.source.tree.EnhancedForLoop
 */   return null;
 }
 
-public java.lang.Object visitIdentifier(com.sun.source.tree.IdentifierTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitIdentifier(com.sun.source.tree.IdentifierTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Identifier", tree.getKind());
 // false false public abstract javax.lang.model.element.Name com.sun.source.tree.IdentifierTree.getName() interface javax.lang.model.element.Name
@@ -314,7 +316,7 @@ public java.lang.Object visitIdentifier(com.sun.source.tree.IdentifierTree tree,
 */   return null;
 }
 
-public java.lang.Object visitIf(com.sun.source.tree.IfTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitIf(com.sun.source.tree.IfTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("If", tree.getKind());
 // true false public abstract com.sun.source.tree.ExpressionTree com.sun.source.tree.IfTree.getCondition() interface com.sun.source.tree.ExpressionTree
@@ -327,7 +329,7 @@ public java.lang.Object visitIf(com.sun.source.tree.IfTree tree, org.ifcx.extrac
 */   return null;
 }
 
-public java.lang.Object visitArrayAccess(com.sun.source.tree.ArrayAccessTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitArrayAccess(com.sun.source.tree.ArrayAccessTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("ArrayAccess", tree.getKind());
 // true false public abstract com.sun.source.tree.ExpressionTree com.sun.source.tree.ArrayAccessTree.getExpression() interface com.sun.source.tree.ExpressionTree
@@ -338,7 +340,7 @@ public java.lang.Object visitArrayAccess(com.sun.source.tree.ArrayAccessTree tre
 */   return null;
 }
 
-public java.lang.Object visitLabeledStatement(com.sun.source.tree.LabeledStatementTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitLabeledStatement(com.sun.source.tree.LabeledStatementTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("LabeledStatement", tree.getKind());
 // false false public abstract javax.lang.model.element.Name com.sun.source.tree.LabeledStatementTree.getLabel() interface javax.lang.model.element.Name
@@ -349,7 +351,7 @@ public java.lang.Object visitLabeledStatement(com.sun.source.tree.LabeledStateme
 */   return null;
 }
 
-public java.lang.Object visitLiteral(com.sun.source.tree.LiteralTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitLiteral(com.sun.source.tree.LiteralTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Literal", tree.getKind());
 // false false public abstract java.lang.Object com.sun.source.tree.LiteralTree.getValue() class java.lang.Object
@@ -358,7 +360,7 @@ public java.lang.Object visitLiteral(com.sun.source.tree.LiteralTree tree, org.i
 */   return null;
 }
 
-public java.lang.Object visitNewArray(com.sun.source.tree.NewArrayTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitNewArray(com.sun.source.tree.NewArrayTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("NewArray", tree.getKind());
 // false true public abstract java.util.List com.sun.source.tree.NewArrayTree.getDimensions() interface java.util.List
@@ -371,7 +373,7 @@ public java.lang.Object visitNewArray(com.sun.source.tree.NewArrayTree tree, org
 */   return null;
 }
 
-public java.lang.Object visitNewClass(com.sun.source.tree.NewClassTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitNewClass(com.sun.source.tree.NewClassTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("NewClass", tree.getKind());
 // false true public abstract java.util.List com.sun.source.tree.NewClassTree.getArguments() interface java.util.List
@@ -388,7 +390,7 @@ public java.lang.Object visitNewClass(com.sun.source.tree.NewClassTree tree, org
 */   return null;
 }
 
-public java.lang.Object visitParenthesized(com.sun.source.tree.ParenthesizedTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitParenthesized(com.sun.source.tree.ParenthesizedTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Parenthesized", tree.getKind());
 // true false public abstract com.sun.source.tree.ExpressionTree com.sun.source.tree.ParenthesizedTree.getExpression() interface com.sun.source.tree.ExpressionTree
@@ -397,7 +399,7 @@ public java.lang.Object visitParenthesized(com.sun.source.tree.ParenthesizedTree
 */   return null;
 }
 
-public java.lang.Object visitReturn(com.sun.source.tree.ReturnTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitReturn(com.sun.source.tree.ReturnTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Return", tree.getKind());
 // true false public abstract com.sun.source.tree.ExpressionTree com.sun.source.tree.ReturnTree.getExpression() interface com.sun.source.tree.ExpressionTree
@@ -406,7 +408,7 @@ public java.lang.Object visitReturn(com.sun.source.tree.ReturnTree tree, org.ifc
 */   return null;
 }
 
-public java.lang.Object visitMemberSelect(com.sun.source.tree.MemberSelectTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitMemberSelect(com.sun.source.tree.MemberSelectTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("MemberSelect", tree.getKind());
 // true false public abstract com.sun.source.tree.ExpressionTree com.sun.source.tree.MemberSelectTree.getExpression() interface com.sun.source.tree.ExpressionTree
@@ -417,7 +419,7 @@ public java.lang.Object visitMemberSelect(com.sun.source.tree.MemberSelectTree t
 */   return null;
 }
 
-public java.lang.Object visitSynchronized(com.sun.source.tree.SynchronizedTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitSynchronized(com.sun.source.tree.SynchronizedTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Synchronized", tree.getKind());
 // true false public abstract com.sun.source.tree.BlockTree com.sun.source.tree.SynchronizedTree.getBlock() interface com.sun.source.tree.BlockTree
@@ -428,7 +430,7 @@ public java.lang.Object visitSynchronized(com.sun.source.tree.SynchronizedTree t
 */   return null;
 }
 
-public java.lang.Object visitThrow(com.sun.source.tree.ThrowTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitThrow(com.sun.source.tree.ThrowTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Throw", tree.getKind());
 // true false public abstract com.sun.source.tree.ExpressionTree com.sun.source.tree.ThrowTree.getExpression() interface com.sun.source.tree.ExpressionTree
@@ -437,7 +439,7 @@ public java.lang.Object visitThrow(com.sun.source.tree.ThrowTree tree, org.ifcx.
 */   return null;
 }
 
-public java.lang.Object visitCompilationUnit(com.sun.source.tree.CompilationUnitTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitCompilationUnit(com.sun.source.tree.CompilationUnitTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("CompilationUnit", tree.getKind());
 // false true public abstract java.util.List com.sun.source.tree.CompilationUnitTree.getImports() interface java.util.List
@@ -456,7 +458,7 @@ public java.lang.Object visitCompilationUnit(com.sun.source.tree.CompilationUnit
 */   return null;
 }
 
-public java.lang.Object visitTry(com.sun.source.tree.TryTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitTry(com.sun.source.tree.TryTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Try", tree.getKind());
 // true false public abstract com.sun.source.tree.BlockTree com.sun.source.tree.TryTree.getBlock() interface com.sun.source.tree.BlockTree
@@ -469,7 +471,7 @@ public java.lang.Object visitTry(com.sun.source.tree.TryTree tree, org.ifcx.extr
 */   return null;
 }
 
-public java.lang.Object visitParameterizedType(com.sun.source.tree.ParameterizedTypeTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitParameterizedType(com.sun.source.tree.ParameterizedTypeTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("ParameterizedType", tree.getKind());
 // true false public abstract com.sun.source.tree.Tree com.sun.source.tree.ParameterizedTypeTree.getType() interface com.sun.source.tree.Tree
@@ -480,7 +482,7 @@ public java.lang.Object visitParameterizedType(com.sun.source.tree.Parameterized
 */   return null;
 }
 
-public java.lang.Object visitArrayType(com.sun.source.tree.ArrayTypeTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitArrayType(com.sun.source.tree.ArrayTypeTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("ArrayType", tree.getKind());
 // true false public abstract com.sun.source.tree.Tree com.sun.source.tree.ArrayTypeTree.getType() interface com.sun.source.tree.Tree
@@ -489,7 +491,7 @@ public java.lang.Object visitArrayType(com.sun.source.tree.ArrayTypeTree tree, o
 */   return null;
 }
 
-public java.lang.Object visitTypeCast(com.sun.source.tree.TypeCastTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitTypeCast(com.sun.source.tree.TypeCastTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("TypeCast", tree.getKind());
 // true false public abstract com.sun.source.tree.ExpressionTree com.sun.source.tree.TypeCastTree.getExpression() interface com.sun.source.tree.ExpressionTree
@@ -500,7 +502,7 @@ public java.lang.Object visitTypeCast(com.sun.source.tree.TypeCastTree tree, org
 */   return null;
 }
 
-public java.lang.Object visitPrimitiveType(com.sun.source.tree.PrimitiveTypeTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitPrimitiveType(com.sun.source.tree.PrimitiveTypeTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("PrimitiveType", tree.getKind());
 // false false public abstract javax.lang.model.type.TypeKind com.sun.source.tree.PrimitiveTypeTree.getPrimitiveTypeKind() class javax.lang.model.type.TypeKind
@@ -509,7 +511,7 @@ public java.lang.Object visitPrimitiveType(com.sun.source.tree.PrimitiveTypeTree
 */   return null;
 }
 
-public java.lang.Object visitInstanceOf(com.sun.source.tree.InstanceOfTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitInstanceOf(com.sun.source.tree.InstanceOfTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("InstanceOf", tree.getKind());
 // true false public abstract com.sun.source.tree.ExpressionTree com.sun.source.tree.InstanceOfTree.getExpression() interface com.sun.source.tree.ExpressionTree
@@ -520,7 +522,7 @@ public java.lang.Object visitInstanceOf(com.sun.source.tree.InstanceOfTree tree,
 */   return null;
 }
 
-public java.lang.Object visitUnary(com.sun.source.tree.UnaryTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitUnary(com.sun.source.tree.UnaryTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Unary", tree.getKind());
 // true false public abstract com.sun.source.tree.ExpressionTree com.sun.source.tree.UnaryTree.getExpression() interface com.sun.source.tree.ExpressionTree
@@ -529,7 +531,7 @@ public java.lang.Object visitUnary(com.sun.source.tree.UnaryTree tree, org.ifcx.
 */   return null;
 }
 
-public java.lang.Object visitVariable(com.sun.source.tree.VariableTree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitVariable(com.sun.source.tree.VariableTree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Variable", tree.getKind());
 // true false public abstract com.sun.source.tree.ExpressionTree com.sun.source.tree.VariableTree.getInitializer() interface com.sun.source.tree.ExpressionTree
@@ -544,7 +546,7 @@ public java.lang.Object visitVariable(com.sun.source.tree.VariableTree tree, org
 */   return null;
 }
 
-public java.lang.Object visitOther(com.sun.source.tree.Tree tree, org.ifcx.extractor.util.RDFaWriter param)
+public java.lang.Object visitOther(com.sun.source.tree.Tree tree, RDFaWriter param)
 { /*
    Vertex v = beginVertex("Other", tree.getKind());
 // false false public abstract java.lang.Object com.sun.source.tree.Tree.accept(com.sun.source.tree.TreeVisitor,java.lang.Object) class java.lang.Object

@@ -1,0 +1,24 @@
+<component name="libraryTable">
+  <library name="uimafit-1.4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/uimafit-1.4.0/aopalliance-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/uimafit-1.4.0/commons-io-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/uimafit-1.4.0/commons-lang-2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/uimafit-1.4.0/commons-logging-1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/uimafit-1.4.0/jVinci-2.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/uimafit-1.4.0/spring-beans-3.1.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/uimafit-1.4.0/spring-context-3.1.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/uimafit-1.4.0/spring-core-3.1.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/uimafit-1.4.0/uimafit-1.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/uimafit-1.4.0/uimaj-adapter-vinci-2.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/uimafit-1.4.0/uimaj-core-2.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/uimafit-1.4.0/uimaj-cpe-2.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/uimafit-1.4.0/uimaj-document-annotation-2.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/uimafit-1.4.0/uimaj-tools-2.4.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/uimafit-1.4.0/uimafit-1.4.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

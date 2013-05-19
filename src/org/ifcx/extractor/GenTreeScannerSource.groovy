@@ -2,8 +2,6 @@ package org.ifcx.extractor
 
 import java.lang.reflect.Method
 
-import org.ifcx.extractor.util.RDFaWriter
-
 import com.sun.source.tree.CompilationUnitTree
 import com.sun.source.tree.Tree
 import com.sun.source.tree.TreeVisitor

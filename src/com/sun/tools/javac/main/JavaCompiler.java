@@ -26,6 +26,8 @@
 package com.sun.tools.javac.main;
 
 import java.io.*;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.LinkedHashMap;
@@ -355,6 +357,7 @@ public class JavaCompiler implements ClassReader.SourceCompleter {
 
         verbose       = options.get("-verbose")       != null;
         sourceOutput  = options.get("-printsource")   != null; // used to be -s
+        sourcePrinter = options.get("org.ifcx.extractor.printer");
         stubOutput    = options.get("-stubs")         != null;
         relax         = options.get("-relax")         != null;
         printFlat     = options.get("-printflat")     != null;
@@ -398,6 +401,10 @@ public class JavaCompiler implements ClassReader.SourceCompleter {
     /** Emit plain Java source files rather than class files.
      */
     public boolean sourceOutput;
+
+    /** Class name for custom printer which must be a subclass of com.sun.tools.javac.tree.Pretty.
+     */
+    public String sourcePrinter;
 
     /** Emit stub source files rather than class files.
      */
@@ -669,7 +676,29 @@ public class JavaCompiler implements ClassReader.SourceCompleter {
         } else {
             BufferedWriter out = new BufferedWriter(outFile.openWriter());
             try {
-                new Pretty(out, true).printUnit(env.toplevel, cdef);
+                Class printerClass = Pretty.class;
+
+//                new Pretty(out, true).printUnit(env.toplevel, cdef);
+
+                try {
+                    if (sourcePrinter != null) {
+                        printerClass = Class.forName(sourcePrinter);
+                    }
+                    Constructor constructor = printerClass.getConstructor(Writer.class, boolean.class);
+                    Pretty printer = (Pretty) constructor.newInstance(out, true);
+                    printer.printUnit(env.toplevel, cdef);
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                } catch (InstantiationException e) {
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                }
+
                 if (verbose)
                     printVerbose("wrote.file", outFile);
             } finally {

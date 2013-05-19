@@ -84,7 +84,7 @@ public class DocEnv {
     final Symbol externalizableSym;
 
     /** Access filter (public, protected, ...).  */
-    ModifierFilter showAccess;
+    public ModifierFilter showAccess;
 
     /** True if we are using a sentence BreakIterator. */
     boolean breakiterator;

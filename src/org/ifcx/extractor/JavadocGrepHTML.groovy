@@ -1,21 +1,24 @@
 package org.ifcx.extractor
 
+import com.sun.javadoc.ParamTag
+import com.sun.source.tree.CompilationUnitTree
+import com.sun.source.tree.LineMap
+import com.sun.source.tree.LiteralTree
 import com.sun.source.tree.MethodTree
+import com.sun.source.tree.VariableTree
 import com.sun.source.tree.Tree
 import com.sun.source.util.Trees
-import com.sun.tools.javac.code.Flags
-import com.sun.tools.javac.code.Symbol
-import com.sun.tools.javac.comp.AttrContext
-import com.sun.tools.javac.comp.Enter
-import com.sun.tools.javac.comp.Env
-import com.sun.tools.javac.comp.MemberEnter
+import com.sun.tools.javac.comp.Attr
 import com.sun.tools.javac.processing.JavacProcessingEnvironment
-import com.sun.tools.javac.tree.JCTree
-import com.sun.tools.javac.tree.JCTree.JCCompilationUnit
-import com.sun.tools.javac.tree.TreeInfo
 import com.sun.tools.javac.tree.TreeMaker
-import com.sun.tools.javac.util.ListBuffer
+import com.sun.tools.javac.util.Context
+import com.sun.tools.javadoc.DocEnv
+import com.sun.tools.javadoc.MemberDocImpl
+import com.sun.tools.javadoc.MethodDocImpl
+import groovy.xml.MarkupBuilder
+import org.ifcx.extractor.util.IndentWriter
 
+import java.util.regex.Pattern
 import javax.annotation.processing.AbstractProcessor
 import javax.annotation.processing.ProcessingEnvironment
 import javax.annotation.processing.RoundEnvironment
@@ -23,56 +26,41 @@ import javax.annotation.processing.SupportedAnnotationTypes
 import javax.annotation.processing.SupportedSourceVersion
 import javax.lang.model.SourceVersion
 import javax.lang.model.element.Element
+import javax.lang.model.element.ElementKind
 import javax.lang.model.element.ExecutableElement
+import javax.lang.model.element.PackageElement
 import javax.lang.model.element.TypeElement
 import javax.lang.model.element.VariableElement
 import javax.lang.model.util.Elements
-import groovy.xml.MarkupBuilder
-import javax.lang.model.element.ElementKind
-import javax.lang.model.element.PackageElement
-import org.ifcx.extractor.util.IndentWriter
 
-import java.util.regex.Pattern
-
-import com.sun.source.tree.LineMap
-import com.sun.tools.javac.util.Context
-import com.sun.source.tree.LiteralTree
-import com.sun.tools.javac.comp.Attr
-import com.sun.tools.apt.main.JavaCompiler
+import com.sun.tools.javadoc.ModifierFilter
 
 @SupportedAnnotationTypes("*")
 @SupportedSourceVersion(SourceVersion.RELEASE_6)
-public class JavacGrepHTML extends AbstractProcessor
+public class JavadocGrepHTML extends AbstractProcessor
 {
     MarkupBuilder builder
     Integer includedElements = 0
 
-//    DocEnv docEnv
+    DocEnv docEnv
 
-    JavaCompiler compiler
+//    JavaCompiler compiler
 
     Attr    attr
 
     Trees trees;
     TreeMaker make;
     Elements elems;
-    Enter enter;
-    MemberEnter memberEnter
 
     LineMap lineMap
-    def topLevelEnv
-    Env<AttrContext> topLevel
-    def compilationUnits = new  ListBuffer<JCCompilationUnit>()
 
-//    WritableWorkbook workbook = Workbook.createWorkbook(new File("tmp/output.xls"));
-
-    public JavacGrepHTML(Context context, MarkupBuilder b)
+    public JavadocGrepHTML(Context context, MarkupBuilder b)
     {
-//        docEnv = DocEnv.instance(context)
-        compiler = JavaCompiler.instance(context)
+        docEnv = DocEnv.instance(context)
+        if (docEnv.showAccess == null) docEnv.showAccess = new ModifierFilter(0);
+
+//        compiler = JavaCompiler.instance(context)
         attr = Attr.instance(context)
-        enter = Enter.instance(context)
-        memberEnter = MemberEnter.instance(context)
 
         builder = b
     }
@@ -87,41 +75,13 @@ public class JavacGrepHTML extends AbstractProcessor
         super.init(processingEnv);
     }
 
-//    Map<String, String> mappings = new TreeMap<String, String>() {{
-//        put("urn:org.ifcx.model#", "model");
-//        put(XMLSchema.NAMESPACE, "xsd");
-//    }};
-
     final String padding = "                                                                         ";
     final Pattern paramPattern = ~/@param\s+(\w+)\s*(.*)$/
 
-    void printElement(Element element)
+    void printElement(int indent, Element element)
     {
         try {
-            topLevel = null
-            topLevelEnv = null
-
-//            enter.complete(com.sun.tools.javac.util.List.of(topLevel), null)
-
-            if (element.kind == ElementKind.CLASS) {
-//                def compilationUnit = trees.getTree((TypeElement) element)
-                topLevel = enter.getEnv(element)
-//                def topLevelJCU = topLevel.toplevel
-//                topLevelEnv = enter.getTopLevelEnv(topLevelJCU)
-
-//                compiler.attribute(topLevel)
-
-//                attr.attribClass(env.tree.pos(), env.enclClass.sym)
-//                compiler.attribute(env)
-            }
-
-
-//            compilationUnits.add(topLevel)
-//            enter.complete(compilationUnits.toList(), null)
-
-//            lineMap = topLevel.lineMap
-
-            _printElement(0, element)
+            _printElement(indent, element)
         } catch (Exception e) {
             e.printStackTrace()
             System.err.println "Exception in ${element}"
@@ -134,86 +94,135 @@ public class JavacGrepHTML extends AbstractProcessor
         if (docComment != null && (element instanceof ExecutableElement)) {
             ExecutableElement method = (ExecutableElement) element;
 
-            if (includeSingleAssignment(element)) {
-//                def docLines = []
+            if (includeElement(element)) {
+                def docLines = []
                 def paramComments = [:]
                 def returnComment = ''
-//                docComment.eachLine { line ->
-//                    line = line.trim()
-//                    if (line.startsWith('@param')) {
-//                        def m = paramPattern.matcher(line)
-//                        if (m.find()) {
-//                            paramComments[m.group(1)] = m.group(2)
-//                        }
-//                    } else if (line.startsWith('@return')) {
-//                        returnComment = line.substring('@return'.length()).trim()
-//                    } else {
-//                        if (line) docLines << line
-//                    }
-//                }
-//
-//                docComment = docLines.join('\n')
-//
-//                if (!docComment) return ;
+                docComment.eachLine { line ->
+                    line = line.trim()
+                    if (line.startsWith('@param')) {
+                        def m = paramPattern.matcher(line)
+                        if (m.find()) {
+                            paramComments[m.group(1)] = m.group(2)
+                        }
+                    } else if (line.startsWith('@return')) {
+                        returnComment = line.substring('@return'.length()).trim()
+                    } else {
+                        if (line) docLines << line
+                    }
+                }
 
-//                if (docEnv == null) return ;
-//                def docImpl = new MethodDocImpl(docEnv, method, docComment, trees.getTree(element), lineMap)
-//                def methodComment = docImpl.commentText().trim()
-//                if (!methodComment) return ;
-//
-//                def returnTags = docImpl.tags('return')
-//                if (returnTags.size()) returnComment = returnTags[0].text()
-//
-//                docImpl.paramTags().each { ParamTag tag ->
-//                    paramComments[tag.parameterName()] = tag.parameterComment()
-//                }
+                docComment = docLines.join('\n')
+
+                if (!docComment) return ;
+
+                if (docEnv == null) return ;
+                def docImpl = new MethodDocImpl(docEnv, method, docComment, trees.getTree(element), lineMap)
+                def methodComment = docImpl.commentText().trim()
+                if (!methodComment) return ;
+
+                def returnTags = docImpl.tags('return')
+                if (returnTags.size()) returnComment = returnTags[0].text()
+
+                docImpl.paramTags().each { ParamTag tag ->
+                    paramComments[tag.parameterName()] = tag.parameterComment()
+                }
+
+                def docCommentCSS = 'font-size:110%;font-weight:bold;font-style:italic'
 
                 ++includedElements
                 builder.div() {
-                    p {
-                        pre(docComment)
-                    }
-
-//                    div(style:'font-size:110%;') {
-//                        yield(methodComment, false)
+//                    div('class':'docComment') {
+//                        pre(docComment)
 //                    }
 
-                    div {
+                    div('class':'methodComment', style:docCommentCSS) {
+                        mkp.yield(methodComment)
+                    }
+
+                    div('class':'enclosingElementName') {
                         code(fullName(element.enclosingElement))
                     }
 
-                    div {
+                    div('class':'methodDeclaration') {
                         code(method.returnType)
                         code(element.simpleName + "(" + method.parameters.simpleName.join(', ') + ")")
-                        span([style:'font-size:110%;'], returnComment)
+                        span([style:docCommentCSS], returnComment)
                     }
 
-                    div {
+                    div('class':'parameterDeclarations') {
                         for (VariableElement var : method.getParameters()) {
 //                            code(var.getSimpleName() + " : " + var.asType() + " ")
                             code(var.asType())
                             code(var.simpleName)
-                            span([style:'font-size:110%;'], paramComments[var.simpleName.toString()] ?: "")
+                            span([style: docCommentCSS], paramComments[var.simpleName.toString()] ?: "")
                             br()
                         }
                     }
 
-                    printMethod(indent, method);
+                    div('class':'body') {
+                        printMethod(indent, method)
+                    }
+
+                    div('class':'fields') {
+                        Element scope = method
+
+                        while (scope != null && scope.kind != ElementKind.CLASS) {
+                            scope = scope.enclosingElement
+                        }
+
+                        scope.enclosedElements.each { Element member ->
+                            if (member.kind in [ElementKind.FIELD]) {
+                                def varComment = elems.getDocComment(member)?.trim()
+                                div('class':'field') {
+                                    code(member)
+                                    code(member.modifiers)
+                                    if (varComment) span([style:docCommentCSS], varComment)
+
+                                    Object sexp = externalize(trees.getTree(member))
+
+                                    def msw = new StringWriter()
+                                    msw.withPrintWriter { printTree(sexp, new IndentWriter(it) ) }
+                                    pre(msw)
+                                }
+                            }
+                        }
+                    }
 
                     hr()
                 }
             }
         }
 
-        for (Element each : element.getEnclosedElements()) {
-            _printElement(indent + 2, each);
+        def tree = trees.getTree(element)
+        if (tree instanceof CompilationUnitTree) {
+            lineMap = tree.lineMap
         }
 
+        for (Element each : element.getEnclosedElements()) {
+            printElement(indent + 2, each);
+        }
     }
 
     static String fullName(Element element)
     {
         ((element.enclosingElement == null) ? "" : fullName(element.enclosingElement) + ".") + (element instanceof PackageElement ? element.qualifiedName : element.simpleName)
+    }
+
+    protected boolean includeElement(ExecutableElement method)
+    {
+//        includeReturnArrayAccess(method) || includeMethodInvocation(method) || includeReturnVariable(method) || includeReturnLiteral(method) || includeSingleAssignment(method)
+
+//        includeReturnArrayAccess(method) || includeReturnVariable(method) || includeReturnLiteral(method) || includeSingleAssignment(method)
+
+//        includeMethodInvocation(method)
+//        includeReturnArrayAccess(method)
+//        includeReturnVariable(method)
+//        includeReturnLiteral(method)
+        includeSingleAssignment(method)
+//        includeSingleIf(method)
+//        includeSingleWhile(method)
+//        includeSingleFor(method)
     }
 
     protected boolean includeReturnArrayAccess(ExecutableElement method)
@@ -250,9 +259,46 @@ public class JavacGrepHTML extends AbstractProcessor
     {
         MethodTree tree = trees.getTree(method)
 
-        ((method.kind == ElementKind.METHOD) && (tree?.body?.statements?.size() == 1)
+        ((method.kind == ElementKind.METHOD) && (tree.body?.statements?.size() == 1)
                 && (tree.body.statements[0].kind == Tree.Kind.EXPRESSION_STATEMENT )
                 && (tree.body.statements[0].expression.kind == Tree.Kind.ASSIGNMENT ))
+
+    }
+
+    protected boolean includeMethodInvocation(ExecutableElement method)
+    {
+        MethodTree tree = trees.getTree(method)
+
+        ((method.kind == ElementKind.METHOD) && (tree.body?.statements?.size() == 1)
+                && (tree.body.statements[0].kind == Tree.Kind.EXPRESSION_STATEMENT )
+                && (tree.body.statements[0].expression.kind == Tree.Kind.METHOD_INVOCATION ))
+
+    }
+
+    protected boolean includeSingleIf(ExecutableElement method)
+    {
+        MethodTree tree = trees.getTree(method)
+
+        ((method.kind == ElementKind.METHOD) && (tree.body?.statements?.size() == 1)
+                && (tree.body.statements[0].kind == Tree.Kind.IF ))
+
+    }
+
+    protected boolean includeSingleFor(ExecutableElement method)
+    {
+        MethodTree tree = trees.getTree(method)
+
+        ((method.kind == ElementKind.METHOD) && (tree.body?.statements?.size() == 1)
+                && (tree.body.statements[0].kind in [ Tree.Kind.FOR_LOOP, Tree.Kind.ENHANCED_FOR_LOOP ] ))
+
+    }
+
+    protected boolean includeSingleWhile(ExecutableElement method)
+    {
+        MethodTree tree = trees.getTree(method)
+
+        ((method.kind == ElementKind.METHOD) && (tree.body?.statements?.size() == 1)
+                && (tree.body.statements[0].kind in [ Tree.Kind.DO_WHILE_LOOP, Tree.Kind.WHILE_LOOP ] ))
 
     }
 
@@ -267,31 +313,33 @@ public class JavacGrepHTML extends AbstractProcessor
         builder.pre(sw)
     }
 
+//    protected void printMethod(indent, ExecutableElement method)
+//    {
+//        MethodTree tree = trees.getTree(method)
+//
+//        builder.pre(tree.body)
+//
+//        Object sexp = externalize(tree)
+//
+//        StringWriter sw = new StringWriter()
+//        sw.withPrintWriter { printTree(sexp, new IndentWriter(it) ) }
+//        builder.pre(sw)
+//    }
+
     protected void printMethod(indent, ExecutableElement method)
     {
         MethodTree tree = trees.getTree(method)
 
         builder.pre(tree.body)
 
-//        def methodEnv = memberEnter.getMethodEnv(tree, topLevelEnv)
-//
-//        attr.attribStat(tree.body, methodEnv)
-
-//        attr.attribStat(tree.body, enter.getEnv(method))
-
-//        def topLevel = method.enclosingElement
-//        while (!(topLevel instanceof CompilationUnitTree)) { topLevel = topLevel.enclosingElement }
-//        topLevel = trees.getTree(topLevel)
-
-//        def methodEnv = enter.getClassEnv(trees.getTree((TypeElement) method.enclosingElement))
-//
-//        tree.body.statements.each { attr.attribStat(it, methodEnv) }
-
-        Object sexp = externalize(tree)
-
-        StringWriter sw = new StringWriter()
-        sw.withPrintWriter { printTree(sexp, new IndentWriter(it) ) }
+        def sw = new StringWriter()
+        new LambdaFormatter(sw, false).printStat(tree.body)
         builder.pre(sw)
+
+        sw = new StringWriter()
+        sw.withPrintWriter { printTree(externalize(tree), new IndentWriter(it) ) }
+        builder.pre(sw)
+
     }
 
     def externalize(Object obj)
@@ -313,7 +361,7 @@ public class JavacGrepHTML extends AbstractProcessor
                 }
             }
             if (tree.class.declaredFields.find { it.name == 'sym' }) {
-                obj << symbol_info(tree)
+                obj << ['SYM', externalize(tree.sym)]
             }
 
         } else if (obj instanceof List) {
@@ -323,51 +371,6 @@ public class JavacGrepHTML extends AbstractProcessor
         }
 
         obj
-    }
-
-    def symbol_info(JCTree ident)
-    {
-        Symbol sym = TreeInfo.symbolFor(ident)
-
-        if (sym == null) sym = TreeInfo.symbol(ident)
-
-        if (sym == null) {
-            if ((ident instanceof JCTree.JCIdent) || (ident instanceof JCTree.JCFieldAccess)) {
-                try {
-                    sym = attr.attribIdent(ident, topLevel.toplevel)
-                } catch (NullPointerException npe) {
-                    // This fails when the selected of the MemberSelect (FieldAccess) doesn't resolve
-                    // to a symbol, such as when a method call or other expression is evaluated to
-                    // get the container for the members.
-                    // Probably the correct thing for MemberSelect is to get the type of selected.
-                    println ident.name
-                }
-            }
-
-//            } else if (ident instanceof JCTree.JCFieldAccess) {
-//                def type = attr.attribExpr(ident, methodEnv)
-//                attr.visitSelect(ident)
-//                sym = ident.sym
-        }
-
-        def r = ['SYM']
-
-        if (sym != null) {
-//            r << sym.name
-            r << sym.flatName()
-            def flags = Flags.asModifierSet(sym.flags())
-            if (!flags.empty) r << ['FLAGS'] + flags
-            if (sym.attributes_field.nonEmpty()) r << ['ATTR'] + sym.attributes_field.toString()
-//            if (sym.owner != null && sym.owner.name.toString()) { r << ['OWNER', sym.owner.name, sym.owner.flatName()] }
-            if (sym.owner != null && sym.owner.name.toString()) {
-                def owner_tree = trees.getTree(sym.owner)
-                if (owner_tree != null) r << ['OWNER', symbol_info(owner_tree)]
-            }
-        } else {
-            r << '*none*'
-        }
-
-        r
     }
 
     static def printTree(Object tree, IndentWriter writer)
@@ -407,9 +410,9 @@ public class JavacGrepHTML extends AbstractProcessor
             def elements = roundEnv.getRootElements().sort { it.simpleName };
             for (Element each : elements) {
 //                if (each.kind == ElementKind.CLASS) {
-//                    Symbol sym = compiler.resolveIdent(((TypeElement)each).qualifiedName.toString())
+//                    Symbol sym = compiler.resolveIdent(each.qualifiedName)
 //                }
-                printElement(each);
+                printElement(0, each);
             }
             builder.p("$includedElements matched.")
         }
