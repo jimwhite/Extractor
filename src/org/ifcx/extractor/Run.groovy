@@ -29,7 +29,7 @@ assert fileman.handleOption("-classpath", [classpath].iterator())
 
 def files = [:]
 [new File('src')/*, new File('jdksrc/src'), new File('/Users/jim/Projects/Apache/Ant/apache-ant-1.8.4/src/main')*/].each { File dir ->
-    dir.eachFileRecurse { if ((it.name ==~ /.*.java$/) /*&& !(it.path =~ "org/ifcx")*/) files[it.path.substring(dir.path.length())] = it }
+    dir.eachFileRecurse { if ((it.name ==~ /.*.java$/) && !(it.path =~ "org/ifcx")) files[it.path.substring(dir.path.length())] = it }
 }
 
 //println files

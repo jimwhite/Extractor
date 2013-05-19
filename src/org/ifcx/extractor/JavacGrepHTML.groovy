@@ -62,7 +62,10 @@ public class JavacGrepHTML extends AbstractProcessor
     LineMap lineMap
     def topLevelEnv
     Env<AttrContext> topLevel
-    def compilationUnits = new  ListBuffer<JCCompilationUnit>()
+//    def compilationUnits = new  ListBuffer<JCCompilationUnit>()
+
+    BodyChecker bodyChecker = new BodyChecker()
+
 
 //    WritableWorkbook workbook = Workbook.createWorkbook(new File("tmp/output.xls"));
 
@@ -134,7 +137,24 @@ public class JavacGrepHTML extends AbstractProcessor
         if (docComment != null && (element instanceof ExecutableElement)) {
             ExecutableElement method = (ExecutableElement) element;
 
-            if (includeSingleAssignment(element)) {
+/*
+            if (method.simpleName.contentEquals("typeMismatch")) {
+                println method.simpleName
+            }
+            try {
+                bodyChecker.scan(trees.getTree(method).body)
+            } catch (NullPointerException npe) {
+                println method.simpleName
+                npe.printStackTrace()
+            }
+*/
+
+            def simpleBody = bodyChecker.scan((Tree) trees.getTree(method).body, null)
+//            if (simpleBody) {
+//                println method.simpleName
+//            }
+
+            if (simpleBody && includeSingleAssignment(element)) {
 //                def docLines = []
                 def paramComments = [:]
                 def returnComment = ''
@@ -167,6 +187,10 @@ public class JavacGrepHTML extends AbstractProcessor
 //                docImpl.paramTags().each { ParamTag tag ->
 //                    paramComments[tag.parameterName()] = tag.parameterComment()
 //                }
+
+                if (element.simpleName.contentEquals("typeMismatch")) {
+                    println "hey!"
+                }
 
                 ++includedElements
                 builder.div() {
