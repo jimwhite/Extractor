@@ -2,67 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea1cc0be-2808-4135-9c45-76ae4ade5c61" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/uimafit_1_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/ifcx/extractor/GetStartedQuickAE.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/ifcx/extractor/UIMAProcessing.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/jxl.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/dkpro_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/ifcx/extractor/JavadocGrepHTML.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/ifcx/extractor/RunJavadoc.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/ifcx/extractor/LambdaFormatter.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/aduna-commons-net-2.3.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/aduna-commons-xml-2.3.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LING575_G2P/normalized.txt" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ifcx/extractor/GenRDFaTreeScanner.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ifcx/extractor/RDFExtractor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LING572/hw7/gen_condor_dag.groovy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ifcx/extractor/JavacFramer.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ifcx/extractor/JavacGrepRDFa.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/aduna-commons-collections-2.4.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ifcx/pup/model/Person.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/aduna-commons-lang-2.4.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/aduna-commons-concurrent-2.3.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../SEMST2012/src/IndentWriter.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/aduna-commons-io-2.5.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/aduna-commons-iteration-2.4.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/aduna-commons-i18n-1.1.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ifcx/pup/model/Project.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ifcx/extractor/RDFExtractor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ifcx/extractor/RDFaScanner.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ifcx/extractor/util/ProcRunner.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/aduna-commons-text-2.3.0.jar" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/ifcx/extractor/Run.groovy" afterPath="$PROJECT_DIR$/src/org/ifcx/extractor/Run.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/ifcx/extractor/GenTreeScannerSource.groovy" afterPath="$PROJECT_DIR$/src/org/ifcx/extractor/GenTreeScannerSource.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LING575_G2P/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../LING575_G2P/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sun/tools/javadoc/DocEnv.java" afterPath="$PROJECT_DIR$/src/com/sun/tools/javadoc/DocEnv.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LING575_G2P/src/G2P.java" afterPath="$PROJECT_DIR$/../LING575_G2P/src/G2P.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LING575_G2P/src/G2PTest.java" afterPath="$PROJECT_DIR$/../LING575_G2P/src/G2PTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SEMST2012/test_final.sh" afterPath="$PROJECT_DIR$/../SEMST2012/test_final.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/ifcx/extractor/Pretty.java" afterPath="$PROJECT_DIR$/src/org/ifcx/extractor/Pretty.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Extractor.iml" afterPath="$PROJECT_DIR$/Extractor.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/ifcx/extractor/GenSexpTreeScanner.groovy" afterPath="$PROJECT_DIR$/src/org/ifcx/extractor/GenSexpTreeScanner.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/ifcx/extractor/JavacGrep.groovy" afterPath="$PROJECT_DIR$/src/org/ifcx/extractor/JavacGrep.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LING572/hw8/svm_predict.groovy" afterPath="$PROJECT_DIR$/../LING572/hw8/svm_predict.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sun/tools/javac/tree/Pretty.java" afterPath="$PROJECT_DIR$/src/com/sun/tools/javac/tree/Pretty.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SEMST2012/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../SEMST2012/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LING571/hw7/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../LING571/hw7/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LING572/hw7/.idea/misc.xml" afterPath="$PROJECT_DIR$/../LING572/hw7/.idea/misc.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/ifcx/extractor/RDFaScanner.java" afterPath="$PROJECT_DIR$/src/org/ifcx/extractor/rdf/RDFaScanner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LING575_G2P/LW/consonants.txt" afterPath="$PROJECT_DIR$/../LING575_G2P/LW/consonants.txt" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ifcx/extractor/util/RDFaWriter.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/ifcx/extractor/gen/GenTreeScanner.java" afterPath="$PROJECT_DIR$/src/org/ifcx/extractor/gen/GenTreeScanner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LING572/hw9/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../LING572/hw9/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LING572/hw7/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../LING572/hw7/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/ifcx/extractor/util/RDFaWriter.java" afterPath="$PROJECT_DIR$/src/org/ifcx/extractor/rdf/RDFaWriter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SEMST2012/out/production/SEMST2012/BlankLineTerminatedReader.class" afterPath="$PROJECT_DIR$/../SEMST2012/out/production/SEMST2012/BlankLineTerminatedReader.class" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/ifcx/extractor/JavacFramer.java" afterPath="$PROJECT_DIR$/src/org/ifcx/extractor/rdf/JavacFramer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SEMST2012/.idea/gradle.xml" afterPath="$PROJECT_DIR$/../SEMST2012/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/ifcx/extractor/JavacGrepHTML.groovy" afterPath="$PROJECT_DIR$/src/org/ifcx/extractor/JavacGrepHTML.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LING572/hw8/hw8_q1.sh" afterPath="$PROJECT_DIR$/../LING572/hw8/hw8_q1.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SEMST2012/notes.txt" afterPath="$PROJECT_DIR$/../SEMST2012/notes.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SEMST2012/.idea/vcs.xml" afterPath="$PROJECT_DIR$/../SEMST2012/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LING575_G2P/LW/abbreviations.txt" afterPath="$PROJECT_DIR$/../LING575_G2P/LW/abbreviations.txt" />
     </list>
     <ignored path="Extractor.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1368909804046" ignored="false" />
+    <file path="/Dummy.txt" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1368930071056" ignored="false" />
     <file path="/JavadocGrepHTML.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1367216863008" ignored="false" />
     <file path="/RunJavadoc.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1366014275790" ignored="false" />
     <file path="$USER_HOME$/Downloads/jvm1.6.0-notools/Contents/Classes/classes.jar!/javax/annotation/processing/SupportedSourceVersion.class" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1367210289171" ignored="false" />
@@ -174,9 +125,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/sun/tools/javac/main/JavaCompiler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="534" column="30" selection-start="17092" selection-end="17092" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -203,17 +152,6 @@
         <entry file="file://$PROJECT_DIR$/src/com/sun/tools/javac/util/Options.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="44" column="23" selection-start="1922" selection-end="1922" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#1922#1931#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JavaCompiler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sun/tools/apt/main/JavaCompiler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="65" selection-start="2072" selection-end="2072" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -223,19 +161,28 @@
         <entry file="file://$PROJECT_DIR$/src/org/ifcx/extractor/Run.groovy">
           <provider selected="true" editor-type-id="text-editor">
             <state line="49" column="43" selection-start="2062" selection-end="2062" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PrettyNew.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/ifcx/extractor/PrettyNew.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="22" selection-start="425" selection-end="425" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#28#67#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PrettyNew.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/org/ifcx/extractor/PrettyNew.java">
+      <file leaf-file-name="GetStartedQuickAE.groovy" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/org/ifcx/extractor/GetStartedQuickAE.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="22" selection-start="425" selection-end="425" vertical-scroll-proportion="0.33994335">
+            <state line="2" column="0" selection-start="28" selection-end="28" vertical-scroll-proportion="0.029850746">
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#28#97#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -245,9 +192,7 @@
         <entry file="file://$PROJECT_DIR$/src/org/ifcx/extractor/Pretty.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="51" column="37" selection-start="2004" selection-end="2023" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -324,6 +269,30 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Extractor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Extractor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -420,280 +389,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sun" />
+              <option name="myItemId" value="extractor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tools" />
+              <option name="myItemId" value="util" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sun" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javac" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sun" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javac" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tree" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sun" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javac" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="processing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sun" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javac" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sun" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sun" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sun" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jdk1.6.0-notools" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jdk1.6.0-notools" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Contents" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jdk1.6.0-notools" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Contents" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Classes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -703,13 +404,13 @@
   <component name="PropertiesComponent">
     <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="true" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="OverrideImplement.combined" value="true" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="recentsLimit" value="5" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="GenerateAntBuildDialog.generateSingleFile" value="true" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="recentsLimit" value="5" />
     <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="false" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="extractor" />
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="false" />
@@ -729,8 +430,8 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
-    <property name="dynamic.classpath" value="false" />
     <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -829,12 +530,6 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
-      <option name="PROGRAM_PARAMETERS" />
-      <method />
-    </configuration>
     <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
       <module name="" />
       <setting name="path" value="" />
@@ -844,25 +539,18 @@
       <setting name="debug" value="false" />
       <method />
     </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -893,6 +581,19 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -906,6 +607,13 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -927,13 +635,6 @@
       </option>
       <envs />
       <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="false" name="ProcRunner" type="Application" factoryName="Application">
@@ -1025,12 +726,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="8" y="22" width="1693" height="1174" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32827324" sideWeight="0.49782372" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3975332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1039,20 +739,21 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32163188" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25318763" sideWeight="0.7182163" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18336369" sideWeight="0.7182163" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18336369" sideWeight="0.7182163" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28178367" sideWeight="0.49347118" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24971688" sideWeight="0.49668875" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32827324" sideWeight="0.49782372" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32163188" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1121,29 +822,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/javax/tools/JavaCompiler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#14514#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sun/tools/javac/processing/JavacProcessingEnvironment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="13" selection-start="3076" selection-end="3076" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ifcx/extractor/JavacGrep.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sun/tools/javac/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="387" column="0" selection-start="13821" selection-end="13821" vertical-scroll-proportion="0.020576132">
@@ -1168,9 +846,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/sun/tools/javac/util/Options.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="44" column="23" selection-start="1922" selection-end="1922" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#1922#1931#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1184,31 +860,23 @@
     <entry file="file://$PROJECT_DIR$/src/org/ifcx/extractor/Pretty.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="51" column="37" selection-start="2004" selection-end="2023" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/jdk1.6.0-notools/Contents/Classes/classes.jar!/java/lang/Class.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="44" selection-start="6289" selection-end="6289" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="136" column="44" selection-start="6289" selection-end="6289" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/jdk1.6.0-notools/Contents/Classes/classes.jar!/java/lang/reflect/Type.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="17" selection-start="164" selection-end="164" vertical-scroll-proportion="0.11415525">
-          <folding />
-        </state>
+        <state line="6" column="17" selection-start="164" selection-end="164" vertical-scroll-proportion="0.11415525" />
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/jdk1.6.0-notools/Contents/Classes/classes.jar!/java/lang/Boolean.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="19" selection-start="158" selection-end="158" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="6" column="19" selection-start="158" selection-end="158" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/ifcx/extractor/GenTreeScannerSource.groovy">
@@ -1221,26 +889,31 @@
     <entry file="file://$PROJECT_DIR$/src/org/ifcx/extractor/Run.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="43" selection-start="2062" selection-end="2062" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#28#67#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sun/tools/javac/main/JavaCompiler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="534" column="30" selection-start="17092" selection-end="17092" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ifcx/extractor/PrettyNew.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="22" selection-start="425" selection-end="425" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ifcx/extractor/PrettyNew.java">
+    <entry file="file://$PROJECT_DIR$/src/org/ifcx/extractor/GetStartedQuickAE.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="22" selection-start="425" selection-end="425" vertical-scroll-proportion="0.33994335">
+        <state line="2" column="0" selection-start="28" selection-end="28" vertical-scroll-proportion="0.029850746">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#28#97#0" expanded="true" />
           </folding>
         </state>
       </provider>
