@@ -44,8 +44,11 @@ import com.sun.tools.javadoc.ModifierFilter
 @SupportedSourceVersion(SourceVersion.RELEASE_6)
 public class JavadocGrepHTML extends AbstractProcessor
 {
-    MarkupBuilder builder
     Integer includedElements = 0
+
+    MarkupBuilder builder
+
+    File abstracts_file
 
     DocEnv docEnv
 
@@ -70,6 +73,9 @@ public class JavadocGrepHTML extends AbstractProcessor
         attr = Attr.instance(context)
 
         builder = b
+
+        abstracts_file = new File("method_abstracts.txt")
+        abstracts_file.write("")
     }
 
     @Override
@@ -397,6 +403,7 @@ public class JavadocGrepHTML extends AbstractProcessor
         sw.withPrintWriter { printTree(abstracted_tree(method, tree, methodComment, returnComment, paramComments), new IndentWriter(it) ) }
         builder.pre('class':'method-body-tree', sw)
 
+        if (abstracts_file != null) abstracts_file << sw.toString() + "\n\n"
     }
 
     def abstract_tree_variables = []
@@ -414,7 +421,7 @@ public class JavadocGrepHTML extends AbstractProcessor
     {
         abstract_tree_variables = []
 
-        def res = ["ABSTRACT", ["Id", methodId(tree)]]
+        def res = ["METHOD", ["Id", methodId(tree)]]
 
         if (methodComment) res << ["Comment", methodComment]
 
