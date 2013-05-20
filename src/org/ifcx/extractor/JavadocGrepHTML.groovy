@@ -21,6 +21,7 @@ import com.sun.tools.javadoc.MethodDocImpl
 import groovy.xml.MarkupBuilder
 import org.ifcx.extractor.util.IndentWriter
 
+import javax.lang.model.element.Name
 import javax.lang.model.type.TypeVariable
 import java.util.regex.Pattern
 import javax.annotation.processing.AbstractProcessor
@@ -112,17 +113,32 @@ public class JavadocGrepHTML extends AbstractProcessor
                 def docLines = []
                 def paramComments = [:]
                 def returnComment = ''
+                def paramContinuation = null
+                def returnContinuation = false
                 docComment.eachLine { line ->
                     line = line.trim()
-                    if (line.startsWith('@param')) {
-                        def m = paramPattern.matcher(line)
-                        if (m.find()) {
-                            paramComments[m.group(1)] = m.group(2)
+                    if (line) {
+                        if (line.startsWith('@param')) {
+                            paramContinuation = null
+                            returnContinuation = false
+                            def m = paramPattern.matcher(line)
+                            if (m.find()) {
+                                paramContinuation = m.group(1)
+                                paramComments[paramContinuation] = m.group(2)
+                            }
+                        } else if (line.startsWith('@return')) {
+                            paramContinuation = null
+                            returnContinuation = true
+                            returnComment = line.substring('@return'.length()).trim()
+                        } else {
+                            if (returnContinuation) {
+                                returnComment += "\n" + line
+                            } else if (paramContinuation) {
+                                paramComments[paramContinuation] = paramComments[paramContinuation] + "\n" + line
+                            } else {
+                                docLines << line
+                            }
                         }
-                    } else if (line.startsWith('@return')) {
-                        returnComment = line.substring('@return'.length()).trim()
-                    } else {
-                        if (line) docLines << line
                     }
                 }
 
@@ -181,7 +197,7 @@ public class JavadocGrepHTML extends AbstractProcessor
                     }
 
                     div('class':'body') {
-                        printMethod(indent, element)
+                        printMethod(indent, element, docComment, returnComment, paramComments)
                     }
 
 /*
@@ -221,7 +237,7 @@ public class JavadocGrepHTML extends AbstractProcessor
         }
     }
 
-    String methodId(JCTree.JCMethodDecl methodTree)
+    String methodId(MethodTree methodTree)
     {
         def typeVariables = methodTree.parameters.grep { it.vartype.@'type' instanceof TypeVariable }
         def typeVariableNames = typeVariables.collectEntries {
@@ -367,7 +383,7 @@ public class JavadocGrepHTML extends AbstractProcessor
 //        builder.pre(sw)
 //    }
 
-    protected void printMethod(indent, ExecutableElement method)
+    protected void printMethod(indent, ExecutableElement method, String methodComment, String returnComment, Map paramComments)
     {
         MethodTree tree = trees.getTree(method)
 
@@ -378,38 +394,52 @@ public class JavadocGrepHTML extends AbstractProcessor
 //        builder.pre(sw)
 
         def sw = new StringWriter()
-        sw.withPrintWriter { printTree(abstracted_tree(tree.body.statements[0]), new IndentWriter(it) ) }
+        sw.withPrintWriter { printTree(abstracted_tree(method, tree, methodComment, returnComment, paramComments), new IndentWriter(it) ) }
         builder.pre('class':'method-body-tree', sw)
 
     }
 
     def abstract_tree_variables = []
 
-    def new_abstract_tree_variable(obj)
+    def new_abstract_tree_variable(Name name)
     {
         def new_var = ["IDENTIFIER", abstract_tree_variables.size()]
 
-        abstract_tree_variables << [new_var, obj]
+        abstract_tree_variables << [new_var, ['Name', name.toString()]]
 
         new_var
     }
 
-    def abstracted_tree(Object obj)
+    def abstracted_tree(ExecutableElement method, MethodTree tree, String methodComment, String returnComment, Map paramComments)
     {
         abstract_tree_variables = []
 
-        def sexp = _abstract_tree(obj)
+        def res = ["ABSTRACT", ["Id", methodId(tree)]]
 
-        ["ABSTRACT", ["Vars", abstract_tree_variables], ["Tree", sexp]]
+        if (methodComment) res << ["Comment", methodComment]
+
+        res << ["Name", method.simpleName.toString()]
+        res << ["Enclosure", fullName(method.enclosingElement)]
+
+        res << ["Parameters", externalize(tree.parameters)]
+        if (paramComments) res << ["ParameterComments", paramComments.collect { k, v -> [["Name", k], ["Comment", v]] }]
+
+        res << ["ReturnType", externalize(tree.returnType)]
+        if (returnComment) res << ["ReturnComment", returnComment]
+
+        res << ["Vars", abstract_tree_variables]
+        res << ["Tree", _abstract_tree(tree.body.statements[0])]
+
+        res
     }
 
     def _abstract_tree(Object obj) {
         if (obj instanceof Tree) {
             Tree tree = obj
             if (tree.kind == Tree.Kind.IDENTIFIER) {
-                def ident = ['Name', tree.name]
-                if (tree.sym != null) ident << ['SYM', tree.sym.qualifiedName]
-                obj = new_abstract_tree_variable(ident)
+//                def ident = ['Name', tree.name]
+//                if (tree.sym != null) ident << ['SYM', tree.sym.qualifiedName]
+                obj = new_abstract_tree_variable(tree.name)
             } else {
                 obj = [tree.kind]
                 def treeKlazz = tree.class.interfaces.find { Tree.class.isAssignableFrom(it) }
@@ -452,14 +482,20 @@ public class JavadocGrepHTML extends AbstractProcessor
                 def name = propertyMethod.name
                 // ${Tree.isAssignableFrom(propertyMethod.returnType)} ${treeListType.isAssignableFrom(propertyMethod.returnType)} ${propertyMethod} ${propertyMethod.returnType}"
                     if (name.startsWith('get')) {
-                        obj << [name.substring(3), externalize(propertyMethod.invoke(tree))]
+//                        if (name.equals("getModifiers")) {
+//                            println tree
+//                        }
+                        def v = externalize(propertyMethod.invoke(tree))
+                        if (v) obj << [name.substring(3), v]
                     } else if (name.startsWith('is')) {
-                        obj << [name.substring(2), externalize(propertyMethod.invoke(tree))]
+                        def v = externalize(propertyMethod.invoke(tree))
+                        if (v) obj << [name.substring(2), v]
                     }
                 }
             if (tree.class.declaredFields.find { it.name == 'sym' }) {
                 obj << ['SYM', externalize(tree.sym)]
             }
+            if (obj.size() == 1) obj = []
         } else if (obj instanceof List) {
             obj = obj.isEmpty() ? [] : ['LIST'] + obj.collect { externalize(it) }
         } else if (obj instanceof Set) {
