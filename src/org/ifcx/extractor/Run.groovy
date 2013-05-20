@@ -49,6 +49,8 @@ Context context = task.context
 Options options = Options.instance(context)
 options.put("org.ifcx.extractor.printer", "org.ifcx.extractor.PrettyNew")
 
+//Messager.preRegister(context, "JavadocGrep")
+
 //com.sun.tools.apt.main.JavaCompiler.instance(context)
 
 new File("tmp/run-output.html").withPrintWriter {

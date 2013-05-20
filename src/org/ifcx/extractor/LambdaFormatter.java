@@ -713,7 +713,9 @@ public class LambdaFormatter extends Visitor {
 
     public void visitExec(JCExpressionStatement tree) {
         try {
+            print("(expr");
             printExpr(tree.expr);
+            print(")");
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
@@ -1008,7 +1010,8 @@ public class LambdaFormatter extends Visitor {
 
     public void visitIdent(JCIdent tree) {
         try {
-            print(tree.name/* + " #" + tree.sym + "# "*/);
+//            print(tree.name/* + " #" + tree.sym + "# "*/);
+            print("(IDENT)");
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }

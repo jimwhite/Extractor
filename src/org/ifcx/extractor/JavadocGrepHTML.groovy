@@ -8,8 +8,11 @@ import com.sun.source.tree.MethodTree
 import com.sun.source.tree.VariableTree
 import com.sun.source.tree.Tree
 import com.sun.source.util.Trees
+import com.sun.tools.javac.code.Symbol
+import com.sun.tools.javac.code.Type
 import com.sun.tools.javac.comp.Attr
 import com.sun.tools.javac.processing.JavacProcessingEnvironment
+import com.sun.tools.javac.tree.JCTree
 import com.sun.tools.javac.tree.TreeMaker
 import com.sun.tools.javac.util.Context
 import com.sun.tools.javadoc.DocEnv
@@ -18,6 +21,7 @@ import com.sun.tools.javadoc.MethodDocImpl
 import groovy.xml.MarkupBuilder
 import org.ifcx.extractor.util.IndentWriter
 
+import javax.lang.model.type.TypeVariable
 import java.util.regex.Pattern
 import javax.annotation.processing.AbstractProcessor
 import javax.annotation.processing.ProcessingEnvironment
@@ -53,6 +57,8 @@ public class JavadocGrepHTML extends AbstractProcessor
     Elements elems;
 
     LineMap lineMap
+
+    BodyChecker bodyChecker = new BodyChecker()
 
     public JavadocGrepHTML(Context context, MarkupBuilder b)
     {
@@ -90,11 +96,19 @@ public class JavadocGrepHTML extends AbstractProcessor
 
     void _printElement(int indent, Element element)
     {
-        String docComment = elems.getDocComment(element);
-        if (docComment != null && (element instanceof ExecutableElement)) {
-            ExecutableElement method = (ExecutableElement) element;
+        def tree = trees.getTree(element)
+        if (tree instanceof CompilationUnitTree) {
+            lineMap = tree.lineMap
+        }
 
-            if (includeElement(element)) {
+        String docComment = elems.getDocComment(element);
+        if (docComment != null && (element.kind == ElementKind.METHOD) && (trees.getTree(element) != null)) {
+            Symbol.MethodSymbol method = element
+            JCTree.JCMethodDecl methodTree = (MethodTree) trees.getTree(method)
+
+            def simpleBody = bodyChecker.scan((Tree) methodTree.body, null)
+
+            if (simpleBody && isSingleStatement(methodTree)) {
                 def docLines = []
                 def paramComments = [:]
                 def returnComment = ''
@@ -131,12 +145,18 @@ public class JavadocGrepHTML extends AbstractProcessor
                 def docCommentCSS = 'font-size:110%;font-weight:bold;font-style:italic'
 
                 ++includedElements
-                builder.div() {
-//                    div('class':'docComment') {
-//                        pre(docComment)
-//                    }
+                builder.div('class':'method') {
+                    code('class':'method-id', methodId(methodTree))
 
-                    div('class':'methodComment', style:docCommentCSS) {
+/*
+                    if (docComment) {
+                        p {
+                            pre('class':'method-docComment', docComment)
+                        }
+                    }
+*/
+
+                    div('class':'method-docComment', style:docCommentCSS) {
                         mkp.yield(methodComment)
                     }
 
@@ -161,17 +181,18 @@ public class JavadocGrepHTML extends AbstractProcessor
                     }
 
                     div('class':'body') {
-                        printMethod(indent, method)
+                        printMethod(indent, element)
                     }
 
+/*
                     div('class':'fields') {
-                        Element scope = method
+                        Element scope = element
 
-                        while (scope != null && scope.kind != ElementKind.CLASS) {
+                        while (scope != null && scope.kind != ElementKind.CLASS && scope.enclosingElement != null) {
                             scope = scope.enclosingElement
                         }
 
-                        scope.enclosedElements.each { Element member ->
+                        scope?.enclosedElements?.each { Element member ->
                             if (member.kind in [ElementKind.FIELD]) {
                                 def varComment = elems.getDocComment(member)?.trim()
                                 div('class':'field') {
@@ -188,15 +209,11 @@ public class JavadocGrepHTML extends AbstractProcessor
                             }
                         }
                     }
+*/
 
                     hr()
                 }
             }
-        }
-
-        def tree = trees.getTree(element)
-        if (tree instanceof CompilationUnitTree) {
-            lineMap = tree.lineMap
         }
 
         for (Element each : element.getEnclosedElements()) {
@@ -204,9 +221,33 @@ public class JavadocGrepHTML extends AbstractProcessor
         }
     }
 
+    String methodId(JCTree.JCMethodDecl methodTree)
+    {
+        def typeVariables = methodTree.parameters.grep { it.vartype.@'type' instanceof TypeVariable }
+        def typeVariableNames = typeVariables.collectEntries {
+            Type.TypeVar vtt = it.vartype.@'type'
+            [vtt.tsym.flatName(), '~' + vtt.upperBound.tsym.flatName() + '~' + vtt.lowerBound.tsym.flatName()] }
+
+        def nameToType = { typeVariableNames.containsKey(it) ? typeVariableNames[it] : it }
+
+        def parameterTypes = methodTree.parameters.collect {
+            def n = it.vartype.@'type'.tsym.flatName()
+            nameToType(n)
+        }
+
+        def returnTypeName = methodTree.returnType.@'type'.tsym.flatName()
+        ['method', fullName(methodTree.sym.enclosingElement), methodTree.sym.qualifiedName, nameToType(returnTypeName), parameterTypes.size() as String, *parameterTypes].join('|')
+    }
+
+
     static String fullName(Element element)
     {
         ((element.enclosingElement == null) ? "" : fullName(element.enclosingElement) + ".") + (element instanceof PackageElement ? element.qualifiedName : element.simpleName)
+    }
+
+    protected boolean isSingleStatement(MethodTree tree)
+    {
+        (tree.body?.statements?.size() == 1)
     }
 
     protected boolean includeElement(ExecutableElement method)
@@ -330,16 +371,72 @@ public class JavadocGrepHTML extends AbstractProcessor
     {
         MethodTree tree = trees.getTree(method)
 
-        builder.pre(tree.body)
+        builder.pre('class':'method-body-source', tree.body)
+
+//        def sw = new StringWriter()
+//        new LambdaFormatter(sw, false).printStat(tree.body)
+//        builder.pre(sw)
 
         def sw = new StringWriter()
-        new LambdaFormatter(sw, false).printStat(tree.body)
-        builder.pre(sw)
+        sw.withPrintWriter { printTree(abstracted_tree(tree.body.statements[0]), new IndentWriter(it) ) }
+        builder.pre('class':'method-body-tree', sw)
 
-        sw = new StringWriter()
-        sw.withPrintWriter { printTree(externalize(tree), new IndentWriter(it) ) }
-        builder.pre(sw)
+    }
 
+    def abstract_tree_variables = []
+
+    def new_abstract_tree_variable(obj)
+    {
+        def new_var = ["IDENTIFIER", abstract_tree_variables.size()]
+
+        abstract_tree_variables << [new_var, obj]
+
+        new_var
+    }
+
+    def abstracted_tree(Object obj)
+    {
+        abstract_tree_variables = []
+
+        def sexp = _abstract_tree(obj)
+
+        ["ABSTRACT", ["Vars", abstract_tree_variables], ["Tree", sexp]]
+    }
+
+    def _abstract_tree(Object obj) {
+        if (obj instanceof Tree) {
+            Tree tree = obj
+            if (tree.kind == Tree.Kind.IDENTIFIER) {
+                def ident = ['Name', tree.name]
+                if (tree.sym != null) ident << ['SYM', tree.sym.qualifiedName]
+                obj = new_abstract_tree_variable(ident)
+            } else {
+                obj = [tree.kind]
+                def treeKlazz = tree.class.interfaces.find { Tree.class.isAssignableFrom(it) }
+                if (!treeKlazz) {
+                    return tree
+                }
+                treeKlazz.declaredMethods.sort { it.name }.each { propertyMethod ->
+                    def name = propertyMethod.name
+                    // ${Tree.isAssignableFrom(propertyMethod.returnType)} ${treeListType.isAssignableFrom(propertyMethod.returnType)} ${propertyMethod} ${propertyMethod.returnType}"
+                    if (name.equals("getIdentifier")) {
+                        obj << ["Identifier", new_abstract_tree_variable(propertyMethod.invoke(tree))]
+                    } else {
+                        if (name.startsWith('get')) {
+                            obj << [name.substring(3), _abstract_tree(propertyMethod.invoke(tree))]
+                        } else if (name.startsWith('is')) {
+                            obj << [name.substring(2), _abstract_tree(propertyMethod.invoke(tree))]
+                        }
+                    }
+                }
+            }
+        } else if (obj instanceof List) {
+            obj = obj.isEmpty() ? [] : ['LIST'] + obj.collect { _abstract_tree(it) }
+        } else if (obj instanceof Set) {
+            obj = obj.isEmpty() ? [] : ['SET'] + obj.collect { _abstract_tree(it) }
+        }
+
+        obj
     }
 
     def externalize(Object obj)
@@ -354,16 +451,15 @@ public class JavadocGrepHTML extends AbstractProcessor
             treeKlazz.declaredMethods.sort{ it.name }.each { propertyMethod ->
                 def name = propertyMethod.name
                 // ${Tree.isAssignableFrom(propertyMethod.returnType)} ${treeListType.isAssignableFrom(propertyMethod.returnType)} ${propertyMethod} ${propertyMethod.returnType}"
-                if (name.startsWith('get')) {
-                    obj << [name.substring(3), externalize(propertyMethod.invoke(tree))]
-                } else if (name.startsWith('is')) {
-                    obj << [name.substring(2), externalize(propertyMethod.invoke(tree))]
+                    if (name.startsWith('get')) {
+                        obj << [name.substring(3), externalize(propertyMethod.invoke(tree))]
+                    } else if (name.startsWith('is')) {
+                        obj << [name.substring(2), externalize(propertyMethod.invoke(tree))]
+                    }
                 }
-            }
             if (tree.class.declaredFields.find { it.name == 'sym' }) {
                 obj << ['SYM', externalize(tree.sym)]
             }
-
         } else if (obj instanceof List) {
             obj = obj.isEmpty() ? [] : ['LIST'] + obj.collect { externalize(it) }
         } else if (obj instanceof Set) {

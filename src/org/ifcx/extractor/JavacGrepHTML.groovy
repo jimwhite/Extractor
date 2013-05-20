@@ -1,5 +1,6 @@
 package org.ifcx.extractor
 
+import com.sun.javadoc.ParamTag
 import com.sun.source.tree.AssignmentTree
 import com.sun.source.tree.CompoundAssignmentTree
 import com.sun.source.tree.MethodTree
@@ -16,6 +17,8 @@ import com.sun.tools.javac.processing.JavacProcessingEnvironment
 import com.sun.tools.javac.tree.JCTree
 import com.sun.tools.javac.tree.TreeInfo
 import com.sun.tools.javac.tree.TreeMaker
+import com.sun.tools.javadoc.DocEnv
+import com.sun.tools.javadoc.MethodDocImpl
 
 import javax.annotation.processing.AbstractProcessor
 import javax.annotation.processing.ProcessingEnvironment
@@ -49,7 +52,7 @@ public class JavacGrepHTML extends AbstractProcessor
     MarkupBuilder builder
     Integer includedElements = 0
 
-//    DocEnv docEnv
+    DocEnv docEnv
 
     JavaCompiler compiler
 
@@ -159,38 +162,41 @@ public class JavacGrepHTML extends AbstractProcessor
 
 
             if (simpleBody && isSingleStatement(methodTree)) {
-//                def docLines = []
+                def docLines = []
                 def paramComments = [:]
                 def returnComment = ''
-//                docComment.eachLine { line ->
-//                    line = line.trim()
-//                    if (line.startsWith('@param')) {
-//                        def m = paramPattern.matcher(line)
-//                        if (m.find()) {
-//                            paramComments[m.group(1)] = m.group(2)
-//                        }
-//                    } else if (line.startsWith('@return')) {
-//                        returnComment = line.substring('@return'.length()).trim()
-//                    } else {
-//                        if (line) docLines << line
-//                    }
-//                }
-//
-//                docComment = docLines.join('\n')
-//
-//                if (!docComment) return ;
 
-//                if (docEnv == null) return ;
-//                def docImpl = new MethodDocImpl(docEnv, method, docComment, trees.getTree(element), lineMap)
-//                def methodComment = docImpl.commentText().trim()
-//                if (!methodComment) return ;
-//
-//                def returnTags = docImpl.tags('return')
-//                if (returnTags.size()) returnComment = returnTags[0].text()
-//
-//                docImpl.paramTags().each { ParamTag tag ->
-//                    paramComments[tag.parameterName()] = tag.parameterComment()
-//                }
+/*
+                docComment.eachLine { line ->
+                    line = line.trim()
+                    if (line.startsWith('@param')) {
+                        def m = paramPattern.matcher(line)
+                        if (m.find()) {
+                            paramComments[m.group(1)] = m.group(2)
+                        }
+                    } else if (line.startsWith('@return')) {
+                        returnComment = line.substring('@return'.length()).trim()
+                    } else {
+                        if (line) docLines << line
+                    }
+                }
+
+                docComment = docLines.join('\n')
+
+                if (!docComment) return ;
+
+                if (docEnv == null) return ;
+                def docImpl = new MethodDocImpl(docEnv, method, docComment, trees.getTree(element), lineMap)
+                def methodComment = docImpl.commentText().trim()
+                if (!methodComment) return ;
+
+                def returnTags = docImpl.tags('return')
+                if (returnTags.size()) returnComment = returnTags[0].text()
+
+                docImpl.paramTags().each { ParamTag tag ->
+                    paramComments[tag.parameterName()] = tag.parameterComment()
+                }
+*/
 
 //                if (element.simpleName.contentEquals("typeMismatch")) {
 //                    println "hey!"
@@ -214,6 +220,7 @@ public class JavacGrepHTML extends AbstractProcessor
                         code('class':'method-enclosing-element', fullName(element.enclosingElement))
                     }
 
+/*
                     div {
                         code('class':'method-name', fullName(element))
                     }
@@ -244,6 +251,7 @@ public class JavacGrepHTML extends AbstractProcessor
                     div {
                         code('class':'method-returnType', method.returnType)
                     }
+*/
 
                     if (method.typeParameters) {
                         method.typeParameters.each { typeParam ->
@@ -262,9 +270,9 @@ public class JavacGrepHTML extends AbstractProcessor
                     }
 
                     div {
-                        code(method.returnType)
+                        code('class':'method-return-type', method.returnType)
                         code(element.simpleName + "(" + method.parameters.simpleName.join(', ') + ")")
-                        span([style:'font-size:110%;'], returnComment)
+                        span('class':'method-return-comment', style:'font-size:110%;', returnComment)
                     }
 
                     for (VariableElement var : method.getParameters()) {
@@ -272,7 +280,7 @@ public class JavacGrepHTML extends AbstractProcessor
 //                            code(var.getSimpleName() + " : " + var.asType() + " ")
                             code('class':'method-parameter-type', var.asType())
                             code('class':'method-parameter-name', var.simpleName)
-                            span([style:'font-size:110%;'], paramComments[var.simpleName.toString()] ?: "")
+                            span('class':'method-parameter-comment', style:'font-size:110%;', paramComments[var.simpleName.toString()] ?: "")
                             br()
                         }
                     }

@@ -29,7 +29,13 @@ assert fileman.handleOption("-classpath", [classpath].iterator())
 //fileman.setLocation(RDFExtractor.rdfLocation, RDFExtractor.rdfPath);
 
 def files = [:]
-[new File('timesrc') , new File('/Users/jim/Projects/Apache/Lucene/lucene-3.5.0/src/java') , new File('/Users/jim/Downloads/stanford-corenlp-full-2012-11-12/src') , new File('src'),  new File('jdksrc/src'), new File('/Users/jim/Projects/Apache/Ant/apache-ant-1.8.4/src/main')].each { File dir ->
+[ new File('src')
+//        new File('timesrc')
+//        , new File('/Users/jim/Projects/Apache/Lucene/lucene-3.5.0/src/java')
+//        , new File('/Users/jim/Downloads/stanford-corenlp-full-2012-11-12/src')
+//        ,  new File('jdksrc/src')
+//        , new File('/Users/jim/Projects/Apache/Ant/apache-ant-1.8.4/src/main')
+].each { File dir ->
     dir.eachFileRecurse { if ((it.name ==~ /.*.java$/) && !(it.path =~ "org/ifcx")) files[it.path.substring(dir.path.length())] = it }
 }
 
