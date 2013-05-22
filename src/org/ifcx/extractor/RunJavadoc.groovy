@@ -39,7 +39,8 @@ def files = [:]
     dir.eachFileRecurse { if ((it.name ==~ /.*.java$/) && !(it.path =~ "org/ifcx")) files[it.path.substring(dir.path.length())] = it }
 }
 
-//println files
+new File("tmp/filelist.txt").withPrintWriter { printer -> files.each { printer.println it.key }}
+
 println "${files.size()} java files"
 
 Iterable<? extends JavaFileObject> units = fileman.getJavaFileObjectsFromFiles(files.values());

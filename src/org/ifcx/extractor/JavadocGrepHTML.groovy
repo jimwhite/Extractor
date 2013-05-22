@@ -11,10 +11,15 @@ import com.sun.source.util.Trees
 import com.sun.tools.javac.code.Symbol
 import com.sun.tools.javac.code.Type
 import com.sun.tools.javac.comp.Attr
+import com.sun.tools.javac.comp.AttrContext
+import com.sun.tools.javac.comp.Enter
+import com.sun.tools.javac.comp.Env
 import com.sun.tools.javac.processing.JavacProcessingEnvironment
 import com.sun.tools.javac.tree.JCTree
+import com.sun.tools.javac.tree.TreeInfo
 import com.sun.tools.javac.tree.TreeMaker
 import com.sun.tools.javac.util.Context
+import com.sun.tools.javac.util.Log
 import com.sun.tools.javadoc.DocEnv
 import com.sun.tools.javadoc.MemberDocImpl
 import com.sun.tools.javadoc.MethodDocImpl
@@ -23,6 +28,7 @@ import org.ifcx.extractor.util.IndentWriter
 
 import javax.lang.model.element.Name
 import javax.lang.model.type.TypeVariable
+import javax.tools.JavaFileObject
 import java.util.regex.Pattern
 import javax.annotation.processing.AbstractProcessor
 import javax.annotation.processing.ProcessingEnvironment
@@ -55,11 +61,14 @@ public class JavadocGrepHTML extends AbstractProcessor
 //    JavaCompiler compiler
 
     Attr    attr
+    Enter   enter
+    Log compilerLog
 
     Trees trees;
     TreeMaker make;
     Elements elems;
 
+    JavaFileObject  sourceFile
     LineMap lineMap
 
     BodyChecker bodyChecker = new BodyChecker()
@@ -71,6 +80,8 @@ public class JavadocGrepHTML extends AbstractProcessor
 
 //        compiler = JavaCompiler.instance(context)
         attr = Attr.instance(context)
+        compilerLog = Log.instance(context)
+        enter = Enter.instance(context)
 
         builder = b
 
@@ -94,7 +105,22 @@ public class JavadocGrepHTML extends AbstractProcessor
     void printElement(int indent, Element element)
     {
         try {
-            _printElement(indent, element)
+            if (element instanceof TypeElement && element instanceof Symbol.ClassSymbol) {
+/*
+                def tree = trees.getTree((TypeElement) element)
+                if (tree instanceof Symbol.ClassSymbol) {
+                    sourceFile = tree.sourcefile
+                    def topLevel = enter.getClassEnv(element)
+                    lineMap = topLevel.toplevel.lineMap
+                }
+*/
+
+                    sourceFile = element.sourcefile
+                    def topLevel = enter.getClassEnv(element)
+                    lineMap = topLevel.toplevel.lineMap
+
+                _printElement(indent, element)
+            }
         } catch (Exception e) {
             e.printStackTrace()
             System.err.println "Exception in ${element}"
@@ -104,14 +130,11 @@ public class JavadocGrepHTML extends AbstractProcessor
     void _printElement(int indent, Element element)
     {
         def tree = trees.getTree(element)
-        if (tree instanceof CompilationUnitTree) {
-            lineMap = tree.lineMap
-        }
 
         String docComment = elems.getDocComment(element);
-        if (docComment != null && (element.kind == ElementKind.METHOD) && (trees.getTree(element) != null)) {
+        if (docComment != null && (element instanceof Symbol.MethodSymbol) && (tree instanceof JCTree.JCMethodDecl)) {
             Symbol.MethodSymbol method = element
-            JCTree.JCMethodDecl methodTree = (MethodTree) trees.getTree(method)
+            JCTree.JCMethodDecl methodTree = tree
 
             def simpleBody = bodyChecker.scan((Tree) methodTree.body, null)
 
@@ -153,7 +176,7 @@ public class JavadocGrepHTML extends AbstractProcessor
                 if (!docComment) return ;
 
                 if (docEnv == null) return ;
-                def docImpl = new MethodDocImpl(docEnv, method, docComment, trees.getTree(element), lineMap)
+                def docImpl = new MethodDocImpl(docEnv, method, docComment, methodTree, lineMap)
                 def methodComment = docImpl.commentText().trim()
                 if (!methodComment) return ;
 
@@ -239,7 +262,7 @@ public class JavadocGrepHTML extends AbstractProcessor
         }
 
         for (Element each : element.getEnclosedElements()) {
-            printElement(indent + 2, each);
+            _printElement(indent + 2, each);
         }
     }
 
@@ -257,7 +280,9 @@ public class JavadocGrepHTML extends AbstractProcessor
             nameToType(n)
         }
 
-        def returnTypeName = methodTree.returnType.@'type'.tsym.flatName()
+        // Constructors have a null return type
+        def returnTypeName = methodTree.returnType != null ? methodTree.returnType.@type.tsym.flatName() : "<init>"
+
         ['method', fullName(methodTree.sym.enclosingElement), methodTree.sym.qualifiedName, nameToType(returnTypeName), parameterTypes.size() as String, *parameterTypes].join('|')
     }
 
@@ -423,6 +448,15 @@ public class JavadocGrepHTML extends AbstractProcessor
 
         def res = ["METHOD", ["Id", methodId(tree)]]
 
+        if (sourceFile != null) {
+            res << ["SourceURI", sourceFile.toUri().toString()]
+            res << ["StartPosition", TreeInfo.getStartPos(tree)]
+            if (lineMap != null) {
+                res << ["StartLine", lineMap.getLineNumber(TreeInfo.getStartPos(tree))]
+            }
+//            res << ["EndPosition", tree.endPosition]
+        }
+
         if (methodComment) res << ["Comment", methodComment]
 
         res << ["Name", method.simpleName.toString()]
@@ -433,6 +467,8 @@ public class JavadocGrepHTML extends AbstractProcessor
 
         res << ["ReturnType", externalize(tree.returnType)]
         if (returnComment) res << ["ReturnComment", returnComment]
+
+        res << ["JavaSource", tree.toString()]
 
         res << ["Vars", abstract_tree_variables]
         res << ["Tree", _abstract_tree(tree.body.statements[0])]
@@ -448,7 +484,7 @@ public class JavadocGrepHTML extends AbstractProcessor
 //                if (tree.sym != null) ident << ['SYM', tree.sym.qualifiedName]
                 obj = new_abstract_tree_variable(tree.name)
             } else {
-                obj = [tree.kind]
+                obj = [tree.kind, /*["Source", tree.toString() *//*((JCTree) tree).startPosition as String*//*]*/]
                 def treeKlazz = tree.class.interfaces.find { Tree.class.isAssignableFrom(it) }
                 if (!treeKlazz) {
                     return tree
@@ -551,6 +587,7 @@ public class JavadocGrepHTML extends AbstractProcessor
 //                if (each.kind == ElementKind.CLASS) {
 //                    Symbol sym = compiler.resolveIdent(each.qualifiedName)
 //                }
+
                 printElement(0, each);
             }
             builder.p("$includedElements matched.")
