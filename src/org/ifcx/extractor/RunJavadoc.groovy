@@ -17,9 +17,9 @@ StandardJavaFileManager fileman = compiler.getStandardFileManager(null, null, nu
 
 def jar_files = [/*new File('out/production/Extractor')*/]
 new File("lib").eachFile { if (it.isFile() && it.name.endsWith('.jar')) jar_files += it }
-new File("/Users/jim/Projects/Apache/Ant/apache-ant-1.8.4/lib/optional").eachFile { if (it.isFile() && it.name.endsWith('.jar')) jar_files += it }
-new File("/Users/jim/Downloads/stanford-corenlp-full-2012-11-12/").eachFile { if (it.isFile() && it.name.endsWith('.jar')) jar_files += it }
-new File("/Users/jim/Projects/Apache/Lucene/lucene-3.5.0/lib").eachFile { if (it.isFile() && it.name.endsWith('.jar')) jar_files += it }
+//new File("/Users/jim/Projects/Apache/Ant/apache-ant-1.8.4/lib/optional").eachFile { if (it.isFile() && it.name.endsWith('.jar')) jar_files += it }
+//new File("/Users/jim/Downloads/stanford-corenlp-full-2012-11-12/").eachFile { if (it.isFile() && it.name.endsWith('.jar')) jar_files += it }
+//new File("/Users/jim/Projects/Apache/Lucene/lucene-3.5.0/lib").eachFile { if (it.isFile() && it.name.endsWith('.jar')) jar_files += it }
 String classpath = jar_files.path.join(File.pathSeparator)
 //println classpath
 println "${jar_files.size()} jar files."
@@ -36,7 +36,8 @@ def files = [:]
 //        ,  new File('jdksrc/src')
 //        , new File('/Users/jim/Projects/Apache/Ant/apache-ant-1.8.4/src/main')
 ].each { File dir ->
-    dir.eachFileRecurse { if ((it.name ==~ /.*.java$/) && !(it.path =~ "org/ifcx")) files[it.path.substring(dir.path.length())] = it }
+//    dir.eachFileRecurse { if ((it.name ==~ /.*.java$/) && !(it.path =~ "org/ifcx")) files[it.path.substring(dir.path.length())] = it }
+    dir.eachFileRecurse { if ((it.path ==~ /^src\/com\/sun\/.*.java$/) || (it.path ==~ /^src\/javax\/.*.java$/)) files[it.path.substring(dir.path.length())] = it }
 }
 
 new File("tmp/filelist.txt").withPrintWriter { printer -> files.each { printer.println it.key }}

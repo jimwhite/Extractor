@@ -85,7 +85,7 @@ public class JavadocGrepHTML extends AbstractProcessor
 
         builder = b
 
-        abstracts_file = new File("method_abstracts.txt")
+        abstracts_file = new File("tmp/method_abstracts.txt")
         abstracts_file.write("")
     }
 

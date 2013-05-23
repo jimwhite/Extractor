@@ -1,4 +1,4 @@
-package org.ifcx.extractor
+package org.ifcx.extractor.uima
 
 import org.apache.uima.collection.CollectionReader
 
