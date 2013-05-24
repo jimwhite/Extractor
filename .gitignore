@@ -3,3 +3,6 @@
 out/
 *.html/
 .idea/workspace.xml
+.gradle
+javadoc_extractor/build
+open_jdk_tools/build
