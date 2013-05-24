@@ -1,0 +1,20 @@
+apply plugin: 'groovy'
+
+repositories {
+   mavenCentral()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:1.8.8'
+    compile files('lib/RTED_v1.1.jar')
+}
+
+sourceSets {
+  main {
+    groovy {
+      exclude 'org/ifcx/extractor/gen/**'
+      exclude 'org/ifcx/extractor/rdf/**'
+      exclude 'org/ifcx/extractor/uima/**'
+    }
+  }
+}

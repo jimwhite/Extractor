@@ -1,0 +1,57 @@
+apply plugin: 'java'
+
+sourceSets {
+  main {
+     resources {
+        exclude '**'
+     }
+  }
+}
+
+def mytools_jdk_bundle = new File('../jdk1.6.0-opentools')
+def opentools_jdkhome = new File(mytools_jdk_bundle, 'Home')
+
+def system_jdk = new File(System.getProperty('java.home'))
+def macjdk_bundle = new File(system_jdk, 'bundle').canonicalFile
+def system_classes = zipTree(new File(macjdk_bundle, 'Classes/classes.jar'))
+
+// original_classes.each { println it }
+
+//task sync_myjdk(type : Sync) {
+//   into mytools_jdk_bundle
+//   from (fileTree(dir:macjdk_bundle))
+//}
+
+task delete_myjdk(type:Exec) {
+   commandLine 'rm', '-rf', mytools_jdk_bundle
+}
+
+task sync_myjdk(type:Exec) {
+   dependsOn delete_myjdk
+   commandLine 'cp', '-R', macjdk_bundle, mytools_jdk_bundle
+}
+
+task prep_myjdk(type : Jar, dependsOn : sync_myjdk) {
+   from system_classes.matching {
+      exclude 'com/sun/javadoc/**'
+      exclude 'com/sun/mirror/**'
+      exclude 'com/sun/source/**'
+      exclude 'com/sun/tools/**'
+      exclude 'sun/tools/javap/**'
+      exclude 'javax/annotation/processing/**'
+      exclude 'javax/lang/model/**'
+      exclude 'javax/tools/**'
+   }
+   destinationDir(new File(mytools_jdk_bundle, 'Classes'))
+   archiveName('classes.jar')
+}
+
+task build_openjdk(type:Copy) {
+    dependsOn build
+    dependsOn prep_myjdk
+    into(new File(opentools_jdkhome, 'lib/endorsed'))
+    from('build/libs') {
+       include 'open_jdk_tools.jar'
+//       rename 'open_jdk_tools.jar', 'tools.jar'
+    }
+}
