@@ -1,0 +1,19 @@
+import org.ifcx.extractor.ExtractJavadoc
+
+apply plugin: 'java'
+//apply plugin: 'idea'
+
+sourceSets {
+    main {
+        java {
+            srcDir 'open_jdk_tools/src/main/java'
+        }
+    }
+}
+
+task extractJavadoc(type: ExtractJavadoc) {
+    source = sourceSets.main.java
+    destinationDir = file('tmp/classes')
+    classpath = files()
+    options.compilerArgs = ['-printsource']
+}
