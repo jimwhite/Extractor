@@ -21,10 +21,10 @@ import java.io.Serializable;
 import java.nio.charset.Charset;
 import java.util.List;
 
-public class ExtractingCompiler implements Compiler<JavaCompileSpec>, Serializable {
+public class ExtractingCompiler implements Compiler<ExtractJavadocSpec>, Serializable {
     private static final Logger LOGGER = LoggerFactory.getLogger(ExtractingCompiler.class);
 
-    public WorkResult execute(JavaCompileSpec spec) {
+    public WorkResult execute(ExtractJavadocSpec spec) {
         LOGGER.info("Compiling with Javadoc Extractor.");
 //        println "Compiling with Javadoc Extractor."
 
@@ -39,7 +39,7 @@ public class ExtractingCompiler implements Compiler<JavaCompileSpec>, Serializab
 
         boolean success = false
 
-        new File("tmp/xxx-output.html").withPrintWriter {
+        spec.htmlReport.withPrintWriter {
             def html = new MarkupBuilder(it)
 
             html.html {
@@ -47,7 +47,7 @@ public class ExtractingCompiler implements Compiler<JavaCompileSpec>, Serializab
 
                 }
                 body {
-                    def processor = new JavadocGrepHTML(context, html)
+                    def processor = new JavadocGrepHTML(context, html, spec.methodAbstracts)
                     task.setProcessors(com.sun.tools.javac.util.List.of(processor));
                     success = task.call()
                 }
@@ -61,7 +61,7 @@ public class ExtractingCompiler implements Compiler<JavaCompileSpec>, Serializab
         return new SimpleWorkResult(true);
     }
 
-    private JavaCompiler.CompilationTask createCompileTask(JavaCompileSpec spec) {
+    private JavaCompiler.CompilationTask createCompileTask(ExtractJavadocSpec spec) {
         List<String> options = new JavaCompilerArgumentsBuilder(spec).build();
         JavaCompiler compiler = new JavacTool();
 

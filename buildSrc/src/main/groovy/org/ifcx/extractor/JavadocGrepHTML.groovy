@@ -73,7 +73,7 @@ public class JavadocGrepHTML extends AbstractProcessor
 
     BodyChecker bodyChecker = new BodyChecker()
 
-    public JavadocGrepHTML(Context context, MarkupBuilder b)
+    public JavadocGrepHTML(Context context, MarkupBuilder b, File methodAbstracts)
     {
         docEnv = DocEnv.instance(context)
         if (docEnv.showAccess == null) docEnv.showAccess = new ModifierFilter(0);
@@ -85,7 +85,7 @@ public class JavadocGrepHTML extends AbstractProcessor
 
         builder = b
 
-        abstracts_file = new File("tmp/method_abstracts.txt")
+        abstracts_file = methodAbstracts
         abstracts_file.write("")
     }
 

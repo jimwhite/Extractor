@@ -1,24 +1,15 @@
 package org.ifcx.extractor
 
-import org.gradle.api.internal.file.TemporaryFileProvider
-import org.gradle.api.internal.project.ProjectInternal
-import org.gradle.api.internal.tasks.compile.DefaultJavaCompileSpec
-import org.gradle.api.internal.tasks.compile.DefaultJavaCompilerFactory
-import org.gradle.api.internal.tasks.compile.DelegatingJavaCompiler
-import org.gradle.api.internal.tasks.compile.InProcessJavaCompilerFactory
-import org.gradle.api.internal.tasks.compile.IncrementalJavaCompiler
-import org.gradle.api.internal.tasks.compile.JavaCompileSpec
-import org.gradle.api.internal.tasks.compile.JavaCompilerFactory
 import org.gradle.api.tasks.Nested
+import org.gradle.api.tasks.OutputFile
 import org.gradle.api.tasks.TaskAction
 import org.gradle.api.tasks.WorkResult
+import org.gradle.api.tasks.compile.AbstractCompile
 import org.gradle.api.tasks.compile.CompileOptions
-import org.gradle.api.tasks.compile.JavaCompile
-import org.gradle.util.DeprecationLogger
 
-class ExtractJavadoc extends org.gradle.api.tasks.compile.AbstractCompile
+class ExtractJavadoc extends AbstractCompile
 {
-    private org.gradle.api.internal.tasks.compile.Compiler<JavaCompileSpec> javaCompiler;
+    private org.gradle.api.internal.tasks.compile.Compiler<ExtractJavadocSpec> javaCompiler;
 
     private final CompileOptions compileOptions = new CompileOptions();
 
@@ -28,6 +19,12 @@ class ExtractJavadoc extends org.gradle.api.tasks.compile.AbstractCompile
 //        JavaCompilerFactory defaultCompilerFactory = new DefaultJavaCompilerFactory(projectInternal, tempFileProvider, antBuilderFactory, inProcessCompilerFactory);
         javaCompiler = new ExtractingCompiler()
     }
+
+    @OutputFile
+    File htmlReport
+
+    @OutputFile
+    File methodAbstracts
 
     /**
      * Returns the compilation options.
@@ -42,7 +39,7 @@ class ExtractJavadoc extends org.gradle.api.tasks.compile.AbstractCompile
 
     @TaskAction
     protected void compile() {
-        DefaultJavaCompileSpec spec = new DefaultJavaCompileSpec();
+        def spec = new ExtractJavadocSpec();
         spec.setSource(getSource());
         spec.setDestinationDir(getDestinationDir());
         spec.setClasspath(getClasspath());
@@ -50,7 +47,12 @@ class ExtractJavadoc extends org.gradle.api.tasks.compile.AbstractCompile
         spec.setSourceCompatibility(getSourceCompatibility());
         spec.setTargetCompatibility(getTargetCompatibility());
         spec.setCompileOptions(compileOptions);
+
+        spec.htmlReport = htmlReport
+        spec.methodAbstracts = methodAbstracts
+
         WorkResult result = javaCompiler.execute(spec);
+
         setDidWork(result.getDidWork());
     }
 

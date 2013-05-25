@@ -16,4 +16,7 @@ task extractJavadoc(type: ExtractJavadoc) {
     destinationDir = file('tmp/classes')
     classpath = files()
     options.compilerArgs = ['-printsource']
+
+    htmlReport = file('tmp/newreport.html')
+    methodAbstracts = file('tmp/yyy-abstracts.txt')
 }
