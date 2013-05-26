@@ -1,4 +1,6 @@
 import org.ifcx.extractor.ExtractJavadoc
+import org.ifcx.extractor.GATE_Task
+import org.ifcx.extractor.SplitJavadocSentences
 
 apply plugin: 'java'
 //apply plugin: 'idea'
@@ -17,6 +19,18 @@ task extractJavadoc(type: ExtractJavadoc) {
     classpath = files()
     options.compilerArgs = ['-printsource']
 
-    htmlReport = file('tmp/newreport.html')
-    methodAbstracts = file('tmp/yyy-abstracts.txt')
+    htmlReport = file('tmp/newer-report.html')
+    methodAbstracts = file('tmp/zzz-abstracts.txt')
+}
+
+task tagSentences(type: GATE_Task)  {
+    source = files('tmp/newer-report.html')
+    gateApp = file('tokenizer.xgapp')
+    outputDirectory = file('tmp/taggedHtml')
+}
+
+task splitSentences(type: SplitJavadocSentences, dependsOn: extractJavadoc)  {
+    source = files('tmp/zzz-abstracts.txt')
+    gateApp = file('tokenizer.xgapp')
+    outputDirectory = file('tmp/taggedHtml')
 }

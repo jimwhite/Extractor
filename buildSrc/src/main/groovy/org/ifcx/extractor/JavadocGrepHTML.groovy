@@ -572,7 +572,7 @@ public class JavadocGrepHTML extends AbstractProcessor
 
     static def sexpString(String str)
     {
-        str = str.replace("(", "\\(").replace(")", "\\)").replace("\"", "\\\"")
+        str = str.replace('\\', '\\\\').replace("(", "\\(").replace(")", "\\)").replace("\"", "\\\"")
         (!str || str.contains(" ") || str.contains("\\")) ? "\"" + str + "\"" : str
     }
 
