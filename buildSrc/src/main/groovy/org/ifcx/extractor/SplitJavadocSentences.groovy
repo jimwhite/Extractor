@@ -1,6 +1,9 @@
 package org.ifcx.extractor
 
-import gate.*
+import gate.Corpus
+import gate.CorpusController
+import gate.Factory
+import gate.Gate
 
 //@Grab(group='uk.ac.gate', module='gate-core', version='7.1')
 import gate.util.persistence.PersistenceManager
@@ -67,9 +70,13 @@ class SplitJavadocSentences extends SourceTask {
             // def annotations = docAnnotationSet.get(["Token", "Sentence"] as Set<String>)
             def xml = document.toXml(docAnnotationSet)
 
+            def sentenceSet = docAnnotationSet.get('Sentence')
+            def sentenceNode = sentenceSet.firstNode()
+            def sentence = document.content.getContent(sentenceNode.offset, sentenceSet.nextNode(sentenceNode).offset)
+
             def html = """<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Processed</title>
+<title>${document.name}</title>
 </head>
 <style type="text/css">
 BODY, body { margin: 2em } /* or any other first level tag */
@@ -80,6 +87,8 @@ Sentence  { background-color: rgb(150, 230, 150) ; border-spacing:1px 1px; borde
 Token     { background-color: rgb(230, 150, 230) ; border: 1px solid red /* border-spacing:1px 1px; border-style: none dotted none dotted */ }
 </style>
 <body>
+<div class='method-id'>${document.name}</div>
+<div class='method-comment-sentence-1'>${sentence.toString()}</div>
 <pre>
 ${xml}
 </pre>
