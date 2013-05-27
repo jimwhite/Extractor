@@ -1,0 +1,30 @@
+<component name="libraryTable">
+  <library name="jetty-6.1.26-sources">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jetty-6.1.26.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jetty-util-6.1.26.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/json-20090211.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lucene-core-3.5.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lucene-spellchecker-3.5.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/nekohtml.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/RTED_v1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/servlet-api-2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.6.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-simple-1.6.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xercesImpl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xml-apis.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xmlwise-debug-1_2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/lucene-spellchecker-3.5.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/jetty-6.1.26-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jetty-util-6.1.26-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jfreechart-1.0.5-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/RTED_v1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.6.4-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-simple-1.6.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

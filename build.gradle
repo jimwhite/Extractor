@@ -3,7 +3,25 @@ import org.ifcx.extractor.GATE_Task
 import org.ifcx.extractor.SplitJavadocSentences
 
 apply plugin: 'java'
-//apply plugin: 'idea'
+apply plugin: 'idea'
+apply plugin: 'ratpack'
+
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.augusttechgroup:ratpack-plugin:0.5.1'
+    }
+}
+
+dependencies {
+    compile files('/Users/jim/Projects/GATE/release-7.1/bin/gate.jar')
+    compile('uk.ac.gate:gate-core:7.1')
+    compile gradleApi()
+    groovy 'org.codehaus.groovy:groovy:1.8.9'
+}
 
 sourceSets {
     main {
