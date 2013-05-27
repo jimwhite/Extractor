@@ -13,24 +13,26 @@ sourceSets {
     }
 }
 
+def method_abstracts_dir = file('data/abstracts')
+
 task extractJavadoc(type: ExtractJavadoc) {
     source = sourceSets.main.java
     destinationDir = file('tmp/classes')
     classpath = files()
     options.compilerArgs = ['-printsource']
 
-    htmlReport = file('tmp/newer-report.html')
-    methodAbstracts = file('tmp/zzz-abstracts.txt')
+    htmlReport = file('data/report.html')
+    methodAbstracts = method_abstracts_dir
 }
 
 task tagSentences(type: GATE_Task)  {
-    source = files('tmp/newer-report.html')
+    source = files('data/report.html')
     gateApp = file('tokenizer.xgapp')
     outputDirectory = file('tmp/taggedHtml')
 }
 
 task splitSentences(type: SplitJavadocSentences, dependsOn: extractJavadoc)  {
-    source = files('tmp/zzz-abstracts.txt')
+    inputDirectory = method_abstracts_dir
     gateApp = file('tokenizer.xgapp')
-    outputDirectory = file('tmp/taggedHtml')
+    outputDirectory = file('data/sentences')
 }

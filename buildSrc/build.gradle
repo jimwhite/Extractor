@@ -4,6 +4,7 @@ repositories {
 
 dependencies {
     compile files('/Users/jim/Projects/GATE/release-7.1/bin/gate.jar')
-    compile('uk.ac.gate:gate-core:7.1') {
-    }
+    compile('uk.ac.gate:gate-core:7.1')
+    compile gradleApi()
+
 }

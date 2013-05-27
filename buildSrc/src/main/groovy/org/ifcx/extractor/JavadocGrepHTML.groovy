@@ -1,19 +1,15 @@
 package org.ifcx.extractor
 
 import com.sun.javadoc.ParamTag
-import com.sun.source.tree.CompilationUnitTree
 import com.sun.source.tree.LineMap
 import com.sun.source.tree.LiteralTree
 import com.sun.source.tree.MethodTree
-import com.sun.source.tree.VariableTree
 import com.sun.source.tree.Tree
 import com.sun.source.util.Trees
 import com.sun.tools.javac.code.Symbol
 import com.sun.tools.javac.code.Type
 import com.sun.tools.javac.comp.Attr
-import com.sun.tools.javac.comp.AttrContext
 import com.sun.tools.javac.comp.Enter
-import com.sun.tools.javac.comp.Env
 import com.sun.tools.javac.processing.JavacProcessingEnvironment
 import com.sun.tools.javac.tree.JCTree
 import com.sun.tools.javac.tree.TreeInfo
@@ -21,7 +17,6 @@ import com.sun.tools.javac.tree.TreeMaker
 import com.sun.tools.javac.util.Context
 import com.sun.tools.javac.util.Log
 import com.sun.tools.javadoc.DocEnv
-import com.sun.tools.javadoc.MemberDocImpl
 import com.sun.tools.javadoc.MethodDocImpl
 import groovy.xml.MarkupBuilder
 import org.ifcx.extractor.util.IndentWriter
@@ -54,7 +49,7 @@ public class JavadocGrepHTML extends AbstractProcessor
 
     MarkupBuilder builder
 
-    File abstracts_file
+    File abstracts_dir
 
     DocEnv docEnv
 
@@ -85,8 +80,7 @@ public class JavadocGrepHTML extends AbstractProcessor
 
         builder = b
 
-        abstracts_file = methodAbstracts
-        abstracts_file.write("")
+        abstracts_dir = methodAbstracts
     }
 
     @Override
@@ -428,7 +422,10 @@ public class JavadocGrepHTML extends AbstractProcessor
         sw.withPrintWriter { printTree(abstracted_tree(method, tree, methodComment, returnComment, paramComments), new IndentWriter(it) ) }
         builder.pre('class':'method-body-tree', sw)
 
-        if (abstracts_file != null) abstracts_file << sw.toString() + "\n\n"
+        if (abstracts_dir != null) {
+            def abstract_file = new File(abstracts_dir, methodId(tree) + '.txt')
+            abstract_file.write(sw.toString() + "\n\n")
+        }
     }
 
     def abstract_tree_variables = []

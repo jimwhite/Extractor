@@ -1,6 +1,7 @@
 package org.ifcx.extractor
 
 import org.gradle.api.tasks.Nested
+import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.OutputFile
 import org.gradle.api.tasks.TaskAction
 import org.gradle.api.tasks.WorkResult
@@ -23,7 +24,7 @@ class ExtractJavadoc extends AbstractCompile
     @OutputFile
     File htmlReport
 
-    @OutputFile
+    @OutputDirectory
     File methodAbstracts
 
     /**

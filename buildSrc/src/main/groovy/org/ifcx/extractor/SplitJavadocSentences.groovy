@@ -7,18 +7,23 @@ import gate.Gate
 
 //@Grab(group='uk.ac.gate', module='gate-core', version='7.1')
 import gate.util.persistence.PersistenceManager
+import org.gradle.api.DefaultTask
+import org.gradle.api.tasks.InputDirectory
 import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.SourceTask
 import org.gradle.api.tasks.TaskAction
 
-class SplitJavadocSentences extends SourceTask {
+class SplitJavadocSentences extends DefaultTask {
     SplitJavadocSentences() {
         Gate.init()
     }
 
     @InputFile
     File gateApp
+
+    @InputDirectory
+    File inputDirectory
 
     @OutputDirectory
     File outputDirectory
@@ -33,8 +38,8 @@ class SplitJavadocSentences extends SourceTask {
 
         application.corpus = corpus
 
-        source.each { File sourceFile ->
-            sourceFile.withReader { reader ->
+        inputDirectory.eachFile { source_file ->
+            source_file.withReader { reader ->
                 List sexp
 
                 while ((sexp = read_one_sexp(reader)) != null) {
@@ -58,7 +63,6 @@ class SplitJavadocSentences extends SourceTask {
 
                     doc.name = method.Id
                 }
-
             }
         }
 
@@ -77,15 +81,8 @@ class SplitJavadocSentences extends SourceTask {
             def html = """<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>${document.name}</title>
+<link rel="stylesheet" href="../javadocs.css">
 </head>
-<style type="text/css">
-BODY, body { margin: 2em } /* or any other first level tag */
-P, p { display: block } /* or any other paragraph tag */
-/* ANNIE tags but you can use whatever tags you want */
-/* be careful that XML tags are case sensitive */
-Sentence  { background-color: rgb(150, 230, 150) ; border-spacing:1px 1px; border-style: none solid none solid }
-Token     { background-color: rgb(230, 150, 230) ; border: 1px solid red /* border-spacing:1px 1px; border-style: none dotted none dotted */ }
-</style>
 <body>
 <div class='method-id'>${document.name}</div>
 <div class='method-comment-sentence-1'>${sentence.toString()}</div>
