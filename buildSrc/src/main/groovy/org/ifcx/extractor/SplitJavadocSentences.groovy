@@ -2,8 +2,12 @@ package org.ifcx.extractor
 
 import gate.Corpus
 import gate.CorpusController
+import gate.Document
 import gate.Factory
 import gate.Gate
+import gate.corpora.DocumentImpl
+// Using the gate.Utils category doesn't make the static featureMap(Object...) accessible.
+import static gate.Utils.featureMap
 
 //@Grab(group='uk.ac.gate', module='gate-core', version='7.1')
 import gate.util.persistence.PersistenceManager
@@ -73,10 +77,11 @@ class SplitJavadocSentences extends DefaultTask {
 
                 htmlFile.write("<html><body>" + method.Comment + "</body></html")
 
-                def params = Factory.newFeatureMap()
-                params.put("preserveOriginalContent", true)
+//                def doc = gate.Factory.newDocument(htmlFile.toURL())
+                def params = featureMap(Document.DOCUMENT_URL_PARAMETER_NAME, htmlFile.toURL()
+                        , Document.DOCUMENT_PRESERVE_CONTENT_PARAMETER_NAME, true)
+                def doc = Factory.createResource(DocumentImpl.class.name, params)
 
-                def doc = gate.Factory.newDocument(htmlFile.toURL())
                 doc.name = method.Id
                 corpus.add(doc)
             } else {
@@ -104,8 +109,7 @@ class SplitJavadocSentences extends DefaultTask {
             }
 
             new File(outputDirectory, document.name + '.html').withPrintWriter { printer ->
-                def builder = new MarkupBuilder(printer)
-                builder.html(lang:"en", xmlns:"http://www.w3.org/1999/xhtml", 'xmlns:gate':"urn:gate:fakeNS") {
+               new MarkupBuilder(printer).html(lang:"en", xmlns:"http://www.w3.org/1999/xhtml", 'xmlns:gate':"urn:gate:fakeNS") {
                     head {
                         title(document.name)
                         link(rel:"stylesheet", href:"../javadocs.css")
@@ -125,34 +129,7 @@ class SplitJavadocSentences extends DefaultTask {
                     }
                 }
             }
-
-            /*
-            def html = """<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:gate="urn:gate:fakeNS">
-<head>
-<title>${document.name}</title>
-<link rel="stylesheet" href="../javadocs.css"/>
-</head>
-<body>
-<div class='method' id='${document.name}'>
-  <div class='method-id'>${document.name}</div>
-  <div class='method-comment-sentence-1'>${method.Sentence}</div>
-<div class='method-sentences'>
-${method.SentenceAll.collect { sent -> "<div class='method-comment-sentence'>$sent</div>" }.join('\n')}
-</div>
-<pre class='method-comment-gate'>
-${xml}
-</pre>
-<pre class='method-extract'>
-${Sexp.printTree(Sexp.map_to_tree(method))}
-</pre>
-</div>
-</body>
-</html>
-"""
-*/
-
         }
-
     }
 
 }
