@@ -10,6 +10,7 @@ import gate.util.persistence.PersistenceManager
 import groovy.xml.MarkupBuilder
 import org.apache.commons.lang.StringEscapeUtils
 import org.gradle.api.DefaultTask
+import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputDirectory
 import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.OutputDirectory
@@ -20,6 +21,9 @@ class SplitJavadocSentences extends DefaultTask {
     SplitJavadocSentences() {
         Gate.init()
     }
+
+    @Input
+    boolean parseCommentHTML = false
 
     @InputFile
     File gateApp
@@ -61,19 +65,27 @@ class SplitJavadocSentences extends DefaultTask {
 
             application.corpus = corpus
 
-            def params = Factory.newFeatureMap()
-    //                    params.put("sourceUrl", uri.toURL() + "#" + method.Id)
-            params.put("preserveOriginalContent", true)
-            // params.put("collectRepositioningInfo", true)
+            if (parseCommentHTML) {
+//                def htmlFile = new File(outputDirectory, method.Id + '.html')
+                def tempDir = new File("tmp/comments")
+                tempDir.mkdirs()
+                def htmlFile = File.createTempFile("mx-", ".html", tempDir)
 
-            gate.corpora.DocumentImpl doc = Factory.createResource("gate.corpora.DocumentImpl", params)
+                htmlFile.write("<html><body>" + method.Comment + "</body></html")
 
-            doc.name = method.Id
-            def comment = StringEscapeUtils.unescapeHtml(method.Comment)
-            doc.setStringContent(comment)
-            doc.init()
+                def params = Factory.newFeatureMap()
+                params.put("preserveOriginalContent", true)
 
-            corpus.add(doc)
+                def doc = gate.Factory.newDocument(htmlFile.toURL())
+                doc.name = method.Id
+                corpus.add(doc)
+            } else {
+                def comment = StringEscapeUtils.unescapeHtml(method.Comment)
+                def doc = Factory.newDocument(comment)
+                doc.name = method.Id
+                doc.preserveOriginalContent = true
+                corpus.add(doc)
+            }
 
             application.execute()
 

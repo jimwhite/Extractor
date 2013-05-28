@@ -50,6 +50,7 @@ task tagSentences(type: GATE_Task)  {
 }
 
 task splitSentences(type: SplitJavadocSentences, dependsOn: extractJavadoc)  {
+    parseCommentHTML = true
     inputDirectory = method_abstracts_dir
     gateApp = file('tokenizer.xgapp')
     outputDirectory = file('data/methods')
