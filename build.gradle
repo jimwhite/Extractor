@@ -31,7 +31,7 @@ sourceSets {
     }
 }
 
-def method_abstracts_dir = file('data/abstracts')
+def method_abstracts_dir = file('data/extracts')
 
 task extractJavadoc(type: ExtractJavadoc) {
     source = sourceSets.main.java
@@ -52,5 +52,5 @@ task tagSentences(type: GATE_Task)  {
 task splitSentences(type: SplitJavadocSentences, dependsOn: extractJavadoc)  {
     inputDirectory = method_abstracts_dir
     gateApp = file('tokenizer.xgapp')
-    outputDirectory = file('data/sentences')
+    outputDirectory = file('data/methods')
 }

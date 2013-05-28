@@ -7,12 +7,14 @@ import gate.Gate
 
 //@Grab(group='uk.ac.gate', module='gate-core', version='7.1')
 import gate.util.persistence.PersistenceManager
+import groovy.xml.MarkupBuilder
+import org.apache.commons.lang.StringEscapeUtils
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.InputDirectory
 import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.OutputDirectory
-import org.gradle.api.tasks.SourceTask
 import org.gradle.api.tasks.TaskAction
+import org.ifcx.extractor.util.Sexp
 
 class SplitJavadocSentences extends DefaultTask {
     SplitJavadocSentences() {
@@ -29,142 +31,116 @@ class SplitJavadocSentences extends DefaultTask {
     File outputDirectory
 
     @TaskAction
-    public void process() {
+    public void process()
+    {
         outputDirectory.mkdirs()
-
-        Corpus corpus = Factory.createResource("gate.corpora.CorpusImpl")
 
         CorpusController application = (CorpusController) PersistenceManager.loadObjectFromFile(gateApp)
 
-        application.corpus = corpus
-
         inputDirectory.eachFile { source_file ->
             source_file.withReader { reader ->
-                List sexp
+                def sexp
 
-                while ((sexp = read_one_sexp(reader)) != null) {
-//                    println sexp
-                    assert sexp.head() == "METHOD"
+                while ((sexp = Sexp.read_one_sexp(reader)) != null) {
                     assert sexp.size() > 1
+                    assert sexp.head() == "METHOD"
 
-                    def method = sexp.tail().collectEntries()
+                    def method = Sexp.tree_to_map(sexp)
 
-                    def params = Factory.newFeatureMap()
-//                    params.put("sourceUrl", uri.toURL() + "#" + method.Id)
-                    params.put("preserveOriginalContent", true)
-                    // params.put("collectRepositioningInfo", true)
-
-                    gate.corpora.DocumentImpl doc = Factory.createResource("gate.corpora.DocumentImpl", params)
-
-                    doc.setStringContent(method.Comment)
-                    doc.init()
-
-                    corpus.add(doc)
-
-                    doc.name = method.Id
+                    processMethod(application, method)
                 }
             }
         }
+    }
 
-        application.execute()
+    protected void processMethod(CorpusController application, Map method)
+    {
+        use (gate.Utils) {
 
-        corpus.size().times { docIndex ->
-            def document = corpus.get(docIndex)
+            Corpus corpus = Factory.createResource("gate.corpora.CorpusImpl")
+
+            application.corpus = corpus
+
+            def params = Factory.newFeatureMap()
+    //                    params.put("sourceUrl", uri.toURL() + "#" + method.Id)
+            params.put("preserveOriginalContent", true)
+            // params.put("collectRepositioningInfo", true)
+
+            gate.corpora.DocumentImpl doc = Factory.createResource("gate.corpora.DocumentImpl", params)
+
+            doc.name = method.Id
+            def comment = StringEscapeUtils.unescapeHtml(method.Comment)
+            doc.setStringContent(comment)
+            doc.init()
+
+            corpus.add(doc)
+
+            application.execute()
+
+            def document = corpus.get(0)
+
             def docAnnotationSet = document.getAnnotations()
             // def annotations = docAnnotationSet.get(["Token", "Sentence"] as Set<String>)
             def xml = document.toXml(docAnnotationSet)
 
             def sentenceSet = docAnnotationSet.get('Sentence')
-            def sentenceNode = sentenceSet.firstNode()
-            def sentence = document.content.getContent(sentenceNode.offset, sentenceSet.nextNode(sentenceNode).offset)
+            def sentenceList = sentenceSet.inDocumentOrder()
 
-            def html = """<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+            if (sentenceList.size() > 0) {
+                method.Sentence = document.cleanStringFor(sentenceList.first())
+                method.SentenceAll = sentenceList.collect { document.cleanStringFor(it) }
+            }
+
+            new File(outputDirectory, document.name + '.html').withPrintWriter { printer ->
+                def builder = new MarkupBuilder(printer)
+                builder.html(lang:"en", xmlns:"http://www.w3.org/1999/xhtml", 'xmlns:gate':"urn:gate:fakeNS") {
+                    head {
+                        title(document.name)
+                        link(rel:"stylesheet", href:"../javadocs.css")
+                    }
+                    body {
+                        div('class':'method', id:document.name) {
+                            div('class':'method-id', document.name)
+                            div('class':'method-comment-sentence-1', method.Sentence)
+                            div('class':'method-sentences') {
+                                method.SentenceAll.each { sent -> div('class':'method-comment-sentence', sent) }
+                            }
+                        }
+                        pre('class':'method-comment-gate') {
+                            mkp.yieldUnescaped(xml)
+                        }
+                        pre('class':'method-extract', Sexp.printTree(Sexp.map_to_tree(method)))
+                    }
+                }
+            }
+
+            /*
+            def html = """<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:gate="urn:gate:fakeNS">
 <head>
 <title>${document.name}</title>
-<link rel="stylesheet" href="../javadocs.css">
+<link rel="stylesheet" href="../javadocs.css"/>
 </head>
 <body>
-<div class='method-id'>${document.name}</div>
-<div class='method-comment-sentence-1'>${sentence.toString()}</div>
-<pre>
+<div class='method' id='${document.name}'>
+  <div class='method-id'>${document.name}</div>
+  <div class='method-comment-sentence-1'>${method.Sentence}</div>
+<div class='method-sentences'>
+${method.SentenceAll.collect { sent -> "<div class='method-comment-sentence'>$sent</div>" }.join('\n')}
+</div>
+<pre class='method-comment-gate'>
 ${xml}
 </pre>
+<pre class='method-extract'>
+${Sexp.printTree(Sexp.map_to_tree(method))}
+</pre>
+</div>
 </body>
 </html>
 """
+*/
 
-            new File(outputDirectory, document.name + '.html').write(html)
-        }
-    }
-
-
-    List read_one_sexp(Reader reader) {
-        // This grammar has single quotes in token names.
-//    final tokenDelimiters = "\"''()\t\r\n "
-//    final tokenDelimiters = "\"()\t\r\n "
-        // No quoted strings at all for these s-exprs.
-        final tokenDelimiters = "()\t\r\n "
-
-        List stack = []
-        List sexps = []
-
-        def cint = reader.read()
-
-        loop:
-        while (cint >= 0) {
-            Character c = cint as Character
-//        print c
-            switch (c) {
-
-                case ')':
-                    // End of sexp with without beginning.
-                    // Print a warning?
-                    if (stack.size() < 1) break loop
-
-                    def t = stack.pop()
-                    t << sexps
-                    sexps = t
-
-                    // We read only one complete sexp.
-                    if (stack.size() < 1) break loop
-
-                    cint = reader.read()
-                    break
-
-                case '(':
-
-                    stack.push(sexps)
-                    sexps = []
-                    cint = reader.read()
-                    break
-
-                case '"':
-                    def str = new StringBuilder()
-                    while ((cint = reader.read()) >= 0) {
-                        if (cint == '"') break
-                        if (cint == '\\') cint = reader.read()
-                        str.append(cint as Character)
-                    }
-                    cint = reader.read()
-                    sexps << str.toString()
-                    break
-
-                default:
-                    if (c.isWhitespace() || c == 0 || c == 26 /* ASCII EOF */) {
-                        cint = reader.read()
-                    } else {
-                        def token = new StringBuilder()
-                        token.append(c)
-                        while ((cint = reader.read()) >= 0) {
-                            if (tokenDelimiters.indexOf(cint) >= 0) break
-                            token.append(cint as Character)
-                        }
-                        sexps << token.toString()
-                    }
-            }
         }
 
-        return sexps ? sexps[0] : null
     }
 
 }

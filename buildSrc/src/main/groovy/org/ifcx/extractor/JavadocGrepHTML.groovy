@@ -20,6 +20,7 @@ import com.sun.tools.javadoc.DocEnv
 import com.sun.tools.javadoc.MethodDocImpl
 import groovy.xml.MarkupBuilder
 import org.ifcx.extractor.util.IndentWriter
+import org.ifcx.extractor.util.Sexp
 
 import javax.lang.model.element.Name
 import javax.lang.model.type.TypeVariable
@@ -418,13 +419,12 @@ public class JavadocGrepHTML extends AbstractProcessor
 //        new LambdaFormatter(sw, false).printStat(tree.body)
 //        builder.pre(sw)
 
-        def sw = new StringWriter()
-        sw.withPrintWriter { printTree(abstracted_tree(method, tree, methodComment, returnComment, paramComments), new IndentWriter(it) ) }
-        builder.pre('class':'method-body-tree', sw)
+        def printedTree = Sexp.printTree(abstracted_tree(method, tree, methodComment, returnComment, paramComments))
+        builder.pre('class':'method-body-tree', printedTree)
 
         if (abstracts_dir != null) {
             def abstract_file = new File(abstracts_dir, methodId(tree) + '.txt')
-            abstract_file.write(sw.toString() + "\n\n")
+            abstract_file.write(printedTree + "\n\n")
         }
     }
 
@@ -543,34 +543,6 @@ public class JavadocGrepHTML extends AbstractProcessor
         }
 
         obj
-    }
-
-    static def printTree(Object tree, IndentWriter writer)
-    {
-        if (tree instanceof List) {
-            writer.print "("
-            def indent = writer + 1
-            if (!tree.isEmpty()) {
-                def head = tree.head()
-                if (head instanceof List) {
-                    printTree(head, indent)
-                } else {
-                    writer.print sexpString(head.toString())
-                }
-                def tail = tree.tail()
-                tail.each { if (tail.size() > 1) indent.println() ; printTree(it, indent) }
-            }
-            indent.print ")"
-        } else {
-            writer.print " " + sexpString(tree.toString())
-//        writer.print " '$tree'"
-        }
-    }
-
-    static def sexpString(String str)
-    {
-        str = str.replace('\\', '\\\\').replace("(", "\\(").replace(")", "\\)").replace("\"", "\\\"")
-        (!str || str.contains(" ") || str.contains("\\")) ? "\"" + str + "\"" : str
     }
 
     @Override
