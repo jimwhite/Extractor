@@ -1,3 +1,4 @@
+import org.ifcx.extractor.ExtractSentences
 import org.ifcx.extractor.ExtractJavadoc
 import org.ifcx.extractor.GATE_Task
 import org.ifcx.extractor.SplitJavadocSentences
@@ -54,4 +55,12 @@ task splitSentences(type: SplitJavadocSentences, dependsOn: extractJavadoc)  {
     inputDirectory = method_abstracts_dir
     gateApp = file('tokenizer.xgapp')
     outputDirectory = file('data/methods')
+}
+
+task extractSentences(type: ExtractSentences, dependsOn: splitSentences)  {
+    source = 'data/methods'
+    include = /.*\.html$/
+
+    extractionIndex = file('data/comments-index.txt')
+    extractedSentences = file('data/comments.txt')
 }
