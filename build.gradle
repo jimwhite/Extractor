@@ -1,3 +1,4 @@
+import org.ifcx.extractor.ExtractParses
 import org.ifcx.extractor.ExtractSentences
 import org.ifcx.extractor.ExtractJavadoc
 import org.ifcx.extractor.GATE_Task
@@ -19,9 +20,9 @@ buildscript {
 
 dependencies {
     compile files('/Users/jim/Projects/GATE/release-7.1/bin/gate.jar')
-    compile('uk.ac.gate:gate-core:7.1')
-    compile gradleApi()
-    groovy 'org.codehaus.groovy:groovy:1.8.9'
+//    compile('uk.ac.gate:gate-core:7.1')
+//    compile gradleApi()
+//    groovy 'org.codehaus.groovy:groovy:1.8.9'
 }
 
 sourceSets {
@@ -63,4 +64,9 @@ task extractSentences(type: ExtractSentences, dependsOn: splitSentences)  {
 
     extractionIndex = file('data/comments-index.txt')
     extractedSentences = file('data/comments.txt')
+}
+
+task extractParses(type: ExtractParses) {
+    source = 'tmp/pet/erg.1212.comments.13-05-30.pet.gz'
+    parses = file('tmp/parses')
 }

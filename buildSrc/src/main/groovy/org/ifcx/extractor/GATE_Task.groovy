@@ -15,10 +15,7 @@ import org.gradle.api.tasks.TaskAction
 
 class GATE_Task extends SourceTask
 {
-    GATE_Task()
-    {
-        Gate.init()
-    }
+    static initialized = false
 
     @InputFile
     File gateApp
@@ -29,6 +26,15 @@ class GATE_Task extends SourceTask
     @TaskAction
     public void process()
     {
+//        println "GATE_Task processing..."
+
+        synchronized (GATE_Task.class) {
+            if (!initialized) {
+                initialized = true
+                Gate.init()
+            }
+        }
+
         outputDirectory.mkdirs()
 
         Corpus corpus = Factory.createResource("gate.corpora.CorpusImpl")

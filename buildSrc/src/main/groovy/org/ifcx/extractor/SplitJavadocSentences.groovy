@@ -22,10 +22,6 @@ import org.gradle.api.tasks.TaskAction
 import org.ifcx.extractor.util.Sexp
 
 class SplitJavadocSentences extends DefaultTask {
-    SplitJavadocSentences() {
-        Gate.init()
-    }
-
     @Input
     boolean parseCommentHTML = false
 
@@ -38,9 +34,18 @@ class SplitJavadocSentences extends DefaultTask {
     @OutputDirectory
     File outputDirectory
 
+    static initialized = false
+
     @TaskAction
     public void process()
     {
+        synchronized (SplitJavadocSentences.class) {
+            if (!initialized) {
+                initialized = true
+                Gate.init()
+            }
+        }
+
         outputDirectory.mkdirs()
 
         CorpusController application = (CorpusController) PersistenceManager.loadObjectFromFile(gateApp)
