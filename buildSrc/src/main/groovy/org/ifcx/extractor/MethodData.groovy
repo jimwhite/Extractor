@@ -48,15 +48,20 @@ class MethodData
 
     static Map readMethod(File directory, String method_id)
     {
-        def xml = new XmlSlurper().parse(new File(directory, method_id + ".html"))
+        readMethod(new File(directory, method_id + ".html"))
+    }
+
+    static Map readMethod(File method_file)
+    {
+        def xml = new XmlSlurper().parse(method_file)
         def extracts = xml.body.'**'.findAll { it.@'class' == 'method-extract' }
 
         if (extracts.size() > 0) {
-            if (extracts.size() > 1) println "More method extracts than expected: ${extracts.size()} for $method_id"
+            if (extracts.size() > 1) println "More method extracts than expected: ${extracts.size()} for $method_file"
             def tree = Sexp.read_one_sexp(new StringReader(extracts[0].text()))
             Sexp.tree_to_map(tree)
         } else {
-            println "No method extracts for $method_id"
+            println "No method extracts for $method_file"
             null
         }
     }

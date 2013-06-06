@@ -19,7 +19,7 @@ class RatpackServlet extends HttpServlet {
     void init() {
     	if(app == null) {
 	    	def appScriptName = getServletConfig().getInitParameter("app-script-filename")
-			  def fullScriptPath = getServletContext().getRealPath("WEB-INF/lib/${appScriptName}")
+			def fullScriptPath = getServletContext().getRealPath("WEB-INF/lib/${appScriptName}")
 
 	    	logger.info('Loading app from script "{}"', appScriptName)
 			loadAppFromScript(fullScriptPath)
@@ -77,13 +77,16 @@ class RatpackServlet extends HttpServlet {
 
         output = convertOutputToByteArray(output)
 
-        def contentLength = output.length
-        res.setHeader('Content-Length', contentLength.toString())
+        // Output might be null if handler did all of the response needed, such as with a redirect.
+        if (output != null) {
+            def contentLength = output.length
+            res.setHeader('Content-Length', contentLength.toString())
 
-        def stream = res.getOutputStream()
-        stream.write(output)
-        stream.flush()
-        stream.close()
+            def stream = res.getOutputStream()
+            stream.write(output)
+            stream.flush()
+            stream.close()
+        }
 
         logger.info("[   ${res.status}] ${verb} ${path}")
     }
