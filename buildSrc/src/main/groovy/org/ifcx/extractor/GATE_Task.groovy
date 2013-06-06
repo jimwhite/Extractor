@@ -37,7 +37,7 @@ class GATE_Task extends SourceTask
 
         outputDirectory.mkdirs()
 
-        Corpus corpus = Factory.createResource("gate.corpora.CorpusImpl")
+        Corpus corpus = Factory.createResource(gate.corpora.CorpusImpl.class.name)
 
         CorpusController application = (CorpusController)PersistenceManager.loadObjectFromFile(gateApp)
 
@@ -50,7 +50,7 @@ class GATE_Task extends SourceTask
             params.put("preserveOriginalContent", true)
             // params.put("collectRepositioningInfo", true)
 
-            Document doc = (Document) Factory.createResource("gate.corpora.DocumentImpl", params)
+            Document doc = (Document) Factory.createResource(gate.corpora.DocumentImpl.class.name, params)
 
             corpus.add(doc)
 

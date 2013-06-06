@@ -23,7 +23,7 @@ class ExtractSentences extends SourceTask {
                     def map = Sexp.tree_to_map(tree)
 
                     indexPrinter.println "${map.Id}\t${input.path}"
-                    commentPrinter.println map.Sentence
+                    commentPrinter.println map.Comment
                 }
             }
         }

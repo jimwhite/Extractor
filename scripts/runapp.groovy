@@ -55,10 +55,13 @@ class AppRunner extends DirWatcher {
   RatpackApp app
   Server server
   File script
+    String public_path
 
-  AppRunner(String script, String path) {
+  AppRunner(String script, String path, String public_path = null)
+  {
     super(path)
     this.script = new File(path, script)
+      this.public_path = public_path
   }
 
   def manageApp() {
@@ -71,6 +74,8 @@ class AppRunner extends DirWatcher {
       app = new RatpackApp()
 
       app.prepareScriptForExecutionOnApp(script)
+
+      if (public_path) app.config.public = public_path
 
       // Runs this RatpackApp in a Jetty container
       def servlet = new RatpackServlet()
@@ -109,9 +114,9 @@ class AppRunner extends DirWatcher {
   }
 }
 
-if (args.length == 2) {
-  new AppRunner(args[0], args[1]).manageApp()
+if (args.length > 1 && args.length < 4) {
+  new AppRunner(args[0], args[1], (args.length > 2) ? args[2] : null).manageApp()
 } else {
   println "Usage:"
-  println "groovy runapp.groovy [script] [dir to watch]"
+  println "groovy runapp.groovy <script> <dir to watch> [<static file dir>]"
 }

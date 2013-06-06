@@ -1,10 +1,10 @@
+import org.ifcx.extractor.PrettyPrinter
 import org.ifcx.extractor.util.Sexp
 
 //foo = new XmlSlurper().parse(new File('../data/methods/method|com.sun.tools.javac.jvm.ClassReader|isAsciiDigit|boolean|1|char.html'))
 foo = new XmlSlurper().parse(new File('../data/methods/method|com.sun.tools.doclets.formats.html.markup.HtmlWriter|getBold|java.lang.String|0.html'))
 
 //println foo
-
 
 def methods = foo.body.'**'.findAll { it.@'class' == 'method' }
 

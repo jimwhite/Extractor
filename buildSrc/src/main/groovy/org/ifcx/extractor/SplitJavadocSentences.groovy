@@ -70,7 +70,7 @@ class SplitJavadocSentences extends DefaultTask {
     {
         use (gate.Utils) {
 
-            Corpus corpus = Factory.createResource("gate.corpora.CorpusImpl")
+            Corpus corpus = Factory.createResource(gate.corpora.CorpusImpl.class.name)
 
             application.corpus = corpus
 
@@ -80,7 +80,7 @@ class SplitJavadocSentences extends DefaultTask {
                 tempDir.mkdirs()
                 def htmlFile = File.createTempFile("mx-", ".html", tempDir)
 
-                htmlFile.write("<html><body>" + method.Comment + "</body></html")
+                htmlFile.write("<html><body>" + method.Javadoc + "</body></html")
 
 //                def doc = gate.Factory.newDocument(htmlFile.toURL())
                 def params = featureMap(Document.DOCUMENT_URL_PARAMETER_NAME, htmlFile.toURL()
@@ -90,7 +90,7 @@ class SplitJavadocSentences extends DefaultTask {
                 doc.name = method.Id
                 corpus.add(doc)
             } else {
-                def comment = StringEscapeUtils.unescapeHtml(method.Comment)
+                def comment = StringEscapeUtils.unescapeHtml(method.Javadoc)
                 def doc = Factory.newDocument(comment)
                 doc.name = method.Id
                 doc.preserveOriginalContent = true
@@ -109,9 +109,12 @@ class SplitJavadocSentences extends DefaultTask {
             def sentenceList = sentenceSet.inDocumentOrder()
 
             if (sentenceList.size() > 0) {
-                method.Sentence = document.cleanStringFor(sentenceList.first())
-                method.SentenceAll = sentenceList.collect { document.cleanStringFor(it) }
+                method.Sentences = sentenceList.collect { document.cleanStringFor(it) }
+                def comment = tidyJavadoc(method.Sentences.first())
+                if (comment) method.Comment0 = comment
             }
+
+            if (!method.Comment && method.Comment0) method.Comment = method.Comment0
 
             new File(outputDirectory, document.name + '.html').withPrintWriter { printer ->
                new MarkupBuilder(printer).html(lang:"en", xmlns:"http://www.w3.org/1999/xhtml", 'xmlns:gate':"urn:gate:fakeNS") {
@@ -120,11 +123,30 @@ class SplitJavadocSentences extends DefaultTask {
                         link(rel:"stylesheet", href:"../javadocs.css")
                     }
                     body {
-                        div('class':'method', id:document.name) {
+                        form('class':'method', id:document.name, action:"update-method/${document.name}", method:'post') {
                             div('class':'method-id', document.name)
-                            div('class':'method-comment-sentence-1', method.Sentence)
-                            div('class':'method-sentences') {
-                                method.SentenceAll.each { sent -> div('class':'method-comment-sentence', sent) }
+                            div {
+                                def radio = {
+                                    if ((method.Judgement ?: 'Unknown') == it)
+                                        input(type:'radio', name:'Judgement', value:it, checked:true, it)
+                                    else
+                                        input(type:'radio', name:'Judgement', value:it, it)
+                                }
+                                radio('Unknown')
+                                radio('Pedantic')
+                                radio('SomewhatPedantic')
+                                radio('NotPedantic')
+                                input(type:'submit')
+                            }
+                            if (method.Comment)
+                                input('class':'method-comment', type:'text', name:'Comment', value:method.Comment)
+                            else
+                                p("No comment")
+                            if (method.Comment0) div('class':'method-comment-original', method.Comment0)
+                            if (method.Sentences) {
+                                ol('class':'method-sentences') {
+                                    method.Sentences.each { sent -> li('class':'method-sentence', sent) }
+                                }
                             }
                         }
                         pre('class':'method-comment-gate') {
@@ -137,4 +159,8 @@ class SplitJavadocSentences extends DefaultTask {
         }
     }
 
+    static String tidyJavadoc(String sentence)
+    {
+        sentence.replaceAll(/\{\s*@[^{}]*\}/, '').trim()
+    }
 }

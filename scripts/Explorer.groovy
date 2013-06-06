@@ -12,3 +12,10 @@ get("/") {
         }
     }.toString()
 }
+
+post("/methods/update-method/:method_id") {
+    println urlparams
+    println params
+    println request
+    "OK"
+}

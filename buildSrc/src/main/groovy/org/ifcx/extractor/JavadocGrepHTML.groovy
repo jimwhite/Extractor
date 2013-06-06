@@ -454,7 +454,7 @@ public class JavadocGrepHTML extends AbstractProcessor
 //            res << ["EndPosition", tree.endPosition]
         }
 
-        if (methodComment) res << ["Comment", methodComment]
+        if (methodComment) res << ["Javadoc", methodComment]
 
         res << ["Name", method.simpleName.toString()]
         res << ["Enclosure", fullName(method.enclosingElement)]
