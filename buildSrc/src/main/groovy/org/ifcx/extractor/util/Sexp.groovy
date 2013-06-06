@@ -109,7 +109,7 @@ class Sexp
         return sexps ? sexps[0] : null
     }
 
-    static def tree_to_map(Object tree)
+    static Map tree_to_map(Object tree)
     {
         if (tree instanceof List) {
             def sexp_label = tree.head()
@@ -119,6 +119,11 @@ class Sexp
         }
 
         tree
+    }
+
+    static def map_to_tree(String label, Map amap)
+    {
+        map_to_tree([(SEXP_LABEL_KEY):label] + amap)
     }
 
     static def map_to_tree(Map amap)

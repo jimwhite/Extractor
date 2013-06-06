@@ -116,44 +116,49 @@ class SplitJavadocSentences extends DefaultTask {
 
             if (!method.Comment && method.Comment0) method.Comment = method.Comment0
 
-            new File(outputDirectory, document.name + '.html').withPrintWriter { printer ->
-               new MarkupBuilder(printer).html(lang:"en", xmlns:"http://www.w3.org/1999/xhtml", 'xmlns:gate':"urn:gate:fakeNS") {
-                    head {
-                        title(document.name)
-                        link(rel:"stylesheet", href:"../javadocs.css")
-                    }
-                    body {
-                        form('class':'method', id:document.name, action:"update-method/${document.name}", method:'post') {
-                            div('class':'method-id', document.name)
-                            div {
-                                def radio = {
-                                    if ((method.Judgement ?: 'Unknown') == it)
-                                        input(type:'radio', name:'Judgement', value:it, checked:true, it)
-                                    else
-                                        input(type:'radio', name:'Judgement', value:it, it)
-                                }
-                                radio('Unknown')
-                                radio('Pedantic')
-                                radio('SomewhatPedantic')
-                                radio('NotPedantic')
-                                input(type:'submit')
+//            writeMethod(document, xml, method)
+            MethodData.writeMethod(outputDirectory, document.name, method)
+        }
+    }
+
+    private void writeMethod(Document document, xml, Map method) {
+        new File(outputDirectory, document.name + '.html').withPrintWriter { printer ->
+            new MarkupBuilder(printer).html(lang: "en", xmlns: "http://www.w3.org/1999/xhtml", 'xmlns:gate': "urn:gate:fakeNS") {
+                head {
+                    title(document.name)
+                    link(rel: "stylesheet", href: "../javadocs.css")
+                }
+                body {
+                    form('class': 'method', id: document.name, action: "update-method/${document.name}", method: 'post') {
+                        div('class': 'method-id', document.name)
+                        div {
+                            def radio = {
+                                if ((method.Judgement ?: 'Unknown') == it)
+                                    input(type: 'radio', name: 'Judgement', value: it, checked: true, it)
+                                else
+                                    input(type: 'radio', name: 'Judgement', value: it, it)
                             }
-                            if (method.Comment)
-                                input('class':'method-comment', type:'text', name:'Comment', value:method.Comment)
-                            else
-                                p("No comment")
-                            if (method.Comment0) div('class':'method-comment-original', method.Comment0)
-                            if (method.Sentences) {
-                                ol('class':'method-sentences') {
-                                    method.Sentences.each { sent -> li('class':'method-sentence', sent) }
-                                }
+                            radio('Unknown')
+                            radio('Pedantic')
+                            radio('SomewhatPedantic')
+                            radio('NotPedantic')
+                            input(type: 'submit')
+                        }
+                        if (method.Comment)
+                            input('class': 'method-comment', type: 'text', name: 'Comment', value: method.Comment)
+                        else
+                            p("No comment")
+                        if (method.Comment0) div('class': 'method-comment-original', method.Comment0)
+                        if (method.Sentences) {
+                            ol('class': 'method-sentences') {
+                                method.Sentences.each { sent -> li('class': 'method-sentence', sent) }
                             }
                         }
-                        pre('class':'method-comment-gate') {
-                            mkp.yieldUnescaped(xml)
-                        }
-                        pre('class':'method-extract', Sexp.printTree(Sexp.map_to_tree(method)))
                     }
+                    pre('class': 'method-comment-gate') {
+                        mkp.yieldUnescaped(xml)
+                    }
+                    pre('class': 'method-extract', Sexp.printTree(Sexp.map_to_tree(method)))
                 }
             }
         }
