@@ -17,6 +17,18 @@ class MethodData
                     form('class':'method', id:method_id, action:"update-method/${method_id}", method:'post') {
                         div('class':'method-id', method_id)
                         div {
+                            def radio1 = {
+                                if ((method.ConstituentJudgement ?: 'Unknown') == it)
+                                    input(type:'radio', name:'ConstituentJudgement', value:it, checked:true, it)
+                                else
+                                    input(type:'radio', name:'ConstituentJudgement', value:it, it)
+                            }
+                            radio1('Unknown')
+                            radio1('S')
+                            radio1('VP')
+                            radio1('NP')
+                        }
+                        div {
                             def radio = {
                                 if ((method.Judgement ?: 'Unknown') == it)
                                     input(type:'radio', name:'Judgement', value:it, checked:true, it)
@@ -29,10 +41,16 @@ class MethodData
                             radio('NotPedantic')
                             input(type:'submit')
                         }
+
                         if (method.Comment)
                             input('class':'method-comment', type:'text', name:'Comment', value:method.Comment)
                         else
                             p("No comment")
+
+                        input('class':'method-note', type:'text', name:'Note', value:method.Note)
+
+                        pre(method.JavaSource)
+
                         if (method.Comment0) div('class':'method-comment-original', method.Comment0)
                         if (method.Sentences) {
                             ol('class':'method-sentences') {

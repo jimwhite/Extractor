@@ -2,6 +2,8 @@ import groovy.xml.StreamingMarkupBuilder
 import org.ifcx.extractor.MethodData
 import org.ifcx.extractor.util.Sexp
 
+import java.text.SimpleDateFormat
+
 data_dir = new File("data")
 methods_dir = new File(data_dir, "methods")
 updates_dir = new File(data_dir, "method-updates")
@@ -13,7 +15,7 @@ get("/") {
     def method_ids = methods_dir.listFiles().grep { it.name =~ /.*\.html$/}.collect { it.name - ~/\.html$/ }
 
     if (method_ids) {
-        response.sendRedirect(method_nav(method_ids.first()))
+        response.sendRedirect(method_frame(method_ids.first()))
     } else {
         "NO METHODS!"
     }
@@ -33,27 +35,34 @@ get("/method_frame/:method_id") {
 }
 
 get("/method_nav/:method_id") {
-    def method_id = urlparams.method_id
+    String method_id = urlparams.method_id
 
     def method_ids = methods_dir.listFiles().grep { it.name =~ /.*\.html$/}.collect { it.name - ~/\.html$/ }
 
     def method_index = method_ids.indexOf(method_id)
+
+    def method = MethodData.readMethod(methods_dir, method_id)
 
     new StreamingMarkupBuilder().bind {
         html {
             head { title('Method Navigation') }
             body {
                 div {
-                    a(href:method_nav(method_ids.first()), target:"_top", "First")
+                    a(href:method_frame(method_ids.first()), target:"_top", "First")
                     span(' ')
-                    if (method_index > 0) a(href:method_nav(method_ids[method_index-1]), target:"_top", "Previous")
+                    if (method_index > 0) a(href:method_frame(method_ids[method_index-1]), target:"_top", "Previous")
                     span(' ')
-                    if (method_index + 1 < method_ids.size()) a(href:method_nav(method_ids[method_index+1]), target:"_top", "Next")
+                    if (method_index + 1 < method_ids.size()) a(href:method_frame(method_ids[method_index+1]), target:"_top", "Next")
                     span(' ')
-                    a(href:method_nav(method_ids.last()), target:"_top", "Last")
+                    a(href:method_frame(method_ids.last()), target:"_top", "Last")
                 }
                 div {
                     span(method_id)
+                }
+                div {
+                    code(method.Enclosure)
+                    span(' ')
+                    code(method.Name)
                 }
             }
         }
@@ -67,11 +76,21 @@ post("/methods/update-method/:method_id") {
 
     def method_id = urlparams.method_id
 
-    new File(updates_dir, method_id + ".txt").write Sexp.printTree(Sexp.map_to_tree("METHOD_UPDATE", params))
-
     def method = MethodData.readMethod(methods_dir, method_id)
 
-    params.each { k, v -> method[k] = v }
+    def date_formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+
+    def method_update = [Annotator:"JPW", AnnotationDate:date_formatter.format(new Date())]
+    params.each { k, v ->
+        method_update[k] = v
+        if (method.containsKey(k) && (method[k] != v)) { method_update["PreviousValueOf" + k] = method[k] }
+    }
+
+    def updateFile = new File(updates_dir, method_id + ".txt")
+
+    updateFile.append('\n' + Sexp.printTree(Sexp.map_to_tree("METHOD_UPDATE", method_update)) + '\n')
+
+    method_update.each { k, v -> method[k] = v }
 
     MethodData.writeMethod(methods_dir, method_id, method)
 
@@ -79,7 +98,7 @@ post("/methods/update-method/:method_id") {
     response.sendRedirect(method_href(method_id))
 }
 
-String method_nav(String method_id) {
+String method_frame(String method_id) {
     "/method_frame/" + method_id
 }
 

@@ -81,6 +81,8 @@ class AppRunner extends DirWatcher {
       def servlet = new RatpackServlet()
       servlet.app = app
 
+      app.logger
+
       app.logger.info('Starting Ratpack app with config:\n{}', app.config)
 
       server = new Server(app.config.port)

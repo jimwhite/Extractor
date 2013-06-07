@@ -31,6 +31,9 @@ class SplitJavadocSentences extends DefaultTask {
     @InputDirectory
     File inputDirectory
 
+    @InputDirectory
+    File updatesDirectory
+
     @OutputDirectory
     File outputDirectory
 
@@ -59,6 +62,18 @@ class SplitJavadocSentences extends DefaultTask {
                     assert sexp.head() == "METHOD"
 
                     def method = Sexp.tree_to_map(sexp)
+
+                    def updateFile = new File(updatesDirectory, method.Id + ".txt")
+                    if (updateFile.exists()) {
+                        updateFile.withReader {
+                            def method_update
+
+                            while ((method_update = Sexp.read_one_sexp(it)) != null) {
+                                assert method_update.head() == "METHOD_UPDATE"
+                                method_update.tail().each { method[it[0]] = it[1] }
+                            }
+                        }
+                    }
 
                     processMethod(application, method)
                 }
@@ -121,6 +136,7 @@ class SplitJavadocSentences extends DefaultTask {
         }
     }
 
+/*
     private void writeMethod(Document document, xml, Map method) {
         new File(outputDirectory, document.name + '.html').withPrintWriter { printer ->
             new MarkupBuilder(printer).html(lang: "en", xmlns: "http://www.w3.org/1999/xhtml", 'xmlns:gate': "urn:gate:fakeNS") {
@@ -163,6 +179,7 @@ class SplitJavadocSentences extends DefaultTask {
             }
         }
     }
+*/
 
     static String tidyJavadoc(String sentence)
     {
