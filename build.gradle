@@ -61,8 +61,7 @@ task splitSentences(type: SplitJavadocSentences, dependsOn: extractJavadoc)  {
 }
 
 task extractSentences(type: ExtractSentences, dependsOn: splitSentences)  {
-    source = 'data/methods'
-    include = /.*\.html$/
+    source = fileTree('data/methods').include('*.html')
 
     extractionIndex = file('data/comments-index.txt')
     extractedSentences = file('data/comments.txt')

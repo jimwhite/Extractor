@@ -45,7 +45,10 @@ get("/method_nav/:method_id") {
 
     new StreamingMarkupBuilder().bind {
         html {
-            head { title('Method Navigation') }
+            head {
+                title('Method Navigation')
+                link(rel:"stylesheet", href:"/javadocs.css")
+            }
             body {
                 div {
                     a(href:method_frame(method_ids.first()), target:"_top", "First")
@@ -57,7 +60,7 @@ get("/method_nav/:method_id") {
                     a(href:method_frame(method_ids.last()), target:"_top", "Last")
                 }
                 div {
-                    span(method_id)
+                    span('class':'method-id', method_id)
                 }
                 div {
                     code(method.Enclosure)
