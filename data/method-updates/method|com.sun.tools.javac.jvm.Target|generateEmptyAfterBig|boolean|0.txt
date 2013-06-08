@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:14:24.801-0700)
+  (Annotator JPW)
+  (Comment "Do we generate \"empty\" stackmap slots after double and long?")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note ""))

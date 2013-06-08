@@ -1,0 +1,12 @@
+(METHOD_UPDATE
+  (AnnotationDate "Thu Jun 06 17:24:00 PDT 2013")
+  (Annotator JPW)
+  (Comment "Return true if this map has no visible members.")
+  (Judgement Pedantic))
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T17:51:54.132-0700)
+  (Annotator JPW)
+  (Comment "Return true if this map has no visible members.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note ""))

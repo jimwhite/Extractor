@@ -1,0 +1,8 @@
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T14:11:36.590-0700)
+  (Annotator JPW)
+  (Comment "Returns the fully qualified name of the type being accessed.")
+  (ConstituentJudgement VP)
+  (Judgement Unknown)
+  (Note ""))
+

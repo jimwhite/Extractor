@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:09:19.613-0700)
+  (Annotator JPW)
+  (Comment "Return code byte at position pc as an unsigned int.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note ""))

@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-08T01:55:49.052-0700)
+  (Annotator JPW)
+  (Comment "Return the type of a literal with given type tag.")
+  (ConstituentJudgement S)
+  (Judgement NotPedantic)
+  (Note ""))

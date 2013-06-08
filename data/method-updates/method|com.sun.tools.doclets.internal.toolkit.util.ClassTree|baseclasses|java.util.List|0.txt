@@ -1,0 +1,12 @@
+(METHOD_UPDATE
+  (AnnotationDate "Thu Jun 06 17:20:29 PDT 2013")
+  (Annotator JPW)
+  (Comment "Return the base-classes list.")
+  (Judgement Pedantic))
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T17:47:00.316-0700)
+  (Annotator JPW)
+  (Comment "Return the base-classes list.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note ""))

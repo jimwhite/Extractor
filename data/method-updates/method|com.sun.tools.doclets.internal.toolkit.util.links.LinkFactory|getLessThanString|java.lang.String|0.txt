@@ -1,0 +1,14 @@
+(METHOD_UPDATE
+  (AnnotationDate "Thu Jun 06 17:22:38 PDT 2013")
+  (Annotator JPW)
+  (Comment "Return &lt;, which is used in type parameters.")
+  (Judgement SomewhatPedantic))
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T17:51:12.030-0700)
+  (Annotator JPW)
+  (Comment "Return &lt;.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note "HTML character entity")
+  (PreviousValueOfComment "Return &lt;, which is used in type parameters.")
+  (PreviousValueOfJudgement SomewhatPedantic))

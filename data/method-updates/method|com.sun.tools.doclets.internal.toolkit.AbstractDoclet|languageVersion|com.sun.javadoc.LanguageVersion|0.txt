@@ -1,0 +1,3 @@
+(METHOD_UPDATE
+  (Comment "Indicate that this doclet supports the 1.5 language features.")
+  (Judgement NotPedantic))

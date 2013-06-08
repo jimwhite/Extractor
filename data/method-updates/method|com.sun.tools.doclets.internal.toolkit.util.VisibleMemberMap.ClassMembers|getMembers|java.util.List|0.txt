@@ -1,0 +1,12 @@
+(METHOD_UPDATE
+  (AnnotationDate "Thu Jun 06 17:23:51 PDT 2013")
+  (Annotator JPW)
+  (Comment "Return list of inherited members from mapping class.")
+  (Judgement SomewhatPedantic))
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T17:51:40.485-0700)
+  (Annotator JPW)
+  (Comment "Return list of inherited members from mapping class.")
+  (ConstituentJudgement S)
+  (Judgement SomewhatPedantic)
+  (Note ""))

@@ -1,0 +1,9 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:19:48.412-0700)
+  (Annotator JPW)
+  (Comment "Returns true if an error was raised in the prior round of processing.")
+  (ConstituentJudgement VP)
+  (Judgement Pedantic)
+  (Note "The {@ ...} handling needs tweakage.")
+  (PreviousValueOfComment "Returns  if an error was raised in the prior round of processing; returns  otherwise."))

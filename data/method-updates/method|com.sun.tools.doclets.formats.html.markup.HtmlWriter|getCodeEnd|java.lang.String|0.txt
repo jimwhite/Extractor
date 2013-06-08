@@ -1,0 +1,3 @@
+(METHOD_UPDATE
+  (Comment "Get the \"</CODE>\" string.")
+  (Judgement Pedantic))

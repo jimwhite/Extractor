@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-08T02:13:28.310-0700)
+  (Annotator JPW)
+  (Comment "Does this constant correspond to a nested type element?")
+  (ConstituentJudgement S)
+  (Judgement SomewhatPedantic)
+  (Note "So something is nested if it is not the TOP_LEVEL, but that means this isn't pedantic, right?"))

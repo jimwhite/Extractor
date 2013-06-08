@@ -1,0 +1,3 @@
+(METHOD_UPDATE
+  (Comment "Return the annotation type required member writer for this builder.")
+  (Judgement Pedantic))

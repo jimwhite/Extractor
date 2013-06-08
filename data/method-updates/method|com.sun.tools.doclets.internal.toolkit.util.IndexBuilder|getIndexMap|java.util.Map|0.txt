@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T17:48:09.159-0700)
+  (Annotator JPW)
+  (Comment "Return a map of all the individual member lists with Unicode character.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note ""))

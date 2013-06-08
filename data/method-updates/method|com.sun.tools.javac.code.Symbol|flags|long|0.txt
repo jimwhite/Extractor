@@ -1,0 +1,22 @@
+(METHOD_UPDATE
+  (AnnotationDate "Thu Jun 06 17:27:26 PDT 2013")
+  (Annotator JPW)
+  (Comment "An accessor method for the flags of this symbol.")
+  (Judgement NotPedantic))
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T17:54:27.157-0700)
+  (Annotator JPW)
+  (Comment "An accessor method for the flags of this symbol.")
+  (ConstituentJudgement NP)
+  (Judgement Pedantic)
+  (Note "")
+  (PreviousValueOfJudgement NotPedantic))
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T17:54:42.699-0700)
+  (Annotator JPW)
+  (Comment "An accessor method for the flags of this symbol.")
+  (ConstituentJudgement NP)
+  (Judgement Pedantic)
+  (Note DP)
+  (PreviousValueOfNote ""))

@@ -1,0 +1,13 @@
+(METHOD_UPDATE
+  (AnnotationDate "Thu Jun 06 17:25:16 PDT 2013")
+  (Annotator JPW)
+  (Comment "A package \"exists\" if a type or package that exists has been seen within it.")
+  (Judgement SomewhatPedantic))
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T17:53:31.584-0700)
+  (Annotator JPW)
+  (Comment "A package \"exists\" if a type or package that exists has been seen within it.")
+  (ConstituentJudgement S)
+  (Judgement NotPedantic)
+  (Note "")
+  (PreviousValueOfJudgement SomewhatPedantic))

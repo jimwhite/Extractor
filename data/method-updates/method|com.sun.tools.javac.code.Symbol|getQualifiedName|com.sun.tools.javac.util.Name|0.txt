@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T17:55:09.268-0700)
+  (Annotator JPW)
+  (Comment "The fully qualified name of this symbol.")
+  (ConstituentJudgement NP)
+  (Judgement Pedantic)
+  (Note ""))

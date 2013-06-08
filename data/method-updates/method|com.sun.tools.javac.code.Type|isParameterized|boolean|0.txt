@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-08T01:52:37.855-0700)
+  (Annotator JPW)
+  (Comment "Is this type parameterized?")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note "Defined as a question.  I think it means the same as \"Return true if this type is parameterized\" here."))

@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-08T02:17:47.003-0700)
+  (Annotator JPW)
+  (Comment "Return number of local variables.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note ""))

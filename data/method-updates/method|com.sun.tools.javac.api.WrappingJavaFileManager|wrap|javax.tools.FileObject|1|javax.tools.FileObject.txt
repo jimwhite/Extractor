@@ -1,0 +1,12 @@
+(METHOD_UPDATE
+  (AnnotationDate "Thu Jun 06 17:24:57 PDT 2013")
+  (Annotator JPW)
+  (Comment "This implementation returns the given file object.")
+  (Judgement Pedantic))
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T17:52:55.962-0700)
+  (Annotator JPW)
+  (Comment "This implementation returns the given file object.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note ""))

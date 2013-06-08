@@ -1,0 +1,17 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-08T01:52:54.814-0700)
+  (Annotator JPW)
+  (Comment "Is this type a raw type?")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note "Defined as a question.  I think it means the same as \"Return true if this type is parameterized\" here."))
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-08T01:54:52.210-0700)
+  (Annotator JPW)
+  (Comment "Is this type a raw type?")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note "Defined as a question.  I think it means the same as \"Return true if this type is a raw type\" here.")
+  (PreviousValueOfNote "Defined as a question.  I think it means the same as \"Return true if this type is parameterized\" here."))

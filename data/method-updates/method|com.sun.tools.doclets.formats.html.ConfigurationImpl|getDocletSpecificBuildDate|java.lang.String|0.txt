@@ -1,0 +1,3 @@
+(METHOD_UPDATE
+  (Comment "Return the build date for the doclet.")
+  (Judgement Pedantic))

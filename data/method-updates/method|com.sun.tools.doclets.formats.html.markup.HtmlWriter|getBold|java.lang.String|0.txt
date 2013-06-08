@@ -1,0 +1,3 @@
+(METHOD_UPDATE
+  (Comment "Get the \"<B>\" string.")
+  (Judgement Pedantic))

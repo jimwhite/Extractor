@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T17:58:05.851-0700)
+  (Annotator JPW)
+  (Comment "Is this symbol a constructor?")
+  (ConstituentJudgement S)
+  (Judgement NotPedantic)
+  (Note ""))

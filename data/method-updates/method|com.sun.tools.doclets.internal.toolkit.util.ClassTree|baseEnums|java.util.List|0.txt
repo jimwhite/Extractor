@@ -1,0 +1,12 @@
+(METHOD_UPDATE
+  (AnnotationDate "Thu Jun 06 17:20:34 PDT 2013")
+  (Annotator JPW)
+  (Comment "Return the list of base enums.")
+  (Judgement Pedantic))
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T17:46:53.295-0700)
+  (Annotator JPW)
+  (Comment "Return the list of base enums.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note ""))

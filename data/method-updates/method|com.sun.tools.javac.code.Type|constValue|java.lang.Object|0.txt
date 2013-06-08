@@ -1,0 +1,9 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:00:48.232-0700)
+  (Annotator JPW)
+  (Comment "The constant value of this type.")
+  (ConstituentJudgement NP)
+  (Judgement Pedantic)
+  (Note "")
+  (PreviousValueOfComment "The constant value of this type, null if this type does not have a constant value attribute."))

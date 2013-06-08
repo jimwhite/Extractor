@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T17:59:19.104-0700)
+  (Annotator JPW)
+  (Comment "The Java source which this type represents.")
+  (ConstituentJudgement NP)
+  (Judgement NotPedantic)
+  (Note ""))

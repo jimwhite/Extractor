@@ -1,0 +1,11 @@
+(METHOD_UPDATE
+  (Comment "Return round state.")
+  (Judgement SomewhatPedantic))(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T14:10:49.589-0700)
+  (Annotator JPW)
+  (Comment "Return round state.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note "")
+  (PreviousValueOfJudgement SomewhatPedantic))
+

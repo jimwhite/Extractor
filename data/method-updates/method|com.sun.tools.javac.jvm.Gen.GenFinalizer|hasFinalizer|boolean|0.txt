@@ -1,0 +1,17 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:11:04.721-0700)
+  (Annotator JPW)
+  (Comment "Does this finalizer have some nontrivial cleanup to perform?")
+  (ConstituentJudgement S)
+  (Judgement NotPedantic)
+  (Note ""))
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-08T02:01:22.218-0700)
+  (Annotator JPW)
+  (Comment "Does this finalizer have some nontrivial cleanup to perform?")
+  (ConstituentJudgement S)
+  (Judgement NotPedantic)
+  (Note "Here's a question where I said \"no\" to pedantic.  Need a consistent story.")
+  (PreviousValueOfNote ""))

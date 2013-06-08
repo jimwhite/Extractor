@@ -1,0 +1,3 @@
+(METHOD_UPDATE
+  (Comment "Return true if relative links should not be redirected.")
+  (Judgement NotPedantic))

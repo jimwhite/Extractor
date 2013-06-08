@@ -1,0 +1,10 @@
+(METHOD_UPDATE
+  (Comment "Get the compilation unit associated with this path.")
+  (Judgement SomewhatPedantic))(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T14:12:31.893-0700)
+  (Annotator JPW)
+  (Comment "Get the compilation unit associated with this path.")
+  (ConstituentJudgement S)
+  (Judgement SomewhatPedantic)
+  (Note ""))
+

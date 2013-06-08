@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:09:36.210-0700)
+  (Annotator JPW)
+  (Comment "Is code generation currently enabled?")
+  (ConstituentJudgement S)
+  (Judgement SomewhatPedantic)
+  (Note ""))

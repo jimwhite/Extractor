@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-08T02:07:39.899-0700)
+  (Annotator JPW)
+  (Comment "Return null, as this is not a type variable.")
+  (ConstituentJudgement S)
+  (Judgement SomewhatPedantic)
+  (Note ""))

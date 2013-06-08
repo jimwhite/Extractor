@@ -1,0 +1,10 @@
+(METHOD_UPDATE
+  (Comment "Return the Java Programming Language version supported by this doclet.")
+  (Judgement NotPedantic))(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T14:08:01.870-0700)
+  (Annotator JPW)
+  (Comment "Return the Java Programming Language version supported by this doclet.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note "")
+  (PreviousValueOfJudgement NotPedantic))

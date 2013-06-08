@@ -1,0 +1,17 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:03:45.027-0700)
+  (Annotator JPW)
+  (Comment "return the two bytes buf[pos], buf[pos+1] as an unsigned integer in little endian format.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note "Tough tokenizing because of code inline."))
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:03:55.786-0700)
+  (Annotator JPW)
+  (Comment "return the two bytes buf[pos], buf[pos+1] as an unsigned integer in little endian format.")
+  (ConstituentJudgement S)
+  (Judgement SomewhatPedantic)
+  (Note "Tough tokenizing because of code inline.")
+  (PreviousValueOfJudgement Pedantic))

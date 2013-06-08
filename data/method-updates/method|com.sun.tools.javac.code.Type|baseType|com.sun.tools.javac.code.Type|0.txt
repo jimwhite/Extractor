@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T17:59:51.365-0700)
+  (Annotator JPW)
+  (Comment "If this is a constant type, return its underlying type.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note ""))

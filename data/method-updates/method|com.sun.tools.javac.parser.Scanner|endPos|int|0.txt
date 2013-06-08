@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:16:06.042-0700)
+  (Annotator JPW)
+  (Comment "Return the last character position of the current token.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note ""))

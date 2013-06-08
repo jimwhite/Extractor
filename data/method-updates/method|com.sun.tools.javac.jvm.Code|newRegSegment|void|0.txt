@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:10:00.033-0700)
+  (Annotator JPW)
+  (Comment "Start a set of fresh registers.")
+  (ConstituentJudgement S)
+  (Judgement NotPedantic)
+  (Note ""))

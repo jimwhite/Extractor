@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-08T02:05:57.882-0700)
+  (Annotator JPW)
+  (Comment "Return the hash value of this name.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note ""))

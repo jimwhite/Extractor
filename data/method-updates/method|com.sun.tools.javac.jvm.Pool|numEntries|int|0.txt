@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:13:55.647-0700)
+  (Annotator JPW)
+  (Comment "Return the number of entries in the constant pool.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note ""))

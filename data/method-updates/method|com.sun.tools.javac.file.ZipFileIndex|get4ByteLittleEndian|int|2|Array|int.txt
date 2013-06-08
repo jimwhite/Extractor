@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:04:25.339-0700)
+  (Annotator JPW)
+  (Comment "return the 4 bytes buf[i..i+3] as an integer in little endian format.")
+  (ConstituentJudgement S)
+  (Judgement SomewhatPedantic)
+  (Note "Tough tokenizing because of code inline."))

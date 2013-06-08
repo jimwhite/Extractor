@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-08T02:08:04.477-0700)
+  (Annotator JPW)
+  (Comment "Return the type's dimension information.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note ""))

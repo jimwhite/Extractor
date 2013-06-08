@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-08T01:54:17.519-0700)
+  (Annotator JPW)
+  (Comment "Called when the Enter phase starts.")
+  (ConstituentJudgement VP)
+  (Judgement SomewhatPedantic)
+  (Note "This seems implementational but describes a condition rather than the operation."))

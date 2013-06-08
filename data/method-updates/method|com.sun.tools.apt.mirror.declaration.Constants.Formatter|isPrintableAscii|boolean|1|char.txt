@@ -1,0 +1,3 @@
+(METHOD_UPDATE
+  (Comment "Is c a printable ASCII character?")
+  (Judgement SomewhatPedantic))

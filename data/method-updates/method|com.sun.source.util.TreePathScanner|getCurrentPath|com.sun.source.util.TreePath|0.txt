@@ -1,0 +1,10 @@
+(METHOD_UPDATE
+  (Comment "Get the current path for the node, as built up by the currently active set of scan calls.")
+  (Judgement SomewhatPedantic))(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T14:11:48.938-0700)
+  (Annotator JPW)
+  (Comment "Get the current path for the node, as built up by the currently active set of scan calls.")
+  (ConstituentJudgement S)
+  (Judgement SomewhatPedantic)
+  (Note ""))
+

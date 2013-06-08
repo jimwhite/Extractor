@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:14:16.489-0700)
+  (Annotator JPW)
+  (Comment "Return true if cldc-style stack maps need to be generated.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note ""))

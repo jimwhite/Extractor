@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:16:14.537-0700)
+  (Annotator JPW)
+  (Comment "Return the position where a lexical error occurred;")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note ""))

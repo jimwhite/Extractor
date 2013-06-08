@@ -1,0 +1,9 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-08T02:12:02.539-0700)
+  (Annotator JPW)
+  (Comment "Returns true if this is a kind of interface: either INTERFACE or ANNOTATION_TYPE.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note "Need to handle {@code ...} since they're being so helpful and telling us a token is a code symbol.")
+  (PreviousValueOfComment "Returns  if this is a kind of interface: either  or ."))

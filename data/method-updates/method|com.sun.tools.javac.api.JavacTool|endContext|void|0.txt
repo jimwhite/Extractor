@@ -1,0 +1,12 @@
+(METHOD_UPDATE
+  (AnnotationDate "Thu Jun 06 17:24:22 PDT 2013")
+  (Annotator JPW)
+  (Comment "Register that a compilation is completed.")
+  (Judgement NotPedantic))
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T17:52:29.390-0700)
+  (Annotator JPW)
+  (Comment "Register that a compilation is completed.")
+  (ConstituentJudgement S)
+  (Judgement NotPedantic)
+  (Note ""))

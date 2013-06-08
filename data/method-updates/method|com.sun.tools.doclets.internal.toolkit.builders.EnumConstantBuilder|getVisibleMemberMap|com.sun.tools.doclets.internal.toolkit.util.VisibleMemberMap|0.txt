@@ -1,0 +1,6 @@
+(METHOD_UPDATE
+  (AnnotationDate "Thu Jun 06 17:11:26 PDT 2013")
+  (Annotator JPW)
+  (Comment "Returns the visible member map for the enum constants of this class.")
+  (Judgement Pedantic)
+  (PreviousValueOfComment "Returns the visible member map for the enum constants of this class."))

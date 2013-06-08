@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:01:46.954-0700)
+  (Annotator JPW)
+  (Comment "Does this type contain \"error\" elements?")
+  (ConstituentJudgement S)
+  (Judgement NotPedantic)
+  (Note ""))

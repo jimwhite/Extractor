@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-08T02:05:39.286-0700)
+  (Annotator JPW)
+  (Comment "Returns i'th byte of this name.")
+  (ConstituentJudgement VP)
+  (Judgement Pedantic)
+  (Note ""))

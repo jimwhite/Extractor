@@ -1,0 +1,3 @@
+(METHOD_UPDATE
+  (Comment "Let the writer know whether a non public constructor was found.")
+  (Judgement NotPedantic))

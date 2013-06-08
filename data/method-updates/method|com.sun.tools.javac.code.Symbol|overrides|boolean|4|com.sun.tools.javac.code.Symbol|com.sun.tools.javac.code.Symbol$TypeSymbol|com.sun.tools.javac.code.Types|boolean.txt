@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T17:58:50.130-0700)
+  (Annotator JPW)
+  (Comment "Does this method symbol override `other' symbol, when both are seen as members of class `origin'?")
+  (ConstituentJudgement S)
+  (Judgement NotPedantic)
+  (Note ""))

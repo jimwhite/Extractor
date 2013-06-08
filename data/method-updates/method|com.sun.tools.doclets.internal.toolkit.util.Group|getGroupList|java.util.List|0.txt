@@ -1,0 +1,12 @@
+(METHOD_UPDATE
+  (AnnotationDate "Thu Jun 06 17:21:29 PDT 2013")
+  (Annotator JPW)
+  (Comment "Return the list of groups, in the same order as specified on the command line.")
+  (Judgement SomewhatPedantic))
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T17:47:39.419-0700)
+  (Annotator JPW)
+  (Comment "Return the list of groups, in the same order as specified on the command line.")
+  (ConstituentJudgement S)
+  (Judgement SomewhatPedantic)
+  (Note ""))

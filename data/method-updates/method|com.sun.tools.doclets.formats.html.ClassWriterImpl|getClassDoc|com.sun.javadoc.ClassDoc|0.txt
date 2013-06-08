@@ -1,0 +1,3 @@
+(METHOD_UPDATE
+  (Comment "Return the classDoc being documented.")
+  (Judgement Pedantic))

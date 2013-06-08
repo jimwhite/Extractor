@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:15:58.718-0700)
+  (Annotator JPW)
+  (Comment "Returns the documentation string of the current token.")
+  (ConstituentJudgement VP)
+  (Judgement Pedantic)
+  (Note ""))

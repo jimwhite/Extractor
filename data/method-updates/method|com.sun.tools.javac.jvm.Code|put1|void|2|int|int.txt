@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:10:09.001-0700)
+  (Annotator JPW)
+  (Comment "Place a byte into code at address pc.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note ""))

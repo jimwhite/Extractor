@@ -1,0 +1,9 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:17:14.796-0700)
+  (Annotator JPW)
+  (Comment "Return the current token's position")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note "")
+  (PreviousValueOfComment "Return the current token's position: a 0-based offset from beginning of the raw input stream \(before unicode translation\)"))

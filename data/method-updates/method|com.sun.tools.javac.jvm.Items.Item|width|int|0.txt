@@ -1,0 +1,17 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:13:03.309-0700)
+  (Annotator JPW)
+  (Comment "Return the width of this item on stack as a number of words.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note ""))
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:13:31.245-0700)
+  (Annotator JPW)
+  (Comment "Return the width of this item on stack as a number of words.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note "This must be pedantic if variables can have crazy descriptions.")
+  (PreviousValueOfNote ""))

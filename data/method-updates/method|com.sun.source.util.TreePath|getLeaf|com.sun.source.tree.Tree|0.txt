@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T14:13:11.864-0700)
+  (Annotator JPW)
+  (Comment "Get the leaf node for this path.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note ""))

@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:15:47.132-0700)
+  (Annotator JPW)
+  (Comment "Has a @deprecated been encountered in last doc comment?")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note ""))

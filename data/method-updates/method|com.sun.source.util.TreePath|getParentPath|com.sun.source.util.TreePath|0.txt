@@ -1,0 +1,10 @@
+(METHOD_UPDATE
+  (Comment "Get the path for the enclosing node, or null if there is no enclosing node.")
+  (Judgement SomewhatPedantic))
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T14:13:28.538-0700)
+  (Annotator JPW)
+  (Comment "Get the path for the enclosing node, or null if there is no enclosing node.")
+  (ConstituentJudgement S)
+  (Judgement SomewhatPedantic)
+  (Note ""))

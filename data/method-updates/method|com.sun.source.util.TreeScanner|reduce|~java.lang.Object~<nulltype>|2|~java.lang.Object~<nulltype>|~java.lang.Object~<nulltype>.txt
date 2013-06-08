@@ -1,0 +1,3 @@
+(METHOD_UPDATE
+  (Comment "Reduces two results into a combined result.")
+  (Judgement NotPedantic))

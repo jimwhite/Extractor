@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:14:40.004-0700)
+  (Annotator JPW)
+  (Comment "Return the character to be used in constructing synthetic identifiers, where not specified by the JLS.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note ""))

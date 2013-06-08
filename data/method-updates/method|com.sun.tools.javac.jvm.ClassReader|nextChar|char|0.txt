@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:09:03.139-0700)
+  (Annotator JPW)
+  (Comment "Read a character.")
+  (ConstituentJudgement S)
+  (Judgement NotPedantic)
+  (Note ""))

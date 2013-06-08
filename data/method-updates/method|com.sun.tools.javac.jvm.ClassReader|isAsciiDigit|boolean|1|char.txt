@@ -1,0 +1,9 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:08:36.798-0700)
+  (Annotator JPW)
+  (Comment "Character.isDigit answers true to some non-ascii digits.")
+  (ConstituentJudgement S)
+  (Judgement SomewhatPedantic)
+  (Note "\"John answers true to some age values.\"")
+  (PreviousValueOfComment Character.isDigit))

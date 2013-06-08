@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:15:30.953-0700)
+  (Annotator JPW)
+  (Comment "Get the end position for a tree node.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note ""))

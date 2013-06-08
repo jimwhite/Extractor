@@ -1,0 +1,12 @@
+/* BODY, body { margin: 2em } /* or any other first level tag */
+P, p { display: block } /* or any other paragraph tag */
+/* ANNIE tags but you can use whatever tags you want */
+/* be careful that XML tags are case sensitive */
+Sentence  { background-color: rgb(150, 230, 150) ; border-spacing:1px 1px; border-style: none solid none solid }
+Token     { background-color: rgb(230, 150, 230) ; border: 1px solid red /* border-spacing:1px 1px; border-style: none dotted none dotted */ }
+.method-comment { width:95% ; margin: 5px ; font-style : bold ; font-size : large }
+.method-note { width:91% ; margin: 5px ; font-style : bold ; font-size : large }
+.method-id { font-family: monospace }
+label {
+    display: block;  position: relative; top: 0; font-weight : bold ;
+}

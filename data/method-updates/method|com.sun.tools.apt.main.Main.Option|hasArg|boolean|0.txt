@@ -1,0 +1,3 @@
+(METHOD_UPDATE
+  (Comment "Does this option take a \(separate\) operand?")
+  (Judgement NotPedantic))

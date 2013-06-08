@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-08T01:55:08.186-0700)
+  (Annotator JPW)
+  (Comment "Is this symbol a type?")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note "Defined as a question."))

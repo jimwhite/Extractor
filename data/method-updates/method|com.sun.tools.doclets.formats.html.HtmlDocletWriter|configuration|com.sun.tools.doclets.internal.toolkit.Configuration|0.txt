@@ -1,0 +1,3 @@
+(METHOD_UPDATE
+  (Comment "Return the configuation for this doclet.")
+  (Judgement Pedantic))

@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T18:06:43.162-0700)
+  (Annotator JPW)
+  (Comment "Extract a character at position bp from buf.")
+  (ConstituentJudgement S)
+  (Judgement SomewhatPedantic)
+  (Note "The sentence doesn't describe the operations so it's not pedantic, right?"))

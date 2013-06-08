@@ -1,0 +1,9 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-08T02:10:44.888-0700)
+  (Annotator JPW)
+  (Comment "Returns true if this is a kind of field: either FIELD or ENUM_CONSTANT.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note "")
+  (PreviousValueOfComment "Returns  if this is a kind of field: either  or ."))

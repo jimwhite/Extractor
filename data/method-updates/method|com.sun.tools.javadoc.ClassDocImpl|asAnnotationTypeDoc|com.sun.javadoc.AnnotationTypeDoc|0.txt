@@ -1,0 +1,9 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-08T02:06:49.818-0700)
+  (Annotator JPW)
+  (Comment "Return null.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note "")
+  (PreviousValueOfComment "Return null \(unless overridden\), as this is not an annotation type."))

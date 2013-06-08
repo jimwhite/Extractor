@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-08T02:17:36.318-0700)
+  (Annotator JPW)
+  (Comment "Return LocalVariableTable.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note "Base case for how variables are referred to.  \"Return NiceLongName\" for \"return nic_lng_nm;\"."))

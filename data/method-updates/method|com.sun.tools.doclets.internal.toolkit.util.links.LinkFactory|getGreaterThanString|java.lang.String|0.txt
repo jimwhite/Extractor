@@ -1,0 +1,23 @@
+(METHOD_UPDATE
+  (AnnotationDate "Thu Jun 06 17:22:31 PDT 2013")
+  (Annotator JPW)
+  (Comment "Return &gt;, which is used in type parameters.")
+  (Judgement SomewhatPedantic))
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T17:48:28.904-0700)
+  (Annotator JPW)
+  (Comment "Return &gt;, which is used in type parameters.")
+  (ConstituentJudgement S)
+  (Judgement SomewhatPedantic)
+  (Note ""))
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T17:51:27.463-0700)
+  (Annotator JPW)
+  (Comment "Return &gt;.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note "HTML character entity")
+  (PreviousValueOfComment "Return &gt;, which is used in type parameters.")
+  (PreviousValueOfJudgement SomewhatPedantic)
+  (PreviousValueOfNote ""))

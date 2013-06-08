@@ -1,0 +1,3 @@
+(METHOD_UPDATE
+  (Comment "Returns the visible member map for the members of this class.")
+  (Judgement Pedantic))

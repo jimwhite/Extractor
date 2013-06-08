@@ -1,0 +1,17 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T17:44:32.884-0700)
+  (Annotator JPW)
+  (Comment "Will return false because this inline tag may only appear in Fields.")
+  (ConstituentJudgement VP)
+  (Judgement SomewhatPedantic)
+  (Note ""))
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-07T17:46:26.292-0700)
+  (Annotator JPW)
+  (Comment "Will return false because this inline tag may only appear in Fields.")
+  (ConstituentJudgement VP)
+  (Judgement SomewhatPedantic)
+  (Note "\"will return false\" is VP but how does the S/P attach?")
+  (PreviousValueOfNote ""))

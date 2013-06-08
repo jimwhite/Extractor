@@ -1,0 +1,8 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-08T02:07:13.769-0700)
+  (Annotator JPW)
+  (Comment "Return this type as a class, which it already is.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note ""))

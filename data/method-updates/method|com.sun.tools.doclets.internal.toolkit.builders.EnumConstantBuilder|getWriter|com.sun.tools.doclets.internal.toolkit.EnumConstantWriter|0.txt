@@ -1,0 +1,6 @@
+(METHOD_UPDATE
+  (AnnotationDate "Thu Jun 06 17:11:33 PDT 2013")
+  (Annotator JPW)
+  (Comment "Return the enum constant writer for this builder.")
+  (Judgement Pedantic)
+  (PreviousValueOfComment "Return the enum constant writer for this builder."))

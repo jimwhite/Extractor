@@ -1,0 +1,9 @@
+
+(METHOD_UPDATE
+  (AnnotationDate 2013-06-08T02:18:24.801-0700)
+  (Annotator JPW)
+  (Comment "Return true if method is synthetic.")
+  (ConstituentJudgement S)
+  (Judgement Pedantic)
+  (Note "")
+  (PreviousValueOfComment "Return true if method id synthetic."))
