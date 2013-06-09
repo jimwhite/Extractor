@@ -116,10 +116,14 @@ class RatpackServlet extends HttpServlet {
     }
 
     private byte[] convertOutputToByteArray(output) {
+        if (output instanceof Writable)
+            output = output.toString()
+
         if(output instanceof String)
             output = output.getBytes()
         else if(output instanceof GString)
             output = output.toString().getBytes()
+
         return output
     }
 
