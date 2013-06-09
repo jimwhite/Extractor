@@ -1,3 +1,4 @@
+import groovy.xml.MarkupBuilder
 import groovy.xml.StreamingMarkupBuilder
 import org.ifcx.extractor.MethodData
 import org.ifcx.extractor.util.Sexp
@@ -31,7 +32,7 @@ get("/method_frame/:method_id") {
                 frame(src:method_href(method_id))
             }
         }
-    }.toString()
+    }
 }
 
 get("/method_nav/:method_id") {
@@ -69,7 +70,79 @@ get("/method_nav/:method_id") {
                 }
             }
         }
-    }.toString()
+    }
+}
+
+get("/method/:method_id") {
+    def method_id = urlparams.method_id
+
+    def method = MethodData.readMethod(methods_dir, method_id)
+
+    markup {
+
+        html(lang:"en", xmlns:"http://www.w3.org/1999/xhtml", 'xmlns:gate':"urn:gate:fakeNS") {
+            head {
+                title(method_id)
+                link(rel:"stylesheet", href:"/javadocs.css")
+            }
+            body {
+                form('class':'method', id:method_id, action:"update-method/${method_id}", method:'post') {
+                    div('class':'method-id', method_id)
+                    div {
+                        def radio1 = {
+                            if ((method.ConstituentJudgement ?: 'Unknown') == it)
+                                input(type:'radio', name:'ConstituentJudgement', value:it, checked:true, it)
+                            else
+                                input(type:'radio', name:'ConstituentJudgement', value:it, it)
+                        }
+                        label('Constituent') {
+                            radio1('Unknown')
+                            radio1('S')
+                            radio1('VP')
+                            radio1('NP')
+                        }
+                    }
+                    div {
+                        def radio = {
+                            if ((method.Judgement ?: 'Unknown') == it)
+                                input(type:'radio', name:'Judgement', value:it, checked:true, it)
+                            else
+                                input(type:'radio', name:'Judgement', value:it, it)
+                        }
+                        label('Judgement') {
+                            radio('Unknown')
+                            radio('Pedantic')
+                            radio('SomewhatPedantic')
+                            radio('NotPedantic')
+                            input(type:'submit')
+                        }
+                    }
+
+    //                        if (method.Comment)
+                    label('Comment') {
+                        input('class':'method-comment', type:'text', name:'Comment', value:method.Comment)
+                    }
+    //                        else
+    //                            p("No comment")
+
+                    label('Note') {
+                        input('class':'method-note', type:'text', name:'Note', value:method.Note)
+                    }
+
+                    pre(method.JavaSource)
+
+    //                        if (method.Comment0) div('class':'method-comment-original', method.Comment0)
+
+                    if (method.Sentences) {
+                        ol('class':'method-sentences') {
+                            method.Sentences.each { sent -> li('class':'method-sentence', sent) }
+                        }
+                    }
+                }
+                pre('class':'method-extract', Sexp.printTree(Sexp.map_to_tree(method)))
+            }
+        }
+    }
 }
 
 post("/methods/update-method/:method_id") {
@@ -106,7 +179,7 @@ String method_frame(String method_id) {
 }
 
 String method_href(String method_id) {
-    "/methods/" + method_id + ".html"
+    "/method/" + method_id
 }
 
 get("/old_home") {
@@ -119,7 +192,7 @@ get("/old_home") {
                 frame(id:"method", src:"javadocs.css")
             }
         }
-    }.toString()
+    }
 }
 
 get("/methods_index") {
@@ -128,7 +201,6 @@ get("/methods_index") {
         def method = MethodData.readMethod(file)
         if (method) methods[method.Id] = file
     }
-
 
     new StreamingMarkupBuilder().bind {
         html {
@@ -141,6 +213,22 @@ get("/methods_index") {
                 }
             }
         }
-    }.toString()
+    }
 }
 
+/**
+ * Workaround for the fact that StreamingMarkupBuilder can't handle mixed textand element content
+ * while MarkupBuilder can.
+ * @param cl
+ * @return
+ */
+def markup(Closure cl)
+{
+    def sw = new StringWriter(1000)
+
+    cl.delegate = new MarkupBuilder(sw)
+
+    cl.call()
+
+    sw.toString()
+}
