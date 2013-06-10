@@ -1,5 +1,6 @@
 import groovy.xml.MarkupBuilder
 import groovy.xml.StreamingMarkupBuilder
+import org.ifcx.extractor.DMRS
 import org.ifcx.extractor.MethodData
 import org.ifcx.extractor.util.Sexp
 
@@ -11,6 +12,10 @@ updates_dir = new File(data_dir, "method-updates")
 
 methods_dir.mkdirs()
 updates_dir.mkdirs()
+
+parses_dir = new File("tmp/parses")
+
+comment_index = MethodData.readCommentIndex(new File(data_dir, "comments-index.txt"))
 
 get("/") {
     def method_ids = methods_dir.listFiles().grep { it.name =~ /.*\.html$/}.collect { it.name - ~/\.html$/ }
@@ -78,6 +83,8 @@ get("/method/:method_id") {
 
     def method = MethodData.readMethod(methods_dir, method_id)
 
+    def dmrs = DMRS.readParse(parses_dir, comment_index[method_id])
+
     markup {
 
         html(lang:"en", xmlns:"http://www.w3.org/1999/xhtml", 'xmlns:gate':"urn:gate:fakeNS") {
@@ -140,6 +147,12 @@ get("/method/:method_id") {
                     }
                 }
                 pre('class':'method-extract', Sexp.printTree(Sexp.map_to_tree(method)))
+                if (dmrs) {
+                    if (dmrs.size() > 1) p("MULTIPLE TOP NODES")
+                    dmrs.each { a_dmrs -> pre('class':'method-dmrs', Sexp.printTree(a_dmrs)) }
+                } else {
+                    p('NO DMRS')
+                }
             }
         }
     }

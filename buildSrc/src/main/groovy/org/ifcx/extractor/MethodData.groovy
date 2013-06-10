@@ -106,5 +106,13 @@ class MethodData
             null
         }
     }
+
+    static public Map<String, Integer> readCommentIndex(File file)
+    {
+        def map = [:]
+        def sent_num = 0
+        file.splitEachLine(/\t/) { map[it[0]] = ++sent_num}
+        map
+    }
 }
 

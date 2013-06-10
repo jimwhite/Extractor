@@ -4,6 +4,8 @@ import groovy.util.slurpersupport.Node
 
 import org.ifcx.extractor.util.Sexp
 
+import java.util.zip.ZipFile
+
 class DMRS
 {
     static def parseXML(input)
@@ -53,26 +55,28 @@ class DMRS
                 rargname = '-RSTR'
             }
 
-            top_nodeid_candidates.remove(to_nodeid)
-
             if (post == 'EQ') {
                 top_nodeid_candidates.remove(from_nodeid)
                 nodes[to_nodeid].add(['EQ', ['-' + rargname, ['post', post], nodes[from_nodeid]]])
             } else {
+                top_nodeid_candidates.remove(to_nodeid)
                 nodes[from_nodeid].add([rargname, ['post', post], nodes[to_nodeid]])
             }
         }
 
-        if (top_nodeid_candidates.size() > 1) {
+        if (top_nodeid_candidates.size() != 1) {
+            println "Didn't find exactly one top node in DMRS."
             top_nodeid_candidates.each { topid ->
                 println topid
                 println Sexp.printTree(nodes[topid])
             }
         }
 
-        assert top_nodeid_candidates.size() == 1
+//        assert top_nodeid_candidates.size() == 1
 
-        nodes[top_nodeid_candidates[0]]
+//        top_nodeid_candidates.size() == 1 ? nodes[top_nodeid_candidates[0]] : top_nodeid_candidates.collect { nodes[it] }
+
+        top_nodeid_candidates.collect { nodes[it] }
     }
 
     static void main(String[] args)
@@ -81,5 +85,20 @@ class DMRS
 
 //        println Sexp.printTree(["DMRS"] + dmrs.values())
         println Sexp.printTree(dmrs)
+    }
+
+    static def readParse(File parses_dir, Integer sent_num, Integer parse_idx = 0)
+    {
+        try {
+            def zip_file = new ZipFile(new File(parses_dir, ExtractParses.sentence_zip_name(sent_num)))
+            def zip_entry = zip_file.getEntry(ExtractParses.dmrs_file_name(parse_idx))
+
+            def zip_entry_is = zip_file.getInputStream(zip_entry)
+
+            parseXML(zip_entry_is)
+        } catch (IOException ioe) {
+            ioe.printStackTrace()
+            null
+        }
     }
 }

@@ -7,7 +7,6 @@ import org.ifcx.extractor.util.Sexp
 
 import java.util.zip.GZIPInputStream
 import java.util.zip.ZipEntry
-import java.util.zip.ZipFile
 import java.util.zip.ZipOutputStream
 
 class ExtractParses extends SourceTask {
@@ -37,7 +36,7 @@ class ExtractParses extends SourceTask {
         def sentence_pat = ~/^\[(\d+)\]\s*\((\d+) of (\d+)\)\s*\{\d+\}\s*`(.*)'$/
         def parse_pat = ~/^\[(\d+):(\d+)\]\s*\(((:?in)?)active\)\s*$/
 
-        def parse_num
+        Integer parse_idx
 
         ZipOutputStream zip_os
 
@@ -53,7 +52,7 @@ class ExtractParses extends SourceTask {
                     zip_os.close()
                 }
 
-                File sentence_zip_file = new File(parses, String.sprintf("sentence_%05d.zip", sent_num as Integer))
+                File sentence_zip_file = new File(parses, sentence_zip_name(sent_num))
                 FileOutputStream file_os = new FileOutputStream(sentence_zip_file)
                 zip_os = new ZipOutputStream(file_os)
 
@@ -66,16 +65,16 @@ class ExtractParses extends SourceTask {
                 if (parse_matcher.matches()) {
                     def (_, sent_num, _parse_num) = parse_matcher[0]
 
-                    parse_num = _parse_num
+                    parse_idx = _parse_num as Integer
                 } else if (line.startsWith("(")) {
-                    zip_os.putNextEntry(new ZipEntry(String.sprintf("phrase_%04d.txt", parse_num as Integer)))
+                    zip_os.putNextEntry(new ZipEntry(phrase_file_name(parse_idx)))
                     while (line) {
                         zip_os.write(line.bytes)
                         zip_os.write(eol_bytes)
                         line = reader.readLine()
                     }
                 } else if (line.startsWith("<dmrs")) {
-                    zip_os.putNextEntry(new ZipEntry(String.sprintf("dmrs_%04d.xml", parse_num as Integer)))
+                    zip_os.putNextEntry(new ZipEntry(dmrs_file_name(parse_idx)))
                     while (line) {
                         zip_os.write(line.bytes)
                         zip_os.write(eol_bytes)
@@ -86,6 +85,21 @@ class ExtractParses extends SourceTask {
         }
 
         if (zip_os !=null ) zip_os.close()
+    }
+
+    static public String sentence_zip_name(Integer sent_num)
+    {
+        String.sprintf("sentence_%05d.zip", sent_num)
+    }
+
+    static public String dmrs_file_name(Integer parse_idx)
+    {
+        String.sprintf("dmrs_%04d.xml", parse_idx)
+    }
+
+    static public String phrase_file_name(Integer parse_idx)
+    {
+        String.sprintf("phrase_%04d.txt", parse_idx)
     }
 
 }
