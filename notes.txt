@@ -2,3 +2,12 @@
 Annox has just been bundled by Red Hat:
 https://bugzilla.redhat.com/show_bug.cgi?id=808768
 
+
+fitjava-1.1 in Qualitas.class corpus gives encoding warning for UTF-8.  Likes Latin1 (and MacRoman).
+
+export JAVA_TOOL_OPTIONS=-Dfile.encoding=Latin1
+
+/Users/jim/Downloads/QualitasClass/java.labsoft.dcc.ufmg.br/qualitas.class/corpus/fitjava-1.1/source/imp/java/src/fit/ParseTest.java:99: warning: unmappable character for encoding UTF8
+		assertEquals("\"\"'", Parse.unescape("���"));
+		                                      ^
+		assertEquals("\"\"'", Parse.unescape("ìîí"));

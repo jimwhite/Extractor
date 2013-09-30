@@ -153,12 +153,14 @@ get("/method/:method_id") {
                 } else {
                     p('NO DMRS')
                 }
+
+                pre(DMRS.readXML(parses_dir, comment_index[method_id]))
             }
         }
     }
 }
 
-post("/methods/update-method/:method_id") {
+post("/method/update-method/:method_id") {
 //    println request
     println urlparams
     println params
@@ -185,6 +187,66 @@ post("/methods/update-method/:method_id") {
 
 //    HttpServletResponse res = response
     response.sendRedirect(method_href(method_id))
+}
+
+get("/comments/:judgement") {
+    def comments = comment_index.collect { method_id, sent_num ->
+        def method = MethodData.readMethod(methods_dir, method_id)
+        [method.Judgement, method.Comment]
+    }
+
+    def judgement = urlparams.judgement
+
+    if (judgement) {
+        comments = comments.grep { it[0] == judgement }
+    }
+
+    markup {
+        html(lang:"en", xmlns:"http://www.w3.org/1999/xhtml", 'xmlns:gate':"urn:gate:fakeNS") {
+            head {
+                title((judgement ?: "") + " Javadoc Comments")
+                link(rel:"stylesheet", href:"/javadocs.css")
+            }
+            body {
+                pre(comments.collect { it[1] }.join('\n'))
+            }
+        }
+    }
+}
+
+get("/unjudged") {
+    def comments = comment_index.collect { method_id, sent_num ->
+        def method = MethodData.readMethod(methods_dir, method_id)
+        [method.Judgement, method.Id, method.Comment]
+    }
+
+    comments = comments.grep { !it[0] && ((it[2])?.trim()) }
+
+    markup {
+        html(lang:"en", xmlns:"http://www.w3.org/1999/xhtml", 'xmlns:gate':"urn:gate:fakeNS") {
+            head {
+                title("Unjudged Javadoc Comments")
+                link(rel:"stylesheet", href:"/javadocs.css")
+            }
+            body {
+//                pre(comments.collect { it[1] }.join('\n'))
+                table {
+                    comments.each { comment ->
+                        tr {
+                            td {
+                                a(href:method_href(comment[1])) {
+                                    span(comment[1])
+                                }
+                            }
+                            td {
+                                span(comment[2])
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 String method_frame(String method_id) {
@@ -230,7 +292,7 @@ get("/methods_index") {
 }
 
 /**
- * Workaround for the fact that StreamingMarkupBuilder can't handle mixed textand element content
+ * Workaround for the fact that StreamingMarkupBuilder can't handle mixed text and element content
  * while MarkupBuilder can.
  * @param cl
  * @return

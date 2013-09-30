@@ -87,6 +87,21 @@ class DMRS
         println Sexp.printTree(dmrs)
     }
 
+    static def readXML(File parses_dir, Integer sent_num, Integer parse_idx = 0)
+    {
+        try {
+            def zip_file = new ZipFile(new File(parses_dir, ExtractParses.sentence_zip_name(sent_num)))
+            def zip_entry = zip_file.getEntry(ExtractParses.dmrs_file_name(parse_idx))
+
+            def zip_entry_is = zip_file.getInputStream(zip_entry)
+
+            zip_entry_is.text
+        } catch (IOException ioe) {
+            ioe.printStackTrace()
+            null
+        }
+    }
+
     static def readParse(File parses_dir, Integer sent_num, Integer parse_idx = 0)
     {
         try {

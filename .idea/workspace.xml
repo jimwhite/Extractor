@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea1cc0be-2808-4135-9c45-76ae4ade5c61" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/ExtractSentences.groovy" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../SEMST2012/data/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../SEMST2012/src/IndentWriter.groovy" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SEMST2012/out/production/SEMST2012/BlankLineTerminatedReader.class" afterPath="$PROJECT_DIR$/../SEMST2012/out/production/SEMST2012/BlankLineTerminatedReader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/DMRS.groovy" afterPath="$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/DMRS.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/Explorer.groovy" afterPath="$PROJECT_DIR$/scripts/Explorer.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SEMST2012/SEMST2012.iml" afterPath="$PROJECT_DIR$/../SEMST2012/SEMST2012.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/SlurpXHTML.groovy" afterPath="$PROJECT_DIR$/scripts/SlurpXHTML.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SEMST2012/.idea/ant.xml" afterPath="$PROJECT_DIR$/../SEMST2012/.idea/ant.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SEMST2012/.idea/compiler.xml" afterPath="$PROJECT_DIR$/../SEMST2012/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SEMST2012/.idea/gradle.xml" afterPath="$PROJECT_DIR$/../SEMST2012/.idea/gradle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/notes.txt" afterPath="$PROJECT_DIR$/notes.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SEMST2012/notes.txt" afterPath="$PROJECT_DIR$/../SEMST2012/notes.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/runapp.groovy" afterPath="$PROJECT_DIR$/scripts/runapp.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SEMST2012/test_final.sh" afterPath="$PROJECT_DIR$/../SEMST2012/test_final.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SEMST2012/.idea/vcs.xml" afterPath="$PROJECT_DIR$/../SEMST2012/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -19,14 +20,14 @@
     </list>
     <ignored path="Extractor.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1369890083993" ignored="false" />
+    <file path="/Dummy.txt" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1380484232085" ignored="false" />
     <file path="/JavadocGrepHTML.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1369698076349" ignored="false" />
     <file path="/RunJavadoc.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1369341711883" ignored="false" />
     <file path="$USER_HOME$/Downloads/jvm1.6.0-notools/Contents/Classes/classes.jar!/javax/annotation/processing/SupportedSourceVersion.class" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1367210289171" ignored="false" />
-    <file path="/a.dummy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1369956499919" ignored="false" />
+    <file path="/a.dummy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1379613195020" ignored="false" />
     <file path="/JavacGrepHTML.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1369183124019" ignored="false" />
-    <file path="/Dummy.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1369181641910" ignored="false" />
-    <file path="/fragment.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1369956464625" ignored="false" />
+    <file path="/Dummy.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375201415212" ignored="false" />
+    <file path="/fragment.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1378240127882" ignored="false" />
     <file path="$PROJECT_DIR$/../../ReadIt/juast/pom.xml" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1368902156260" ignored="false" />
     <file path="/JavaCompiler.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1368921721105" ignored="false" />
     <file path="/Pretty.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1368909562379" ignored="false" />
@@ -39,14 +40,188 @@
     <file path="$PROJECT_DIR$/../../ReadIt/gitblit/pom.xml" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1369267336961" ignored="false" />
     <file path="/ExtractingCompiler.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1369513005909" ignored="false" />
     <file path="/ExtractJavadoc.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1369619462679" ignored="false" />
-    <file path="/build.gradle" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1369956524520" ignored="false" />
+    <file path="/build.gradle" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1379491222244" ignored="false" />
     <file path="/GATE_Processor.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1369548043769" ignored="false" />
-    <file path="/GATE_Task.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1369545291141" ignored="false" />
-    <file path="/SplitJavadocSentences.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1369775475902" ignored="false" />
-    <file path="/SlurpXHTML.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1369770634307" ignored="false" />
-    <file path="/Sexp.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1369700145313" ignored="false" />
+    <file path="/GATE_Task.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1370522230576" ignored="false" />
+    <file path="/SplitJavadocSentences.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1370639100165" ignored="false" />
+    <file path="/SlurpXHTML.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1370522196017" ignored="false" />
+    <file path="/Sexp.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375143144131" ignored="false" />
     <file path="/Levenshtein.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1369907646050" ignored="false" />
     <file path="/ExtractComments.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1369956503345" ignored="false" />
+    <file path="/PET_Parser.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1370123002897" ignored="false" />
+    <file path="/ExtractParses.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1370894340215" ignored="false" />
+    <file path="/runapp.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1373940103089" ignored="false" />
+    <file path="/ExtractSentences.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1370522817046" ignored="false" />
+    <file path="/Explorer.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374009469511" ignored="false" />
+    <file path="/RatpackServlet.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1370761004088" ignored="false" />
+    <file path="/MethodData.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1370895494961" ignored="false" />
+    <file path="/javadocs.css" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1370651774819" ignored="false" />
+    <file path="/logback.xml" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1370641547568" ignored="false" />
+    <file path="/DMRS.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1371188052466" ignored="false" />
+    <file path="/Groovy Console" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1380041370138" ignored="false" />
+    <file path="/Flatten.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1371423038735" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Parsing/build.gradle" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1372229929889" ignored="false" />
+    <file path="/Exec.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1371592078875" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Gradle/gradle-git/subprojects/core/src/main/groovy/org/gradle/api/tasks/Exec.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1371588037264" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Parsing/buildSrc/src/main/java/org/ifcx/gradle/api/Exec.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1371592079738" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Parsing/buildSrc/build.gradle" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1371601656786" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Parsing/settings.gradle" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1371601593672" ignored="false" />
+    <file path="/settings.gradle" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1371601587000" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Parsing/buildSrc/src/main/groovy/org/ifcx/parsing/ParsingPlugin.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1371603583504" ignored="false" />
+    <file path="/ParsingPlugin.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1371603417508" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Parsing/buildSrc/build/reports/tests/index.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1371602330576" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Parsing/buildSrc/src/main/groovy/org/ifcx/parsing/ParsingConvention.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1371602741625" ignored="false" />
+    <file path="/ParsingConvention.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1371602923967" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Parsing/buildSrc/src/main/groovy/org/ifcx/parsing/ParsingPluginConvention.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1371602928525" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Parsing/buildSrc/build/resources/main/META-INF/gradle-plugins/parsing.properties" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1371603747050" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Parsing/corpora/build.gradle" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1372000402483" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Parsing/scripts/setup-experiment.sh" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1371748192252" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Parsing/scripts/prep_self_training.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1371748192252" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Parsing/converters.gradle" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1372217952096" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Parsing/experiments.gradle" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1371860120382" ignored="false" />
+    <file path="/experiments.gradle" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1371860033544" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Parsing/buildSrc/src/main/groovy/org/ifcx/parsing/Experiment.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1372011394023" ignored="false" />
+    <file path="/Experiment.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1372010407221" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Parsing/buildSrc/src/main/groovy/org/ifcx/parsing/ConvertPTB.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1371861166612" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Parsing/buildSrc/src/main/groovy/org/ifcx/parsing/SetUpExperiment.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1372030320902" ignored="false" />
+    <file path="/SetUpExperiment.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1372030320379" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Parsing/init.gradle" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1372016356446" ignored="false" />
+    <file path="/init.gradle" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1372016347942" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Parsing/buildSrc/src/main/groovy/org/ifcx/parsing/SetUpParser.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1372092564357" ignored="false" />
+    <file path="/SetUpParser.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1372092553763" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Parsing/buildSrc/src/main/groovy/org/ifcx/parsing/Parser.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1372100605448" ignored="false" />
+    <file path="/Parser.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1372100333400" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Parsing/buildSrc/src/main/groovy/org/ifcx/parsing/CharniakParser.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1372230185948" ignored="false" />
+    <file path="/CharniakParser.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1372230113342" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Parsing/buildSrc/src/main/groovy/org/ifcx/parsing/ConvertManyPTB.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1372230177033" ignored="false" />
+    <file path="/ConvertManyPTB.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1372230093266" ignored="false" />
+    <file path="/converters.gradle" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1372217910583" ignored="false" />
+    <file path="$PROJECT_DIR$/../../ReadIt/PackageIndexer/src/scripts/Explorer.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1373958708744" ignored="false" />
+    <file path="$PROJECT_DIR$/../../ReadIt/PackageIndexer/src/scripts/runapp.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1373958881307" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/Treasure/MapTest.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1373996119891" ignored="false" />
+    <file path="/MapTest.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1373995636313" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/Treasure/CoOccurences.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1373996214348" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/Treasure/src/Treasure.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374000275175" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/LING573/jimwhite_tlabarre/index_sources.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374003985325" ignored="false" />
+    <file path="/RatpackApp.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374005038615" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/LING573/jimwhite_tlabarre/src/com/bleedingwolf/ratpack/RatpackApp.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374005038615" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/LING573/jimwhite_tlabarre/src/eiti/Explorer.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374009476139" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/LING573/jimwhite_tlabarre/src/eiti/Retriever.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374009465079" ignored="false" />
+    <file path="/Retriever.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374009451725" ignored="false" />
+    <file path="$PROJECT_DIR$/../../ReadIt/PackageIndexer/src/jaligner/test/AlignmentTest.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374019466273" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Groovy/example-ratpack-standalone-groovy-script/ratpack.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374383081276" ignored="false" />
+    <file path="/ratpack.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374571685333" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Groovy/example-ratpack-standalone-groovy-script/templates/date.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374360455225" ignored="false" />
+    <file path="/date.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374360454579" ignored="false" />
+    <file path="/a.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374372222210" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/ling473-su13/calendar-2012.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374393672994" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/calendar-2013.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374393804982" ignored="false" />
+    <file path="/calendar-2013.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374396418201" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/ratpack.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374573831362" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/templates/calendar-2013.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374572181649" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/ling473-su13/index.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374397373520" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/ling473-su13/paper-selection.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374397023702" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/ling473-su13/writing-assignment.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374397523700" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/ling473-su13/syllabus-2012.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374397084617" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/ling473-su13/student-resources.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374397126948" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/ling473-su13/syllabus.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374397407320" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/ling473-su13/references.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374397279089" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/ling473-su13/grade-statistics.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374397485755" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/templates/project.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374572527188" ignored="false" />
+    <file path="/project.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374517781426" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/ling473-su13/project-5.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374517987336" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/ling473-su13/project-4.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374517987336" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/ling473-su13/project-6.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374517987336" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/ling473-su13/project-3.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374517987336" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/ling473-su13/project-1.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374517987336" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/ling473-su13/project-2.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374517987336" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Groovy/ratpack-framework/ratpack-groovy/src/main/java/org/ratpackframework/groovy/templating/internal/GroovyTemplateRenderingEngine.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374544769803" ignored="false" />
+    <file path="/GroovyTemplateRenderingEngine.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374544749672" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Groovy/ratpack-framework/ratpack-groovy/src/main/java/org/ratpackframework/groovy/templating/internal/CompiledTemplate.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374524320958" ignored="false" />
+    <file path="/CompiledTemplate.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374523543150" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Groovy/ratpack-framework/ratpack-groovy/src/main/java/org/ratpackframework/groovy/templating/internal/TemplateCompiler.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374524372063" ignored="false" />
+    <file path="/TemplateCompiler.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374523700855" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Groovy/ratpack-framework/ratpack-groovy/src/main/java/org/ratpackframework/groovy/templating/TemplatingConfig.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374544769803" ignored="false" />
+    <file path="/TemplatingConfig.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374544769198" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Groovy/ratpack-framework/ratpack-groovy/src/main/java/org/ratpackframework/groovy/templating/internal/DefaultTemplatingConfig.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374544769803" ignored="false" />
+    <file path="/DefaultTemplatingConfig.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374523833707" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Groovy/ratpack-framework/ratpack-groovy/src/main/java/org/ratpackframework/groovy/templating/internal/Render.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374544794096" ignored="false" />
+    <file path="/Render.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374544794096" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Groovy/ratpack-framework/ratpack-session/src/main/java/org/ratpackframework/session/store/internal/DefaultSessionStore.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374544478035" ignored="false" />
+    <file path="$PROJECT_DIR$/../../Groovy/ratpack-framework/ratpack-groovy/src/main/java/org/ratpackframework/groovy/templating/TemplatingModule.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374548598119" ignored="false" />
+    <file path="/TemplatingModule.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374544672344" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/templates/date.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374548974743" ignored="false" />
+    <file path="$USER_HOME$/.groovy/grapes/org.ratpack-framework/ratpack-guice/jars/ratpack-guice-0.9.0-SNAPSHOT.jar!/org/ratpackframework/guice/internal/DefaultGuiceBackedHandlerFactory.class" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374548598119" ignored="false" />
+    <file path="$USER_HOME$/.groovy/grapes/org.ratpack-framework/ratpack-guice/jars/ratpack-guice-0.9.0-SNAPSHOT.jar!/org/ratpackframework/guice/ModuleRegistry.class" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374546571081" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/templates/trailer.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374568414534" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/templates/header.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374571839684" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/templates/syllabus.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1378249394335" ignored="false" />
+    <file path="/syllabus.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374576806466" ignored="false" />
+    <file path="/header.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374571799325" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/publish.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374573842596" ignored="false" />
+    <file path="/publish.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374573397876" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/templates/grade-statistics.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374573519474" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/templates/index.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374573590872" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/templates/references.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374573628125" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/templates/student-resources.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374573668262" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/templates/writing-assignment.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374573713742" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/templates/calendar.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1379837187167" ignored="false" />
+    <file path="/calendar.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1379837181917" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/src/org/ifcx/ling473/project1/CountConstituentTypes.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374962435238" ignored="false" />
+    <file path="/CountConstituentTypes.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1374962432355" ignored="false" />
+    <file path="$PROJECT_DIR$/../../CheckIt/bin/pp.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375325557422" ignored="false" />
+    <file path="/pp.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375321697253" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/Treasure/src/all_binary_trees.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375205784490" ignored="false" />
+    <file path="/all_binary_trees.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375205782662" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/Treasure/exportToHTML/all_binary_trees.groovy.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375205577570" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/Treasure/src/visit_all_binary_trees.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375209016289" ignored="false" />
+    <file path="/visit_all_binary_trees.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375208723123" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/Treasure/src/Triangle.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375374586566" ignored="false" />
+    <file path="/Triangle.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375374581371" ignored="false" />
+    <file path="$PROJECT_DIR$/../../CheckIt/bin/check_it.c" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375306017033" ignored="false" />
+    <file path="$PROJECT_DIR$/../../CheckIt/bin/project0.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375644016606" ignored="false" />
+    <file path="$PROJECT_DIR$/../../CheckIt/bin/check_it.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375334499778" ignored="false" />
+    <file path="/project0.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375643540895" ignored="false" />
+    <file path="$PROJECT_DIR$/../../CheckIt/rep.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375645515207" ignored="false" />
+    <file path="/check_it.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375333686799" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/Treasure/sexp_to_qtree.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375385361926" ignored="false" />
+    <file path="/sexp_to_qtree.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375385292011" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/Treasure/trees.txt" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375388035819" ignored="false" />
+    <file path="/trees.txt" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375387629914" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/Treasure/src/merged_to_parsed.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375431933012" ignored="false" />
+    <file path="/merged_to_parsed.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375431913392" ignored="false" />
+    <file path="$PROJECT_DIR$/../../CheckIt/bin/project1.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375648827233" ignored="false" />
+    <file path="/project1.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375648774508" ignored="false" />
+    <file path="$PROJECT_DIR$/../../CheckIt/java-rep.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375645774494" ignored="false" />
+    <file path="$PROJECT_DIR$/../../CheckIt/fail-rep.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1375646320294" ignored="false" />
+    <file path="/skeleton4_array.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1378011309454" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/project4/skeleton4_array.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1378011312204" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/Treasure/src/strange/Main.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1378062181549" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/Treasure/src/strange/Daemon.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1378063113076" ignored="false" />
+    <file path="/Main.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1378062163485" ignored="false" />
+    <file path="/Daemon.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1378063113076" ignored="false" />
+    <file path="$PROJECT_DIR$/../../CheckIt/bin/check_all.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1378086269366" ignored="false" />
+    <file path="/check_all.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1378086163756" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/project3/project3.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1378153069136" ignored="false" />
+    <file path="$PROJECT_DIR$/../../CheckIt/bin/project3.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1378104976526" ignored="false" />
+    <file path="$PROJECT_DIR$/../../CheckIt/bin/run_it.cmd" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1378104346582" ignored="false" />
+    <file path="/project3.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1378104973651" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/project3/report.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1378105002152" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/project3/submission/project3.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1378152976254" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/project4/project4.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1378241659299" ignored="false" />
+    <file path="/project4.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1378241249846" ignored="false" />
+    <file path="$USER_HOME$/Documents/School/Teaching/Ling473-Sum13/templates/project-4.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1378241705229" ignored="false" />
+    <file path="/project-4.html" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1378241704864" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/JSR223Test/src/BindingTest.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1379569546388" ignored="false" />
+    <file path="/BindingTest.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1379569545117" ignored="false" />
+    <file path="/PageObjectTests.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1379581289628" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/JavaGroovyTest/src/groovy_user_robert/PageObjectTests.java" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1379581290477" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/JSR223Test/src/SubMapTest.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1379616473082" ignored="false" />
+    <file path="/SubMapTest.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1379616403544" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/JSR223Test/src/RESTTest.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1379740557709" ignored="false" />
+    <file path="/RESTTest.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1379621111447" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/JSR223Test/src/GStringTrim.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1379954130030" ignored="false" />
+    <file path="/GStringTrim.groovy" changelist="ea1cc0be-2808-4135-9c45-76ae4ade5c61" time="1379954056664" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,39 +239,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/JavadocGrepHTML.groovy" line="447" class="org.ifcx.extractor.JavadocGrepHTML" package="org.ifcx.extractor">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/scripts/SlurpXHTML.groovy" line="22" class="SlurpXHTML.groovy" package="">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -133,6 +275,144 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint url="file://$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/JavadocGrepHTML.groovy" line="447" class="org.ifcx.extractor.JavadocGrepHTML" package="org.ifcx.extractor">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/scripts/SlurpXHTML.groovy" line="22" class="SlurpXHTML.groovy" package="">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="jar:///Library/Java/JavaVirtualMachines/1.6.0_41-b02-445.jdk/Contents/Home/src.jar!/src/java/nio/charset/CharsetDecoder.java" line="758" class="java.nio.charset.CharsetDecoder" package="java.nio.charset">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/ExtractParses.groovy" line="46" class="org.ifcx.extractor.ExtractParses" package="org.ifcx.extractor">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/ExtractParses.groovy" line="20" class="org.ifcx.extractor.ExtractParses" package="org.ifcx.extractor">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/../../GATE/release-7.1/src/gate/Gate.java" line="162" class="gate.Gate" package="gate">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/ExtractSentences.groovy" line="18" class="org.ifcx.extractor.ExtractSentences" package="org.ifcx.extractor">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/DMRS.groovy" line="24" class="org.ifcx.extractor.DMRS" package="org.ifcx.extractor">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/scripts/Explorer.groovy" line="222" class="Explorer.groovy" package="">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -142,50 +422,93 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="BodyChecker.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/BodyChecker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="93" selection-start="621" selection-end="621" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eclipse/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="0" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#149#198#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="build.gradle" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="15" selection-start="1432" selection-end="1432" vertical-scroll-proportion="0.6722689">
-              <folding>
-                <element signature="e#0#42#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExtractSentences.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/ExtractSentences.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="55" selection-start="863" selection-end="863" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#28#57#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DefaultTask.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../Gradle/gradle-git/subprojects/core/src/main/groovy/org/gradle/api/DefaultTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="13" selection-start="1014" selection-end="1014" vertical-scroll-proportion="0.0">
+            <state line="62" column="15" selection-start="1573" selection-end="1573" vertical-scroll-proportion="1.0789096">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileTree.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../Gradle/gradle-git/subprojects/core/src/main/groovy/org/gradle/api/file/FileTree.java">
+      <file leaf-file-name="DefaultGroovyMethods.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Groovy/groovy-1.8.6-src/src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="17" selection-start="1221" selection-end="1221" vertical-scroll-proportion="0.0">
+            <state line="6426" column="35" selection-start="257450" selection-end="257450" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SourceTask.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../Gradle/gradle-git/subprojects/core/src/main/groovy/org/gradle/api/tasks/SourceTask.java">
+      <file leaf-file-name="AbstractMultimap.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.ideaLibSources/guava-11.0.2-sources.jar!/com/google/common/collect/AbstractMultimap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="98" column="22" selection-start="3206" selection-end="3206" vertical-scroll-proportion="0.0">
+            <state line="1170" column="42" selection-start="33304" selection-end="33304" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sets.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.ideaLibSources/guava-11.0.2-sources.jar!/com/google/common/collect/Sets.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="63" column="19" selection-start="2102" selection-end="2102" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Maps.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.ideaLibSources/guava-11.0.2-sources.jar!/com/google/common/collect/Maps.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="19" selection-start="2345" selection-end="2345" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapDifference.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.ideaLibSources/guava-11.0.2-sources.jar!/com/google/common/collect/MapDifference.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="17" selection-start="938" selection-end="938" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NumberMath.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Groovy/groovy-1.8.6-src/src/main/org/codehaus/groovy/runtime/typehandling/NumberMath.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="191" column="32" selection-start="8034" selection-end="8034" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExtractingCompiler.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/ExtractingCompiler.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="49" column="49" selection-start="1630" selection-end="1630" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -269,6 +592,12 @@
           <option name="name" value="extractJavadoc" />
         </GradleTaskDescriptor>
         <GradleTaskDescriptor>
+          <option name="name" value="extractParses" />
+        </GradleTaskDescriptor>
+        <GradleTaskDescriptor>
+          <option name="name" value="extractSentences" />
+        </GradleTaskDescriptor>
+        <GradleTaskDescriptor>
           <option name="description" value="Generates Groovydoc API documentation for the main source code." />
           <option name="name" value="groovydoc" />
         </GradleTaskDescriptor>
@@ -338,22 +667,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/GATE_Processing.groovy" />
         <option value="$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/GATE_Task.groovy" />
-        <option value="$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/TreeStatistics.groovy" />
-        <option value="$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/ExtractJavadoc.groovy" />
-        <option value="$PROJECT_DIR$/buildSrc/build.gradle" />
-        <option value="$PROJECT_DIR$/scripts/runapp.groovy" />
-        <option value="$PROJECT_DIR$/scripts/Explorer.groovy" />
-        <option value="$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/OldSplitJavadocSentences.groovy" />
-        <option value="$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/JavadocGrepHTML.groovy" />
-        <option value="$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/util/Sexp.groovy" />
-        <option value="$PROJECT_DIR$/scripts/SlurpXHTML.groovy" />
-        <option value="$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/SplitJavadocSentences.groovy" />
-        <option value="$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/Levenshtein.groovy" />
-        <option value="$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/ExtractComments.groovy" />
         <option value="$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/ExtractSentences.groovy" />
+        <option value="$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/SplitJavadocSentences.groovy" />
+        <option value="$PROJECT_DIR$/src/main/groovy/slf4.properties" />
+        <option value="$PROJECT_DIR$/src/main/groovy/logback.xml" />
+        <option value="$PROJECT_DIR$/data/javadocs.css" />
         <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/groovy/com/bleedingwolf/ratpack/RatpackServlet.groovy" />
+        <option value="$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/ExtractParses.groovy" />
+        <option value="$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/MethodData.groovy" />
+        <option value="$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/DMRS.groovy" />
+        <option value="$PROJECT_DIR$/scripts/Flatten.groovy" />
+        <option value="$PROJECT_DIR$/scripts/Explorer.groovy" />
+        <option value="$PROJECT_DIR$/scripts/runapp.groovy" />
+        <option value="$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/util/Sexp.groovy" />
+        <option value="$PROJECT_DIR$/eclipse/build.gradle" />
       </list>
     </option>
   </component>
@@ -361,9 +690,9 @@
     <option name="jreName" value="1.6" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="8" />
+    <option name="x" value="4" />
     <option name="y" value="22" />
-    <option name="width" value="1835" />
+    <option name="width" value="1887" />
     <option name="height" value="1178" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -409,174 +738,6 @@
               <option name="myItemId" value="Extractor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gradle-1.6" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gradle-1.6" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gradle-core-1.6.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gradle-1.6" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gradle-core-1.6.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gradle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gradle-1.6" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gradle-core-1.6.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gradle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gradle-1.6" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gradle-core-1.6.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gradle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tasks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gate.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gate.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -620,6 +781,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="groovy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jaligner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Extractor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Extractor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -640,6 +827,52 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="runapp.groovy" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Extractor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Extractor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Flatten.groovy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Extractor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Extractor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eclipse" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Extractor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Extractor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -741,17 +974,17 @@
   <component name="PropertiesComponent">
     <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
     <property name="OverrideImplement.combined" value="true" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="GenerateAntBuildDialog.generateSingleFile" value="true" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="GenerateAntBuildDialog.generateSingleFile" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SEMST2012X" />
     <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="false" />
-    <property name="last_opened_file_path" value="/Library/Java/JavaVirtualMachines/1.6.0_41-b02-445.jdk/Contents/Home/src.jar!/" />
-    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="extractor" />
     <property name="GoToClass.includeJavaFiles" value="false" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="extractor" />
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -764,13 +997,13 @@
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="options.lastSelected" value="project.propCompiler" />
     <property name="download.sources.last.used.dir" value="$PROJECT_DIR$/../../ifcx/thirdparty/dkpro-core-asl-de.tudarmstadt.ukp.dkpro.core-asl-1.3.0/de.tudarmstadt.ukp.dkpro.core.api.segmentation" />
-    <property name="project.structure.side.proportion" value="0.25990677" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="project.structure.side.proportion" value="0.25990677" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -792,27 +1025,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Groovy.gradle:extractSentences">
-    <configuration default="false" name="gradle:splitSentences" type="GroovyScriptRunConfiguration" factoryName="Groovy" temporary="true">
-      <module name="Extractor" />
-      <setting name="path" value="file://$PROJECT_DIR$/build.gradle" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="splitSentences" />
-      <setting name="workDir" value="file://$PROJECT_DIR$" />
-      <setting name="debug" value="false" />
-      <RunnerSettings RunnerId="Cover" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Cover" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method>
-        <option name="Make" enabled="false" />
-      </method>
-    </configuration>
     <configuration default="false" name="SlurpXHTML" type="GroovyScriptRunConfiguration" factoryName="Groovy" temporary="true">
       <module name="Extractor" />
       <setting name="path" value="file://$PROJECT_DIR$/scripts/SlurpXHTML.groovy" />
@@ -830,41 +1042,6 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="Levenshtein" type="Application" factoryName="Application" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="org.ifcx.extractor.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="org.ifcx.extractor.Levenshtein" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="Extractor" />
-      <envs />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="gradle:extractComments" type="GroovyScriptRunConfiguration" factoryName="Groovy" temporary="true">
-      <module name="Extractor" />
-      <setting name="path" value="file://$PROJECT_DIR$/build.gradle" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="extractComments" />
-      <setting name="workDir" value="file://$PROJECT_DIR$" />
-      <setting name="debug" value="false" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method>
-        <option name="Make" enabled="false" />
-      </method>
-    </configuration>
     <configuration default="false" name="gradle:extractSentences" type="GroovyScriptRunConfiguration" factoryName="Groovy" temporary="true">
       <module name="Extractor" />
       <setting name="path" value="file://$PROJECT_DIR$/build.gradle" />
@@ -872,11 +1049,66 @@
       <setting name="params" value="extractSentences" />
       <setting name="workDir" value="file://$PROJECT_DIR$" />
       <setting name="debug" value="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method>
+        <option name="Make" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="false" name="gradle:extractParses" type="GroovyScriptRunConfiguration" factoryName="Groovy" temporary="true">
+      <module name="Extractor" />
+      <setting name="path" value="file://$PROJECT_DIR$/build.gradle" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="cleanExtractParses extractParses" />
+      <setting name="workDir" value="file://$PROJECT_DIR$" />
+      <setting name="debug" value="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method>
+        <option name="Make" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="false" name="Flatten" type="GroovyScriptRunConfiguration" factoryName="Groovy" temporary="true">
+      <module name="Extractor" />
+      <setting name="path" value="file://$PROJECT_DIR$/scripts/Flatten.groovy" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="file://$PROJECT_DIR$/scripts" />
+      <setting name="debug" value="false" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="build" type="GroovyScriptRunConfiguration" factoryName="Groovy" temporary="true">
+      <module name="Extractor" />
+      <setting name="path" value="file://$PROJECT_DIR$/eclipse/build.gradle" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="file://$PROJECT_DIR$/eclipse" />
+      <setting name="debug" value="false" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
       <method>
         <option name="Make" enabled="false" />
       </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
     </configuration>
     <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
       <module name="" />
@@ -887,18 +1119,25 @@
       <setting name="debug" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
-      <option name="PROGRAM_PARAMETERS" />
-      <method />
-    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -929,19 +1168,6 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -955,13 +1181,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -1007,6 +1226,62 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
+    <configuration default="false" name="PET_Parser" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="org.ifcx.extractor.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="org.ifcx.extractor.PET_Parser" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Extractor" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="DMRS" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="org.ifcx.extractor.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="org.ifcx.extractor.DMRS" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/tmp/parses/sentence_00001/dmrs_0000.xml" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Extractor" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="false" name="Run" type="GroovyScriptRunConfiguration" factoryName="Groovy">
       <module name="Extractor" />
       <setting name="path" value="file://$PROJECT_DIR$/src/org/ifcx/extractor/Run.groovy" />
@@ -1044,32 +1319,40 @@
     <configuration default="false" name="runapp" type="GroovyScriptRunConfiguration" factoryName="Groovy">
       <module name="Extractor" />
       <setting name="path" value="file://$PROJECT_DIR$/scripts/runapp.groovy" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="Explorer.groovy scripts" />
+      <setting name="vmparams" value="-Dorg.LEVEL=INFO -Dorg.mortbay.LEVEL=INFO -Dratpack.port=5201" />
+      <setting name="params" value="Explorer.groovy scripts data" />
       <setting name="workDir" value="file://$PROJECT_DIR$" />
       <setting name="debug" value="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <list size="9">
+    <list size="11">
       <item index="0" class="java.lang.String" itemvalue="Application.ProcRunner" />
-      <item index="1" class="java.lang.String" itemvalue="Groovy.Run" />
-      <item index="2" class="java.lang.String" itemvalue="Groovy.TreeStatistics" />
-      <item index="3" class="java.lang.String" itemvalue="Groovy.runapp" />
-      <item index="4" class="java.lang.String" itemvalue="Groovy.gradle:splitSentences" />
-      <item index="5" class="java.lang.String" itemvalue="Groovy.SlurpXHTML" />
-      <item index="6" class="java.lang.String" itemvalue="Application.Levenshtein" />
-      <item index="7" class="java.lang.String" itemvalue="Groovy.gradle:extractComments" />
-      <item index="8" class="java.lang.String" itemvalue="Groovy.gradle:extractSentences" />
+      <item index="1" class="java.lang.String" itemvalue="Application.PET_Parser" />
+      <item index="2" class="java.lang.String" itemvalue="Application.DMRS" />
+      <item index="3" class="java.lang.String" itemvalue="Groovy.Run" />
+      <item index="4" class="java.lang.String" itemvalue="Groovy.TreeStatistics" />
+      <item index="5" class="java.lang.String" itemvalue="Groovy.runapp" />
+      <item index="6" class="java.lang.String" itemvalue="Groovy.SlurpXHTML" />
+      <item index="7" class="java.lang.String" itemvalue="Groovy.gradle:extractSentences" />
+      <item index="8" class="java.lang.String" itemvalue="Groovy.gradle:extractParses" />
+      <item index="9" class="java.lang.String" itemvalue="Groovy.Flatten" />
+      <item index="10" class="java.lang.String" itemvalue="Groovy.build" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Groovy.gradle:extractSentences" />
-        <item index="1" class="java.lang.String" itemvalue="Groovy.gradle:extractComments" />
-        <item index="2" class="java.lang.String" itemvalue="Groovy.SlurpXHTML" />
-        <item index="3" class="java.lang.String" itemvalue="Application.Levenshtein" />
-        <item index="4" class="java.lang.String" itemvalue="Groovy.gradle:splitSentences" />
+        <item index="1" class="java.lang.String" itemvalue="Groovy.build" />
+        <item index="2" class="java.lang.String" itemvalue="Groovy.Flatten" />
+        <item index="3" class="java.lang.String" itemvalue="Groovy.SlurpXHTML" />
+        <item index="4" class="java.lang.String" itemvalue="Groovy.gradle:extractParses" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -1079,7 +1362,7 @@
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="StructureViewFactory">
-    <option name="ACTIVE_ACTIONS" value="VISIBILITY_SORTER,ALPHA_COMPARATOR" />
+    <option name="ACTIVE_ACTIONS" value="VISIBILITY_SORTER,SHOW_INHERITED,ALPHA_COMPARATOR" />
   </component>
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
     <option name="USER" value="" />
@@ -1107,36 +1390,56 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="8" y="22" width="1835" height="1178" extended-state="0" />
+    <frame x="4" y="22" width="1887" height="1178" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39508507" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39411205" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295562" sideWeight="0.50272036" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32041588" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23309112" sideWeight="0.58884686" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16186854" sideWeight="0.70699435" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16880938" sideWeight="0.58884686" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4111531" sideWeight="0.49347118" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19065726" sideWeight="0.70699435" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29300568" sideWeight="0.49347118" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24971688" sideWeight="0.49668875" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3254717" sideWeight="0.49782372" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3246231" sideWeight="0.49782372" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3199618" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1205,121 +1508,111 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../GATE/release-7.1/src/gate/Utils.java">
+    <entry file="file://$PROJECT_DIR$/buildSrc/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="635" column="27" selection-start="24034" selection-end="24034" vertical-scroll-proportion="0.0">
+        <state line="10" column="0" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/JavacGrepHTML.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="13" selection-start="1866" selection-end="1866" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/ExtractJavadoc.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="35" selection-start="965" selection-end="965" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Groovy/groovy-1.8.6-src/src/main/org/codehaus/groovy/runtime/NullObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="13" selection-start="770" selection-end="770" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Groovy/groovy-1.8.6-src/src/main/org/codehaus/groovy/runtime/typehandling/IntegerMath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="36" selection-start="829" selection-end="829" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/JavadocGrepHTML.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="39" selection-start="2137" selection-end="2137" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/BodyChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="93" selection-start="621" selection-end="621" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eclipse/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#149#198#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../Groovy/groovy-1.8.6-src/src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15931" column="23" selection-start="602141" selection-end="602141" vertical-scroll-proportion="0.0">
+        <state line="6426" column="35" selection-start="257450" selection-end="257450" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Gradle/gradle-git/subprojects/core/src/main/groovy/org/gradle/api/tasks/InputFiles.java">
+    <entry file="jar://$USER_HOME$/.ideaLibSources/guava-11.0.2-sources.jar!/com/google/common/collect/AbstractMultimap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="18" selection-start="971" selection-end="971" vertical-scroll-proportion="0.0">
+        <state line="1170" column="42" selection-start="33304" selection-end="33304" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/SlurpXHTML.groovy">
+    <entry file="jar://$USER_HOME$/.ideaLibSources/guava-11.0.2-sources.jar!/com/google/common/collect/Sets.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="41" selection-start="749" selection-end="1070" vertical-scroll-proportion="0.0">
+        <state line="63" column="19" selection-start="2102" selection-end="2102" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/SplitJavadocSentences.groovy">
+    <entry file="jar://$USER_HOME$/.ideaLibSources/guava-11.0.2-sources.jar!/com/google/common/collect/Maps.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="63" selection-start="1010" selection-end="1010" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#28#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/buildSrc/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="69" column="19" selection-start="2345" selection-end="2345" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Gradle/gradle-git/subprojects/core/src/main/groovy/org/gradle/api/DefaultTask.java">
+    <entry file="jar://$USER_HOME$/.ideaLibSources/guava-11.0.2-sources.jar!/com/google/common/collect/MapDifference.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="13" selection-start="1014" selection-end="1014" vertical-scroll-proportion="0.0">
+        <state line="31" column="17" selection-start="938" selection-end="938" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Gradle/gradle-git/subprojects/core/src/main/groovy/org/gradle/api/file/FileTree.java">
+    <entry file="file://$PROJECT_DIR$/../../Groovy/groovy-1.8.6-src/src/main/org/codehaus/groovy/runtime/typehandling/NumberMath.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="17" selection-start="1221" selection-end="1221" vertical-scroll-proportion="0.0">
+        <state line="191" column="32" selection-start="8034" selection-end="8034" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Gradle/gradle-git/subprojects/core/src/main/groovy/org/gradle/api/tasks/incremental/InputFileDetails.java">
+    <entry file="file://$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/ExtractingCompiler.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="17" selection-start="783" selection-end="783" vertical-scroll-proportion="0.0">
+        <state line="49" column="49" selection-start="1630" selection-end="1630" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Gradle/gradle-git/subprojects/core/src/main/groovy/org/gradle/api/tasks/incremental/IncrementalTaskInputs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="17" selection-start="2874" selection-end="2874" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Gradle/gradle-git/subprojects/plugins/src/main/groovy/org/gradle/api/tasks/compile/JavaCompile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="38" selection-start="733" selection-end="733" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Gradle/gradle-git/subprojects/plugins/src/main/groovy/org/gradle/api/tasks/compile/AbstractCompile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="49" selection-start="873" selection-end="873" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Gradle/gradle-git/subprojects/plugins/src/main/groovy/org/gradle/api/tasks/compile/Compile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="29" selection-start="2595" selection-end="2595" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Gradle/gradle-git/subprojects/core/src/main/groovy/org/gradle/api/tasks/SourceTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="22" selection-start="3206" selection-end="3206" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/buildSrc/src/main/groovy/org/ifcx/extractor/ExtractSentences.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="55" selection-start="863" selection-end="863" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#28#57#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="15" selection-start="1432" selection-end="1432" vertical-scroll-proportion="0.6722689">
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
+        <state line="62" column="15" selection-start="1573" selection-end="1573" vertical-scroll-proportion="1.0789096">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1381,6 +1674,7 @@
             <option name="proportions">
               <list>
                 <option value="0.25990677" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
